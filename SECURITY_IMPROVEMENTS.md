@@ -40,7 +40,7 @@ We've added comprehensive security meta tags to all HTML files (`index.html`, `p
 
 ### 4. **Referrer Policy**
 ```html
-<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 ```
 - Controls what referrer information is sent with requests
 - Balances privacy with functionality
