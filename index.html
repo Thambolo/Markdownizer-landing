@@ -7,7 +7,15 @@
     <title>Markdownizer - Turn the Web into Markdown</title>
     <meta name="description"
         content="Privacy-first browser extension that converts any webpage into clean Markdown for developers. Perfect for LLMs and notes.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <script src="https://cdn.tailwindcss.com" referrerpolicy="no-referrer"></script>
     <script>
         tailwind.config = {
             theme: {
