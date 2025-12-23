@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdownizer - Turn the Web into Markdown</title>
+    <link rel="icon" type="image/svg+xml" href="public/icons/icon16.svg">
     <meta name="description"
         content="Privacy-first browser extension that converts any webpage into clean Markdown for developers. Perfect for LLMs and notes.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,7 +54,7 @@
         <div class="flex items-center space-x-2">
             <!-- Simple Logo Icon -->
             <img src="public/icons/icon16.svg" alt="Markdownizer Logo"
-                class="w-8 h-8 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.2)] ring-2 ring-black/20">
+                class="w-8 h-8 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.3)] ring-2 ring-white/20">
             <span class="text-xl font-bold tracking-tight">Markdownizer</span>
         </div>
         <div>
@@ -65,7 +66,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-16 sm:pb-24 text-center">
         <div class="space-y-4 max-w-3xl mx-auto">
             <div
                 class="inline-flex items-center px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-500 text-xs font-medium mb-4">
@@ -80,7 +81,7 @@
                         class="inline-flex justify-start align-bottom border-b-4 border-brand-500/30 pb-1 overflow-hidden transition-[width] duration-300">
                         <span id="typewriter-wrapper"
                             class="whitespace-nowrap transition-[margin] duration-300 ease-out">
-                            <span id="typewriter" class="text-slate-100">the Web</span><span
+                            <span id="typewriter" class="text-slate-100">any Webpage</span><span
                                 class="animate-pulse text-brand-500">|</span>
                         </span>
                     </span>
@@ -108,7 +109,6 @@
                         const width = measurer.getBoundingClientRect().width;
                         if (width > maxWidth) maxWidth = width;
                     });
-                    // Add a tiny buffer for safety
                     container.style.width = `${Math.ceil(maxWidth)}px`;
                 }
 
@@ -116,7 +116,6 @@
                     measurer.textContent = word + "|";
                     const wordWidth = measurer.getBoundingClientRect().width;
                     const containerWidth = container.getBoundingClientRect().width;
-                    // Calculate margin to center the word + cursor: (Container - (Word + Cursor)) / 2
                     const marginLeft = Math.max(0, (containerWidth - wordWidth) / 2);
                     wrapper.style.marginLeft = `${marginLeft}px`;
                 }
@@ -127,9 +126,9 @@
 
                     if (currentText.length < word.length) {
                         heading.textContent = word.substring(0, currentText.length + 1);
-                        timer = setTimeout(typeWriter, 100);
+                        timer = setTimeout(typeWriter, 50);
                     } else {
-                        setTimeout(deleteWriter, 2000); // Wait before deleting
+                        setTimeout(deleteWriter, 1500);
                     }
                 }
 
@@ -138,30 +137,25 @@
 
                     if (currentText.length > 0) {
                         heading.textContent = currentText.substring(0, currentText.length - 1);
-                        timer = setTimeout(deleteWriter, 50);
+                        timer = setTimeout(deleteWriter, 30);
                     } else {
                         i = (i + 1) % words.length;
-                        // Pre-calculate spacing for the NEXT word before we start typing it
                         updateCentering(words[i]);
                         typeWriter();
                     }
                 }
 
-                // Initial setup
-                // We need to wait for fonts to load for accurate measurement, or at least run it on load
                 window.addEventListener('load', () => {
                     calculateMaxWidth();
                     updateCentering(words[0]);
-                    setTimeout(deleteWriter, 2000);
+                    setTimeout(deleteWriter, 1000);
                 });
 
-                // Recalculate on resize in case font sizes change (responsive)
                 window.addEventListener('resize', () => {
                     calculateMaxWidth();
                     updateCentering(words[i]);
                 });
 
-                // Run immediately as well for fast load
                 calculateMaxWidth();
                 updateCentering(words[0]);
             </script>
@@ -170,14 +164,14 @@
                 documentation, and notes.
             </p>
             <div class="mt-8 flex justify-center gap-4">
-                <a href="#"
+                <a href="javascript:void(0)"
+                    onclick="document.getElementById('browser-modal').classList.remove('hidden')"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 focus:ring-offset-slate-900 transition-all">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12s12-5.37 12-12c0-6.63-5.37-12-12-12zm0 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
-                        <!-- Simplified Chrome Icon placeholder -->
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                     </svg>
-                    Add to Chrome
+                    Get Extension
                 </a>
                 <a href="#features"
                     class="inline-flex items-center px-6 py-3 border border-slate-700 text-base font-medium rounded-md text-slate-300 bg-transparent hover:bg-slate-800 transition-all">
@@ -204,6 +198,125 @@
             </div>
         </div>
     </main>
+
+    <!-- Browser Selection Modal -->
+    <div id="browser-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity" aria-hidden="true"
+                onclick="document.getElementById('browser-modal').classList.add('hidden')"></div>
+
+            <!-- Modal Panel -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div
+                class="relative inline-block align-bottom bg-slate-800 rounded-2xl border border-slate-700 text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+
+                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start justify-between mb-6">
+                        <h3 class="text-2xl font-bold leading-6 text-slate-100" id="modal-title">Choose your Browser
+                        </h3>
+                        <button type="button" class="text-slate-400 hover:text-slate-200"
+                            onclick="document.getElementById('browser-modal').classList.add('hidden')">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Chromium Card -->
+                        <a href="#"
+                            class="group relative flex flex-col p-6 bg-slate-900 border border-slate-700 rounded-xl hover:border-brand-500 hover:bg-slate-900/80 transition-all duration-200">
+                            <h4 class="text-lg font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-brand-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.867.65a1 1 0 11-1.2-1.6l.867-.65a1 1 0 011.426.204zm9.507 2.046a1 1 0 01-1.2 1.6l-.867-.65a1 1 0 111.2-1.6l.867.65zM4.146 12.146a1 1 0 011.414 0L6 12.586a1 1 0 01-1.414 1.414L4.146 13.56a1 1 0 010-1.414zM15 11a1 1 0 100-2h-1a1 1 0 100 2h1zM4.4 15.5l.5-.5a1 1 0 111.4 1.4l-.5.5a1 1 0 11-1.4-1.4zM7.5 14.5a1 1 0 112 0v1a1 1 0 11-2 0v-1zm5 0a1 1 0 112 0v1a1 1 0 11-2 0v-1z">
+                                    </path>
+                                </svg>
+                                Chromium Browsers
+                            </h4>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
+                                    </div>
+                                    <span class="text-slate-300 text-sm font-medium">Google Chrome</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
+                                    </div>
+                                    <span class="text-slate-300 text-sm font-medium">Microsoft Edge</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
+                                    </div>
+                                    <span class="text-slate-300 text-sm font-medium">Arc Browser</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
+                                    </div>
+                                    <span class="text-slate-300 text-sm font-medium">Brave</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
+                                    </div>
+                                    <span class="text-slate-300 text-sm font-medium">Opera</span>
+                                </div>
+                                <div class="flex items-center gap-3 opacity-60">
+                                    <div class="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-slate-400 text-xs font-medium italic">and other Chromium
+                                        browsers</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-slate-800 flex justify-between items-center">
+                                <span class="text-brand-500 font-medium text-sm">Chrome Web Store</span>
+                                <svg class="w-4 h-4 text-brand-500 group-hover:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- Firefox Card (Coming Soon) -->
+                        <div
+                            class="relative flex flex-col p-6 bg-slate-900 border border-slate-800 rounded-xl opacity-50 grayscale cursor-not-allowed">
+                            <div
+                                class="absolute top-4 right-4 bg-slate-800 text-slate-400 text-[10px] uppercase tracking-widest px-2 py-1 rounded border border-slate-700 font-bold">
+                                Coming Soon
+                            </div>
+                            <h4 class="text-lg font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                                <div class="w-5 h-5 rounded-full bg-slate-800 border border-slate-700"></div>
+                                Firefox
+                            </h4>
+                            <div class="space-y-3 mb-6">
+                                <p class="text-sm text-slate-500 leading-relaxed">
+                                    We are currently optimizing the extension for the Firefox engine. Support for
+                                    Firefox and Librewolf is coming in Q1 2025.
+                                </p>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-slate-800">
+                                <span class="text-slate-600 font-medium text-sm italic">Not yet available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center border-t border-slate-700 pt-6">
+                        <p class="text-slate-500 text-sm">
+                            Not sure? Most modern browsers (Arc, Brave, Edge) are Chromium-based.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Features Section -->
     <section id="features" class="py-16 sm:py-24 bg-slate-800/50 border-y border-slate-800">
@@ -273,7 +386,7 @@
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
                         <img src="public/icons/icon16.svg" alt="Markdownizer Logo"
-                            class="w-6 h-6 rounded-lg shadow-[0_0_10px_rgba(255,255,255,0.2)] ring-1 ring-black/20">
+                            class="w-6 h-6 rounded-lg shadow-[0_0_15px_rgba(255,255,255,0.3)] ring-1 ring-white/20">
                         <span class="text-lg font-bold text-slate-200">Markdownizer</span>
                     </div>
                     <p class="text-slate-500 text-sm max-w-xs">
@@ -282,7 +395,7 @@
                 </div>
                 <div class="flex flex-col md:items-end justify-center space-y-2">
                     <a href="mailto:support@markdownizer.com"
-                        class="text-slate-400 hover:text-brand-500 transition-colors text-sm">support@markdownizer.com</a>
+                        class="text-slate-400 hover:text-brand-500 transition-colors text-sm">support@markdownizer.thambolo.com</a>
                     <div class="flex space-x-6">
                         <a href="privacy.html" class="text-slate-500 hover:text-slate-300 text-sm">Privacy Policy</a>
                         <a href="terms.html" class="text-slate-500 hover:text-slate-300 text-sm">Terms of Service</a>
