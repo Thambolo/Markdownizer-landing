@@ -72,94 +72,80 @@
                 class="inline-flex items-center px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-500 text-xs font-medium mb-4">
                 v1.0 Now Available
             </div>
-            <h1
-                class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight flex flex-col items-center gap-2 sm:gap-4 mb-8">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                    <span>Turn</span>
-                    <!-- Dynamic width container determined by JS -->
-                    <span id="typewriter-container"
-                        class="inline-flex justify-start align-bottom border-b-4 border-brand-500/30 pb-1 overflow-hidden transition-[width] duration-300">
-                        <span id="typewriter-wrapper"
-                            class="whitespace-nowrap transition-[margin] duration-300 ease-out">
-                            <span id="typewriter" class="text-slate-100">any Webpage</span><span
-                                class="animate-pulse text-brand-500">|</span>
-                        </span>
-                    </span>
-                </div>
-                <span>into <span class="text-brand-500">Markdown</span>.</span>
-            </h1>
-
-            <!-- Hidden element to measure width of words for centering calculations -->
-            <span id="width-measurer"
-                class="text-4xl sm:text-6xl font-extrabold tracking-tight absolute invisible opacity-0 pointer-events-none whitespace-nowrap"></span>
-
-            <script>
-                const words = ["any Webpage", "Assignment Specs", "Long Articles", "Sites with code", "Research sites"];
-                let i = 0;
-                let timer;
-                const container = document.getElementById('typewriter-container');
-                const wrapper = document.getElementById('typewriter-wrapper');
-                const measurer = document.getElementById('width-measurer');
-                const heading = document.getElementById("typewriter");
-
-                function calculateMaxWidth() {
-                    let maxWidth = 0;
-                    words.forEach(word => {
-                        measurer.textContent = word + "|";
-                        const width = measurer.getBoundingClientRect().width;
-                        if (width > maxWidth) maxWidth = width;
-                    });
-                    container.style.width = `${Math.ceil(maxWidth)}px`;
-                }
-
-                function updateCentering(word) {
-                    measurer.textContent = word + "|";
-                    const wordWidth = measurer.getBoundingClientRect().width;
-                    const containerWidth = container.getBoundingClientRect().width;
-                    const marginLeft = Math.max(0, (containerWidth - wordWidth) / 2);
-                    wrapper.style.marginLeft = `${marginLeft}px`;
-                }
-
-                function typeWriter() {
-                    const word = words[i];
-                    const currentText = heading.textContent;
-
-                    if (currentText.length < word.length) {
-                        heading.textContent = word.substring(0, currentText.length + 1);
-                        timer = setTimeout(typeWriter, 50);
-                    } else {
-                        setTimeout(deleteWriter, 1500);
-                    }
-                }
-
-                function deleteWriter() {
-                    const currentText = heading.textContent;
-
-                    if (currentText.length > 0) {
-                        heading.textContent = currentText.substring(0, currentText.length - 1);
-                        timer = setTimeout(deleteWriter, 30);
-                    } else {
-                        i = (i + 1) % words.length;
-                        updateCentering(words[i]);
-                        typeWriter();
-                    }
-                }
-
-                window.addEventListener('load', () => {
-                    calculateMaxWidth();
-                    updateCentering(words[0]);
-                    setTimeout(deleteWriter, 1000);
-                });
-
-                window.addEventListener('resize', () => {
-                    calculateMaxWidth();
-                    updateCentering(words[i]);
-                });
-
-                calculateMaxWidth();
-                updateCentering(words[0]);
-            </script>
-            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+                        <h1
+                            class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight flex flex-col items-center gap-2 sm:gap-4 mb-8">
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+                                <span>Turn</span>
+                                <!-- Fixed width container determined by JS, CSS handles centering -->
+                                <span id="typewriter-container"
+                                    class="inline-flex justify-center border-b-4 border-brand-500/30 pb-1 whitespace-nowrap transition-all duration-300">
+                                    <span id="typewriter" class="text-slate-100">any Webpage</span><span
+                                            class="animate-pulse text-brand-500">|</span>
+                                </span>
+                            </div>
+                            <span>into <span class="text-brand-500">Markdown</span>.</span>
+                        </h1>
+            
+                        <!-- Hidden element to measure width of words for centering calculations -->
+                        <span id="width-measurer"
+                            class="text-4xl sm:text-6xl font-extrabold tracking-tight absolute invisible opacity-0 pointer-events-none whitespace-nowrap"></span>
+            
+                        <script>
+                            const words = ["any Webpage", "Assignment Specs", "Long Articles", "Sites with code", "Research sites"];
+                            let i = 0;
+                            let timer;
+                            const container = document.getElementById('typewriter-container');
+                            const measurer = document.getElementById('width-measurer');
+                            const heading = document.getElementById("typewriter");
+            
+                            // Calculate the widest word once to set a stable stage size
+                            function calculateMaxWidth() {
+                                let maxWidth = 0;
+                                words.forEach(word => {
+                                    measurer.textContent = word + "|";
+                                    const width = measurer.getBoundingClientRect().width;
+                                    if (width > maxWidth) maxWidth = width;
+                                });
+                                // Set fixed width to prevent layout shifts ("jitter") during typing
+                                container.style.width = `${Math.ceil(maxWidth)}px`;
+                            }
+            
+                            function typeWriter() {
+                                const word = words[i];
+                                const currentText = heading.textContent;
+            
+                                if (currentText.length < word.length) {
+                                    heading.textContent = word.substring(0, currentText.length + 1);
+                                    timer = setTimeout(typeWriter, 50); 
+                                } else {
+                                    setTimeout(deleteWriter, 1500); 
+                                }
+                            }
+            
+                            function deleteWriter() {
+                                const currentText = heading.textContent;
+            
+                                if (currentText.length > 0) {
+                                    heading.textContent = currentText.substring(0, currentText.length - 1);
+                                    timer = setTimeout(deleteWriter, 30);
+                                } else {
+                                    i = (i + 1) % words.length;
+                                    typeWriter();
+                                }
+                            }
+            
+                            // Initial setup - run once
+                            window.addEventListener('load', () => {
+                                calculateMaxWidth();
+                                setTimeout(deleteWriter, 1000);
+                            });
+            
+                            // Re-calculate only on window resize (not every frame)
+                            window.addEventListener('resize', calculateMaxWidth);
+            
+                            // Run immediately to minimize FOUC
+                            calculateMaxWidth();
+                        </script>            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
                 Feed your AI clean context. Instantly convert any webpage into formatted Markdown for LLMs,
                 documentation, and notes.
             </p>
