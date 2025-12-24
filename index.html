@@ -47,7 +47,8 @@
     </style>
 </head>
 
-<body class="bg-slate-900 text-slate-50 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body
+    class="bg-slate-900 text-slate-50 font-sans antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
 
     <!-- Navigation -->
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
@@ -59,7 +60,8 @@
         </div>
         <div>
             <a href="#"
-                class="hidden sm:inline-flex items-center px-4 py-2 border border-slate-700 text-sm font-medium rounded-md text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors">
+                class="hidden sm:inline-flex items-center px-6 py-3 border border-slate-700 text-base font-medium rounded-md text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors">
+                <img src="public/icons/github.svg" class="w-5 h-5 mr-2 invert" alt="GitHub">
                 GitHub
             </a>
         </div>
@@ -72,80 +74,81 @@
                 class="inline-flex items-center px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-500 text-xs font-medium mb-4">
                 v1.0 Now Available
             </div>
-                        <h1
-                            class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight flex flex-col items-center gap-2 sm:gap-4 mb-8">
-                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                                <span>Turn</span>
-                                <!-- Fixed width container determined by JS, CSS handles centering -->
-                                <span id="typewriter-container"
-                                    class="inline-flex justify-center border-b-4 border-brand-500/30 pb-1 whitespace-nowrap transition-all duration-300">
-                                    <span id="typewriter" class="text-slate-100">any Webpage</span><span
-                                            class="animate-pulse text-brand-500">|</span>
-                                </span>
-                            </div>
-                            <span>into <span class="text-brand-500">Markdown</span>.</span>
-                        </h1>
-            
-                        <!-- Hidden element to measure width of words for centering calculations -->
-                        <span id="width-measurer"
-                            class="text-4xl sm:text-6xl font-extrabold tracking-tight absolute invisible opacity-0 pointer-events-none whitespace-nowrap"></span>
-            
-                        <script>
-                            const words = ["any Webpage", "Assignment Specs", "Long Articles", "Sites with code", "Research sites"];
-                            let i = 0;
-                            let timer;
-                            const container = document.getElementById('typewriter-container');
-                            const measurer = document.getElementById('width-measurer');
-                            const heading = document.getElementById("typewriter");
-            
-                            // Calculate the widest word once to set a stable stage size
-                            function calculateMaxWidth() {
-                                let maxWidth = 0;
-                                words.forEach(word => {
-                                    measurer.textContent = word + "|";
-                                    const width = measurer.getBoundingClientRect().width;
-                                    if (width > maxWidth) maxWidth = width;
-                                });
-                                // Set fixed width to prevent layout shifts ("jitter") during typing
-                                container.style.width = `${Math.ceil(maxWidth)}px`;
-                            }
-            
-                            function typeWriter() {
-                                const word = words[i];
-                                const currentText = heading.textContent;
-            
-                                if (currentText.length < word.length) {
-                                    heading.textContent = word.substring(0, currentText.length + 1);
-                                    timer = setTimeout(typeWriter, 50); 
-                                } else {
-                                    setTimeout(deleteWriter, 1500); 
-                                }
-                            }
-            
-                            function deleteWriter() {
-                                const currentText = heading.textContent;
-            
-                                if (currentText.length > 0) {
-                                    heading.textContent = currentText.substring(0, currentText.length - 1);
-                                    timer = setTimeout(deleteWriter, 30);
-                                } else {
-                                    i = (i + 1) % words.length;
-                                    typeWriter();
-                                }
-                            }
-            
-                            // Initial setup - run once
-                            window.addEventListener('load', () => {
-                                calculateMaxWidth();
-                                setTimeout(deleteWriter, 1000);
-                            });
-            
-                            // Re-calculate only on window resize (not every frame)
-                            window.addEventListener('resize', calculateMaxWidth);
-            
-                            // Run immediately to minimize FOUC
-                            calculateMaxWidth();
-                        </script>            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+            <h1
+                class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight flex flex-col items-center gap-2 sm:gap-4 mb-8">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+                    <span>Turn</span>
+                    <!-- Fixed width container determined by JS, CSS handles centering -->
+                    <span id="typewriter-container"
+                        class="inline-flex justify-center border-b-4 border-brand-500/30 pb-1 whitespace-nowrap transition-all duration-300 max-w-full">
+                        <span id="typewriter" class="text-slate-100">any Webpage</span><span
+                            class="animate-pulse text-brand-500">|</span>
+                    </span>
+                </div>
+                <span>into <span class="text-brand-500">Markdown</span>.</span>
+            </h1>
+
+            <!-- Hidden element to measure width of words for centering calculations -->
+            <span id="width-measurer"
+                class="text-4xl sm:text-6xl font-extrabold tracking-tight fixed top-0 left-0 invisible opacity-0 pointer-events-none whitespace-nowrap"></span>
+
+            <script>
+                const words = ["any Webpage", "Assignment Specs", "Long Articles", "Sites with code", "Research sites"];
+                let i = 0;
+                let timer;
+                const container = document.getElementById('typewriter-container');
+                const measurer = document.getElementById('width-measurer');
+                const heading = document.getElementById("typewriter");
+
+                // Calculate the widest word once to set a stable stage size
+                function calculateMaxWidth() {
+                    let maxWidth = 0;
+                    words.forEach(word => {
+                        measurer.textContent = word + "|";
+                        const width = measurer.getBoundingClientRect().width;
+                        if (width > maxWidth) maxWidth = width;
+                    });
+                    // Set fixed width to prevent layout shifts ("jitter") during typing
+                    container.style.width = `${Math.ceil(maxWidth)}px`;
+                }
+
+                function typeWriter() {
+                    const word = words[i];
+                    const currentText = heading.textContent;
+
+                    if (currentText.length < word.length) {
+                        heading.textContent = word.substring(0, currentText.length + 1);
+                        timer = setTimeout(typeWriter, 50);
+                    } else {
+                        setTimeout(deleteWriter, 1500);
+                    }
+                }
+
+                function deleteWriter() {
+                    const currentText = heading.textContent;
+
+                    if (currentText.length > 0) {
+                        heading.textContent = currentText.substring(0, currentText.length - 1);
+                        timer = setTimeout(deleteWriter, 30);
+                    } else {
+                        i = (i + 1) % words.length;
+                        typeWriter();
+                    }
+                }
+
+                // Initial setup - run once
+                window.addEventListener('load', () => {
+                    calculateMaxWidth();
+                    setTimeout(deleteWriter, 1000);
+                });
+
+                // Re-calculate only on window resize (not every frame)
+                window.addEventListener('resize', calculateMaxWidth);
+
+                // Run immediately to minimize FOUC
+                calculateMaxWidth();
+            </script>
+            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
                 Feed your AI clean context. Instantly convert any webpage into formatted Markdown for LLMs,
                 documentation, and notes.
             </p>
@@ -216,37 +219,27 @@
                         <a href="#"
                             class="group relative flex flex-col p-6 bg-slate-900 border border-slate-700 rounded-xl hover:border-brand-500 hover:bg-slate-900/80 transition-all duration-200">
                             <h4 class="text-lg font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                                <svg class="w-5 h-5 text-brand-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.867.65a1 1 0 11-1.2-1.6l.867-.65a1 1 0 011.426.204zm9.507 2.046a1 1 0 01-1.2 1.6l-.867-.65a1 1 0 111.2-1.6l.867.65zM4.146 12.146a1 1 0 011.414 0L6 12.586a1 1 0 01-1.414 1.414L4.146 13.56a1 1 0 010-1.414zM15 11a1 1 0 100-2h-1a1 1 0 100 2h1zM4.4 15.5l.5-.5a1 1 0 111.4 1.4l-.5.5a1 1 0 11-1.4-1.4zM7.5 14.5a1 1 0 112 0v1a1 1 0 11-2 0v-1zm5 0a1 1 0 112 0v1a1 1 0 11-2 0v-1z">
-                                    </path>
-                                </svg>
                                 Chromium Browsers
                             </h4>
                             <div class="space-y-3 mb-6">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
-                                    </div>
+                                    <img src="public/icons/chrome.svg" class="w-6 h-6 flex-shrink-0" alt="Chrome">
                                     <span class="text-slate-300 text-sm font-medium">Google Chrome</span>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
-                                    </div>
+                                    <img src="public/icons/edge.svg" class="w-6 h-6 flex-shrink-0" alt="Edge">
                                     <span class="text-slate-300 text-sm font-medium">Microsoft Edge</span>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
-                                    </div>
+                                    <img src="public/icons/arc.svg" class="w-6 h-6 flex-shrink-0" alt="Arc">
                                     <span class="text-slate-300 text-sm font-medium">Arc Browser</span>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
-                                    </div>
+                                    <img src="public/icons/brave.svg" class="w-6 h-6 flex-shrink-0" alt="Brave">
                                     <span class="text-slate-300 text-sm font-medium">Brave</span>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded bg-slate-800 border border-slate-700 flex-shrink-0">
-                                    </div>
+                                    <img src="public/icons/opera.svg" class="w-6 h-6 flex-shrink-0" alt="Opera">
                                     <span class="text-slate-300 text-sm font-medium">Opera</span>
                                 </div>
                                 <div class="flex items-center gap-3 opacity-60">
@@ -279,13 +272,12 @@
                                 Coming Soon
                             </div>
                             <h4 class="text-lg font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                                <div class="w-5 h-5 rounded-full bg-slate-800 border border-slate-700"></div>
+                                <img src="public/icons/firefox.svg" class="w-5 h-5 flex-shrink-0" alt="Firefox">
                                 Firefox
                             </h4>
                             <div class="space-y-3 mb-6">
                                 <p class="text-sm text-slate-500 leading-relaxed">
-                                    We are currently optimizing the extension for the Firefox engine. Support for
-                                    Firefox and Librewolf is coming in Q1 2025.
+                                    We are currently optimizing the extension for the Firefox engine.
                                 </p>
                             </div>
                             <div class="mt-auto pt-4 border-t border-slate-800">
@@ -296,7 +288,7 @@
 
                     <div class="mt-8 text-center border-t border-slate-700 pt-6">
                         <p class="text-slate-500 text-sm">
-                            Not sure? Most modern browsers (Arc, Brave, Edge) are Chromium-based.
+                            Not sure? Most modern browsers are Chromium-based.
                         </p>
                     </div>
                 </div>
