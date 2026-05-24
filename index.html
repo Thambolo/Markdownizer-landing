@@ -7,7 +7,7 @@
     <title>Markdownizer - Turn the Web into Markdown</title>
     <link rel="icon" type="image/svg+xml" href="public/icons/icon16.svg">
     <meta name="description"
-        content="Privacy-first browser extension that converts any webpage into clean Markdown for developers. Perfect for LLMs and notes.">
+        content="Privacy-first browser extension that converts any webpage into clean Markdown for your preferred LLM. Ideal for assignment briefs, docs, articles, and research pages.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -43,6 +43,519 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: #475569;
+        }
+
+        .split-preview {
+            --split: 48%;
+        }
+
+        .split-pane-code {
+            bottom: 0;
+            left: 0;
+            right: auto;
+            top: 0;
+            width: var(--split);
+        }
+
+        .split-pane-rendered {
+            bottom: 0;
+            left: var(--split);
+            right: auto;
+            top: 0;
+            width: calc(100% - var(--split));
+        }
+
+        .split-divider {
+            left: var(--split);
+            touch-action: none;
+        }
+
+        @media (max-width: 767px) {
+            .split-preview {
+                --split: 100%;
+                display: grid;
+                gap: 1rem;
+                height: auto !important;
+            }
+
+            .split-pane-code,
+            .split-pane-rendered {
+                position: static !important;
+                width: 100%;
+            }
+
+            .split-divider {
+                display: none;
+            }
+        }
+
+        .demo-shell {
+            height: calc(100dvh - 2rem);
+        }
+
+        .demo-scale-stage {
+            transform-origin: top left;
+        }
+
+        .demo-scroll::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .demo-scroll::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.35);
+        }
+
+        .demo-scroll::-webkit-scrollbar-thumb {
+            background: rgba(45, 212, 191, 0.35);
+            border-radius: 999px;
+        }
+
+        .demo-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(45, 212, 191, 0.55);
+        }
+
+        .flow-demo {
+            --cursor-x: calc(100% - 50px);
+            --cursor-y: 20px;
+            --demo-ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --demo-scale: 1;
+        }
+
+        .flow-demo[data-flow-step="1"],
+        .flow-demo[data-flow-step="2"],
+        .flow-demo[data-flow-step="3"] {
+            --cursor-x: calc(100% - 176px);
+            --cursor-y: 228px;
+        }
+
+        .flow-demo[data-flow-step="4"] {
+            --cursor-x: calc(100% - 176px);
+            --cursor-y: 422px;
+        }
+
+        .flow-demo[data-flow-step="5"] {
+            --cursor-x: 278px;
+            --cursor-y: 18px;
+        }
+
+        .flow-demo[data-flow-step="6"] {
+            --cursor-x: calc(100% - 300px);
+            --cursor-y: calc(100% - 86px);
+        }
+
+        .demo-cursor {
+            left: var(--cursor-x);
+            top: var(--cursor-y);
+            opacity: 1;
+            transform: translate(-50%, -50%);
+            transition: left 920ms var(--demo-ease), top 920ms var(--demo-ease), opacity 280ms ease;
+        }
+
+        .demo-tap-dot {
+            background: radial-gradient(circle at 35% 35%, #f0fdfa 0 12%, #67e8f9 28%, #0891b2 72%);
+            box-shadow: 0 0 0 5px rgba(45, 212, 191, 0.14), 0 0 26px rgba(45, 212, 191, 0.72);
+        }
+
+        .demo-tap-halo {
+            animation: demo-tap-breathe 1.8s ease-in-out infinite;
+        }
+
+        .demo-click-ring {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+
+        @keyframes demo-tap-breathe {
+            0%, 100% {
+                opacity: 0.46;
+                transform: scale(0.85);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.12);
+            }
+        }
+
+        .demo-chapter {
+            color: rgba(240, 253, 250, 0.96);
+            max-width: 28rem;
+            opacity: 0;
+            text-shadow: 0 8px 34px rgba(0, 0, 0, 0.55);
+            transform: translateY(12px) scale(0.985);
+            transition: opacity 460ms var(--demo-ease), transform 560ms var(--demo-ease), left 620ms var(--demo-ease), right 620ms var(--demo-ease), top 620ms var(--demo-ease), bottom 620ms var(--demo-ease), background 420ms ease, border-color 420ms ease;
+        }
+
+        .demo-chapter.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .demo-chapter:not(.is-boxed) {
+            font-size: clamp(2.35rem, 4vw, 4.35rem);
+            line-height: 1.04;
+        }
+
+        .demo-chapter.is-boxed {
+            max-width: 20rem;
+            padding: 1rem 1.15rem;
+            border: 1px solid rgba(45, 212, 191, 0.35);
+            border-radius: 1rem;
+            background: rgba(2, 6, 23, 0.9);
+            box-shadow: 0 18px 60px rgba(2, 6, 23, 0.5);
+            backdrop-filter: blur(16px);
+            font-size: 1.45rem;
+            line-height: 1.2;
+            text-shadow: none;
+        }
+
+        .flow-demo.is-typing .demo-click-ring {
+            animation: none !important;
+        }
+
+        .flow-demo[data-flow-step="1"] .demo-click-ring,
+        .flow-demo[data-flow-step="2"] .demo-click-ring,
+        .flow-demo[data-flow-step="4"] .demo-click-ring,
+        .flow-demo[data-flow-step="5"] .demo-click-ring,
+        .flow-demo[data-flow-step="6"] .demo-click-ring {
+            animation: demo-click 900ms ease-out;
+        }
+
+        @keyframes demo-click {
+            0% {
+                opacity: 0;
+                transform: scale(0.35);
+            }
+            25% {
+                opacity: 0.75;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2.2);
+            }
+        }
+
+        .demo-popup {
+            opacity: 0;
+            transform: translateY(-12px) scale(0.965);
+            pointer-events: none;
+            transition: opacity 520ms var(--demo-ease), transform 620ms var(--demo-ease), box-shadow 560ms ease, filter 560ms ease;
+            transform-origin: top right;
+            max-height: calc(100% - 6rem);
+        }
+
+        .flow-demo[data-flow-step="1"] .demo-popup,
+        .flow-demo[data-flow-step="2"] .demo-popup,
+        .flow-demo[data-flow-step="3"] .demo-popup,
+        .flow-demo[data-flow-step="4"] .demo-popup {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .url-chat {
+            display: none;
+        }
+
+        .flow-demo[data-flow-step="5"] .url-page,
+        .flow-demo[data-flow-step="6"] .url-page {
+            display: none;
+        }
+
+        .flow-demo[data-flow-step="5"] .url-chat,
+        .flow-demo[data-flow-step="6"] .url-chat {
+            display: inline;
+        }
+
+        .demo-tab {
+            transition: opacity 420ms ease, background 420ms ease, border-color 420ms ease, color 420ms ease;
+        }
+
+        .demo-tab-chat {
+            opacity: 0.55;
+        }
+
+        .flow-demo[data-flow-step="5"] .demo-tab-page,
+        .flow-demo[data-flow-step="6"] .demo-tab-page {
+            border-color: rgba(51, 65, 85, 0.8);
+            background: rgba(15, 23, 42, 0.6);
+            color: rgb(148, 163, 184);
+            opacity: 0.55;
+        }
+
+        .flow-demo[data-flow-step="5"] .demo-tab-chat,
+        .flow-demo[data-flow-step="6"] .demo-tab-chat {
+            border-color: rgba(45, 212, 191, 0.45);
+            background: rgba(45, 212, 191, 0.12);
+            color: rgb(165, 243, 252);
+            opacity: 1;
+        }
+
+        .demo-processing,
+        .demo-success,
+        .demo-copy-done,
+        .demo-actions,
+        .chat-page,
+        .chat-message {
+            display: none;
+        }
+
+        .flow-demo[data-flow-step="5"] .source-page,
+        .flow-demo[data-flow-step="6"] .source-page {
+            display: none;
+        }
+
+        .flow-demo[data-flow-step="2"] .demo-idle,
+        .flow-demo[data-flow-step="3"] .demo-idle,
+        .flow-demo[data-flow-step="4"] .demo-idle,
+        .flow-demo[data-flow-step="5"] .demo-idle,
+        .flow-demo[data-flow-step="6"] .demo-idle,
+        .flow-demo[data-flow-step="4"] .demo-copy-default,
+        .flow-demo[data-flow-step="5"] .demo-copy-default,
+        .flow-demo[data-flow-step="6"] .demo-copy-default {
+            display: none;
+        }
+
+        .flow-demo[data-flow-step="2"] .demo-processing,
+        .flow-demo[data-flow-step="3"] .demo-success,
+        .flow-demo[data-flow-step="4"] .demo-success,
+        .flow-demo[data-flow-step="5"] .demo-success,
+        .flow-demo[data-flow-step="6"] .demo-success,
+        .flow-demo[data-flow-step="3"] .demo-actions,
+        .flow-demo[data-flow-step="4"] .demo-actions,
+        .flow-demo[data-flow-step="5"] .demo-actions,
+        .flow-demo[data-flow-step="6"] .demo-actions,
+        .flow-demo[data-flow-step="4"] .demo-copy-done,
+        .flow-demo[data-flow-step="5"] .demo-copy-done,
+        .flow-demo[data-flow-step="6"] .demo-copy-done,
+        .flow-demo[data-flow-step="5"] .chat-page,
+        .flow-demo[data-flow-step="6"] .chat-page {
+            display: flex;
+        }
+
+        .flow-demo[data-flow-step="3"] .demo-success {
+            animation: demo-orb-in 520ms var(--demo-ease) both;
+        }
+
+        .flow-demo[data-flow-step="1"] .demo-popup {
+            animation: demo-popup-in 620ms var(--demo-ease) both;
+        }
+
+        .flow-demo[data-flow-step="5"] .chat-page {
+            animation: demo-surface-in 700ms var(--demo-ease) both;
+        }
+
+        .flow-demo[data-flow-step="3"] .demo-actions {
+            animation: demo-actions-in 520ms var(--demo-ease) both;
+        }
+
+        .flow-demo[data-flow-step="6"] .chat-message {
+            display: block;
+            animation: demo-message-in 620ms var(--demo-ease) both;
+        }
+
+        .flow-demo[data-flow-step="6"] .chat-empty {
+            display: none;
+        }
+
+        .source-page,
+        .chat-page,
+        .demo-popup,
+        .demo-extension-trigger,
+        .demo-copy-default,
+        .demo-copy-done,
+        .demo-chat-message {
+            transition: filter 620ms ease, opacity 560ms ease, box-shadow 620ms ease, border-color 560ms ease, transform 620ms var(--demo-ease);
+        }
+
+        .flow-demo[data-flow-step="1"] .source-page,
+        .flow-demo[data-flow-step="3"] .source-page,
+        .flow-demo[data-flow-step="4"] .source-page {
+            filter: brightness(0.62) saturate(0.85);
+            opacity: 0.72;
+        }
+
+        .flow-demo[data-flow-step="1"] .demo-extension-trigger {
+            border-color: rgba(45, 212, 191, 0.85);
+            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2), 0 0 28px rgba(45, 212, 191, 0.45);
+        }
+
+        .flow-demo[data-flow-step="1"] .demo-popup,
+        .flow-demo[data-flow-step="3"] .demo-popup {
+            box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.35), 0 30px 100px rgba(2, 6, 23, 0.92), 0 0 55px rgba(45, 212, 191, 0.25);
+        }
+
+        .flow-demo[data-flow-step="2"] .source-page {
+            box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.45), 0 24px 80px rgba(15, 23, 42, 0.35);
+        }
+
+        .flow-demo[data-flow-step="2"] .demo-popup {
+            filter: brightness(0.82) saturate(0.85);
+        }
+
+        .flow-demo[data-flow-step="4"] .demo-popup {
+            box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.38), 0 30px 100px rgba(2, 6, 23, 0.92), 0 0 65px rgba(16, 185, 129, 0.22);
+        }
+
+        .flow-demo[data-flow-step="4"] .demo-copy-done {
+            border-color: rgba(52, 211, 153, 0.8);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18), 0 0 30px rgba(16, 185, 129, 0.34);
+            transform: translateY(-1px);
+        }
+
+        .flow-demo[data-flow-step="5"] .chat-page,
+        .flow-demo[data-flow-step="6"] .chat-page {
+            box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.38), 0 24px 80px rgba(2, 6, 23, 0.45);
+        }
+
+        .flow-demo[data-flow-step="6"] .demo-chat-message {
+            box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.3), 0 0 45px rgba(45, 212, 191, 0.16);
+        }
+
+        .flow-demo[data-flow-step="0"] .demo-chapter {
+            left: 2rem;
+            right: auto;
+            top: auto;
+            bottom: 2rem;
+        }
+
+        .flow-demo[data-flow-step="1"] .demo-chapter,
+        .flow-demo[data-flow-step="3"] .demo-chapter,
+        .flow-demo[data-flow-step="4"] .demo-chapter {
+            left: auto;
+            right: 24rem;
+            top: 32%;
+            bottom: auto;
+        }
+
+        .flow-demo[data-flow-step="2"] .demo-chapter {
+            left: 58%;
+            right: auto;
+            top: auto;
+            bottom: 6rem;
+            max-width: 22rem;
+        }
+
+        .flow-demo[data-flow-step="5"] .demo-chapter {
+            left: 23rem;
+            right: auto;
+            top: 8.5rem;
+            bottom: auto;
+        }
+
+        .flow-demo[data-flow-step="6"] .demo-chapter {
+            left: 2rem;
+            right: auto;
+            top: 6rem;
+            bottom: auto;
+        }
+
+        .demo-highlight {
+            transition: box-shadow 560ms ease, border-color 560ms ease, background 560ms ease;
+        }
+
+        @keyframes demo-popup-in {
+            from {
+                opacity: 0;
+                transform: translateY(-14px) scale(0.965);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes demo-surface-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.992);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes demo-actions-in {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes demo-orb-in {
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes demo-message-in {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.985);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .flow-demo[data-flow-step="2"] .demo-highlight,
+        .flow-demo[data-flow-step="3"] .demo-highlight,
+        .flow-demo[data-flow-step="4"] .demo-highlight {
+            border-color: rgba(45, 212, 191, 0.55);
+            box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.25), 0 0 28px rgba(45, 212, 191, 0.08);
+        }
+
+        .source-frame {
+            --source-scale: 0.72;
+        }
+
+        .source-canvas {
+            width: calc(100% / var(--source-scale));
+            transform: scale(var(--source-scale));
+            transform-origin: top left;
+        }
+
+        .source-grid {
+            grid-template-columns: minmax(0, 1fr) 230px;
+        }
+
+        @media (max-width: 1023px) {
+            .flow-demo {
+                height: var(--demo-visual-height, auto);
+                overflow: hidden;
+            }
+
+            .demo-scale-wrap {
+                height: var(--demo-visual-height, auto);
+                max-width: none;
+                overflow: hidden;
+                width: var(--demo-visual-width, 100%);
+            }
+
+            .demo-scale-stage {
+                width: 1152px;
+                transform: scale(var(--demo-scale));
+            }
+
+            .demo-shell {
+                height: 720px;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .flow-demo {
+                margin-left: -0.25rem;
+                margin-right: -0.25rem;
+            }
         }
     </style>
 </head>
@@ -149,8 +662,8 @@
                 calculateMaxWidth();
             </script>
             <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
-                Feed your AI clean context. Instantly convert any webpage into formatted Markdown for LLMs,
-                documentation, and notes.
+                Capture the current page, turn it into clean Markdown, and give your preferred LLM better context than
+                plain copy-paste, raw HTML, or a URL on its own.
             </p>
             <div class="mt-8 flex justify-center gap-4">
                 <a href="javascript:void(0)"
@@ -167,25 +680,431 @@
                     Learn more
                 </a>
             </div>
+
         </div>
 
-        <!-- Extension Screenshot Placeholder -->
-        <div class="mt-16 relative group">
-            <div
-                class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-emerald-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
-            </div>
-            <div
-                class="relative bg-slate-900 rounded-lg border border-slate-800 shadow-2xl overflow-hidden aspect-video flex items-center justify-center max-w-4xl mx-auto">
-                <div class="text-center space-y-4">
-                    <svg class="w-20 h-20 text-slate-700 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                    <p class="text-slate-500 font-mono text-sm">Extension Popup Screenshot</p>
+        <!-- Product Demo -->
+        <div id="flow-demo" class="flow-demo mt-14 relative group" data-flow-step="0">
+            <div class="demo-scale-wrap relative mx-auto max-w-6xl">
+                <div class="demo-scale-stage relative">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200">
+                </div>
+                <div
+                    class="demo-shell relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950 shadow-2xl flex flex-col">
+                <div class="flex-shrink-0 border-b border-slate-800 bg-slate-950 px-4 py-3 text-left">
+                    <div class="flex items-center gap-2">
+                        <span class="h-3 w-3 rounded-full bg-rose-500"></span>
+                        <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+                        <span class="h-3 w-3 rounded-full bg-emerald-500"></span>
+                        <div class="ml-3 hidden min-w-0 items-end gap-1 sm:flex">
+                            <span
+                                class="demo-tab demo-tab-page rounded-t-md border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium text-cyan-100">
+                                Source
+                            </span>
+                            <span
+                                class="demo-tab demo-tab-chat rounded-t-md border border-slate-700 bg-slate-900/60 px-3 py-1 text-[11px] font-medium text-slate-400">
+                                ChatGPT
+                            </span>
+                        </div>
+                        <div
+                            class="flex-1 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs text-slate-400 sm:ml-0">
+                            <span class="url-page">course.example.edu/assignments/brief</span>
+                            <span class="url-chat">chatgpt.com</span>
+                        </div>
+                        <button
+                            class="demo-extension-trigger relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md border border-cyan-400/30 bg-cyan-400/10">
+                            <img src="public/icons/icon16.svg" class="h-5 w-5 rounded" alt="Markdownizer extension icon">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative min-h-0 flex-1 overflow-hidden bg-[#07111f] p-4 sm:p-5">
+                    <div
+                        class="source-page flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white text-left text-slate-900 shadow-[0_20px_70px_rgba(15,23,42,0.25)]">
+                        <div class="flex-shrink-0 border-b border-slate-200 bg-white px-5 py-3">
+                            <div class="flex items-start justify-between gap-4">
+                                <div>
+                                    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">Source page</p>
+                                    <h3 class="mt-1.5 text-xl font-bold text-slate-950 sm:text-2xl">Assignment 2: AI Research Brief</h3>
+                                    <p class="mt-1.5 max-w-2xl text-sm text-slate-600">
+                                        A shortened assignment page with links, tables, lists, and code that convert cleanly into Markdown.
+                                    </p>
+                                </div>
+                                <div
+                                    class="hidden sm:inline-flex rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-medium text-blue-700">
+                                    Active tab
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="source-frame min-h-0 flex-1 overflow-hidden bg-slate-50 px-4 py-4 sm:px-5 sm:py-5">
+                            <div class="source-canvas">
+                                <div class="source-grid grid gap-5">
+                                    <div class="space-y-4">
+                                        <section class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                                            <div
+                                                class="inline-flex rounded-sm bg-blue-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-800">
+                                                Stage 1
+                                            </div>
+                                            <h4 class="mt-4 text-base font-semibold text-slate-950">Getting Started</h4>
+                                            <ul class="mt-3 space-y-2 text-sm text-slate-700">
+                                                <li>1. Read the <a href="#" class="text-blue-700 underline underline-offset-2">starter code guide</a>.</li>
+                                                <li>2. Check the <a href="#" class="text-blue-700 underline underline-offset-2">submission policy</a> and due date.</li>
+                                                <li>3. Use the rubric table below when planning your response.</li>
+                                            </ul>
+                                        </section>
+
+                                        <section class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                                            <div
+                                                class="inline-flex rounded-sm bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-800">
+                                                Assessment
+                                            </div>
+                                            <h4 class="mt-4 text-base font-semibold text-slate-950">Marking Breakdown</h4>
+                                            <div class="mt-4 overflow-hidden rounded-lg border border-slate-200">
+                                                <table class="min-w-full divide-y divide-slate-200 text-sm text-slate-700">
+                                                    <thead class="bg-slate-100 text-slate-600">
+                                                        <tr>
+                                                            <th class="px-4 py-3 text-left font-medium">Criteria</th>
+                                                            <th class="px-4 py-3 text-left font-medium">Weight</th>
+                                                            <th class="px-4 py-3 text-left font-medium">Notes</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="divide-y divide-slate-200 bg-white">
+                                                        <tr>
+                                                            <td class="px-4 py-3">Problem framing</td>
+                                                            <td class="px-4 py-3">30%</td>
+                                                            <td class="px-4 py-3">Clear summary of the brief</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-3">Evidence and sources</td>
+                                                            <td class="px-4 py-3">25%</td>
+                                                            <td class="px-4 py-3">Use the linked references</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-3">Technical accuracy</td>
+                                                            <td class="px-4 py-3">25%</td>
+                                                            <td class="px-4 py-3">Match the required terminology</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </section>
+
+                                        <section class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                                            <div
+                                                class="inline-flex rounded-sm bg-rose-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-rose-800">
+                                                Example
+                                            </div>
+                                            <h4 class="mt-4 text-base font-semibold text-slate-950">Reference Commands</h4>
+                                            <p class="mt-3 text-sm text-slate-600">
+                                                This is the kind of mixed content that gets messy with copy-paste but stays readable in Markdown.
+                                            </p>
+                                            <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-slate-900 p-4 font-mono text-sm text-slate-100">
+                                                <p class="text-slate-400">// required commands</p>
+                                                <p class="mt-2">python analyze_brief.py --input ass2.txt</p>
+                                                <p>python generate_outline.py --format markdown</p>
+                                            </div>
+                                        </section>
+                                    </div>
+
+                                    <aside class="space-y-4">
+                                        <div class="demo-highlight rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+                                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Linked references</p>
+                                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                                <li><a href="#" class="text-blue-700 underline underline-offset-2">rubric.pdf</a></li>
+                                                <li><a href="#" class="text-blue-700 underline underline-offset-2">starter-files.zip</a></li>
+                                                <li><a href="#" class="text-blue-700 underline underline-offset-2">faq and clarifications</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+                                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Page clutter</p>
+                                            <p class="mt-3 text-sm text-slate-600">
+                                                Navigation, sidebars, and visual scaffolding are left behind while the useful structure becomes Markdown.
+                                            </p>
+                                        </div>
+                                    </aside>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="chat-page h-full min-h-0 overflow-hidden rounded-xl border border-slate-800 bg-[#212121] text-left text-[#ececec] shadow-[0_20px_70px_rgba(2,6,23,0.45)]">
+                        <aside class="hidden w-52 flex-shrink-0 flex-col border-r border-[#303030] bg-[#171717] px-3 py-3 md:flex">
+                            <div class="flex items-center justify-between">
+                                <button class="rounded-lg p-2 text-sm text-[#f4f4f4] hover:bg-[#2f2f2f]">
+                                    <span class="block h-4 w-4 rounded border border-[#8a8a8a]"></span>
+                                </button>
+                                <button class="rounded-lg p-2 text-[#c5c5c5] hover:bg-[#2f2f2f]" aria-label="New chat">
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                            d="M12 5v14M5 12h14" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="mt-4 flex items-center gap-2 rounded-lg bg-[#2f2f2f] px-3 py-2 text-sm text-[#f4f4f4]">
+                                <span class="h-5 w-5 rounded-full bg-[#10a37f]"></span>
+                                <span>New chat</span>
+                            </button>
+                            <div class="mt-6 space-y-1 text-sm text-[#b4b4b4]">
+                                <p class="px-3 py-2 text-xs text-[#777]">Today</p>
+                                <p class="truncate rounded-lg px-3 py-2">Assignment brief plan</p>
+                                <p class="truncate rounded-lg px-3 py-2">Research summary</p>
+                            </div>
+                            <div class="mt-auto rounded-lg px-3 py-2 text-sm text-[#b4b4b4]">Dave</div>
+                        </aside>
+
+                        <section class="flex min-w-0 flex-1 flex-col bg-[#212121]">
+                            <header class="flex h-14 flex-shrink-0 items-center justify-between px-4">
+                                <button class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-[#ececec] hover:bg-[#2f2f2f]">
+                                    <span>ChatGPT</span>
+                                    <span class="text-[#a8a8a8]">5</span>
+                                    <svg class="h-4 w-4 text-[#a8a8a8]" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button class="rounded-full border border-[#4a4a4a] px-3 py-1.5 text-xs font-medium text-[#ececec]">
+                                    Share
+                                </button>
+                            </header>
+
+                            <div class="demo-scroll min-h-0 flex-1 overflow-y-auto px-4">
+                                <div class="chat-empty flex h-full flex-col items-center justify-center text-center">
+                                    <h3 class="text-2xl font-semibold text-[#ececec]">What can I help with?</h3>
+                                </div>
+                                <div class="chat-message mx-auto max-w-3xl pb-28 pt-6">
+                                    <div class="demo-chat-message ml-auto max-w-2xl rounded-3xl bg-[#303030] px-5 py-4 text-sm leading-6 text-[#f4f4f4]">
+                                        <p>Here is my assignment brief in Markdown. Help me make a plan and point out any hidden requirements.</p>
+                                        <pre class="mt-4 max-h-[38dvh] overflow-auto rounded-xl border border-[#4a4a4a] bg-[#171717] p-4 text-xs leading-5 text-[#ececec]"># Assignment 2: AI Research Brief
+## Getting Started
+- Read the starter code guide
+- Check the submission policy
+
+## Marking Breakdown
+| Criteria | Weight | Notes |
+| --- | --- | --- |
+| Problem framing | 30% | Clear summary |
+| Evidence and sources | 25% | Use linked references |</pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-shrink-0 px-4 pb-5">
+                                <div class="mx-auto max-w-3xl rounded-3xl border border-[#3a3a3a] bg-[#303030] px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+                                    <p class="text-sm text-[#b4b4b4]">
+                                        Paste your Markdown with a prompt
+                                    </p>
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <div class="flex items-center gap-2 text-[#b4b4b4]">
+                                            <button class="flex h-8 w-8 items-center justify-center rounded-full border border-[#555]">+</button>
+                                            <button class="rounded-full border border-[#555] px-3 py-1.5 text-xs">Tools</button>
+                                        </div>
+                                        <button class="flex h-8 w-8 items-center justify-center rounded-full bg-[#ececec] text-[#212121]">
+                                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 16.5a.75.75 0 01-.75-.75V5.56L6.03 8.78a.75.75 0 01-1.06-1.06l4.5-4.5a.75.75 0 011.06 0l4.5 4.5a.75.75 0 11-1.06 1.06l-3.22-3.22v10.19a.75.75 0 01-.75.75z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div
+                        class="demo-popup absolute right-3 top-12 w-[320px] max-w-[calc(100%-1.5rem)] min-h-[400px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100 shadow-[0_30px_90px_rgba(2,6,23,0.8)] sm:right-4 sm:top-16">
+                        <header class="px-5 py-4 flex items-center justify-between border-b border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <img src="public/icons/icon16.svg" class="w-5 h-5 rounded-md opacity-100" alt="Logo" />
+                                <span class="text-sm font-medium tracking-wide text-slate-100">Markdownizer</span>
+                            </div>
+                        </header>
+
+                        <main class="flex flex-col p-6 items-center justify-center gap-6 relative">
+                            <button
+                                class="demo-idle relative z-10 w-32 h-32 rounded-full flex flex-col items-center justify-center bg-slate-900/90 text-indigo-400 ring-1 ring-indigo-500">
+                                <svg class="w-8 h-8 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span class="mt-1 text-sm font-light text-indigo-100">start</span>
+                            </button>
+
+                            <div
+                                class="demo-processing w-32 h-32 rounded-full items-center justify-center border-2 border-indigo-500/50 border-t-indigo-400 animate-spin">
+                            </div>
+
+                            <button
+                                class="demo-success w-32 h-32 rounded-full items-center justify-center bg-slate-900/90 text-indigo-400 ring-1 ring-indigo-500">
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <svg class="w-8 h-8 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                    <span class="text-sm font-light text-indigo-100">start</span>
+                                </div>
+                            </button>
+
+                            <div class="text-center space-y-1 h-12 pt-2 flex flex-col items-center justify-start">
+                                <h2 class="demo-idle text-sm font-light text-indigo-200">Ready to capture</h2>
+                                <h2 class="demo-processing text-sm font-light text-indigo-200">Processing content...</h2>
+                                <h2
+                                    class="demo-success text-sm font-medium items-center justify-center gap-2 text-emerald-300 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Content extracted</span>
+                                </h2>
+                                <p class="demo-success text-[10px] font-mono mt-1 text-slate-400">3168 chars</p>
+                            </div>
+
+                            <div class="demo-actions flex-col gap-3 w-full">
+                                <button
+                                    class="demo-copy-default w-full py-3 font-medium rounded-xl border transition-all flex items-center justify-center gap-2 bg-indigo-600/10 border-indigo-400/50 text-indigo-200">
+                                    Copy to Clipboard
+                                </button>
+                                <button
+                                    class="demo-copy-done w-full py-3 font-medium rounded-xl border transition-all items-center justify-center gap-2 bg-emerald-500/20 border-emerald-500/50 text-emerald-300">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Copied to Clipboard</span>
+                                </button>
+                                <button
+                                    class="w-full py-3 font-medium rounded-xl border transition-all flex items-center justify-center gap-2 bg-slate-800 border-slate-500 text-slate-300">
+                                    Download .md
+                                </button>
+                            </div>
+                        </main>
+
+                        <footer class="p-3 text-center border-t border-slate-800 bg-slate-950">
+                            <label class="inline-flex items-center gap-2 text-xs text-slate-400 cursor-default">
+                                <input type="checkbox" checked
+                                    class="rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-0" />
+                                <span>Auto-download on success</span>
+                            </label>
+                        </footer>
+                    </div>
+
+                </div>
+                <div
+                    class="demo-chapter pointer-events-none absolute z-40 text-left text-2xl font-semibold leading-tight sm:text-3xl">
+                    <span id="demo-chapter-text"></span>
+                </div>
+                <div class="demo-cursor pointer-events-none absolute z-50 h-9 w-9">
+                    <div class="demo-tap-halo absolute inset-0 rounded-full border border-cyan-300/70 bg-cyan-300/10"></div>
+                    <div class="demo-click-ring absolute inset-0 rounded-full border border-cyan-200"></div>
+                    <div class="demo-tap-dot absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+                </div>
                 </div>
             </div>
         </div>
+        <script>
+            const flowDemo = document.getElementById('flow-demo');
+
+            if (flowDemo) {
+                const chapterText = document.getElementById('demo-chapter-text');
+                const chapter = flowDemo.querySelector('.demo-chapter');
+                const scaleQuery = window.matchMedia('(max-width: 1023px)');
+                const flowSteps = [
+                    { step: '0', duration: 1800, chapter: 'Open the page you need.', boxed: true },
+                    { step: '1', duration: 2000, chapter: 'Capture it with Markdownizer.', boxed: false },
+                    { step: '2', duration: 2300, chapter: 'Page structure becomes Markdown.', boxed: true },
+                    { step: '3', duration: 2300, chapter: 'Markdown is ready to use.', boxed: false },
+                    { step: '4', duration: 2100, chapter: 'Copy the clean Markdown.', boxed: false },
+                    { step: '5', duration: 1800, chapter: 'Move to your preferred LLM.', boxed: true },
+                    { step: '6', duration: 3600, chapter: 'Paste better context.', boxed: true }
+                ];
+                let flowIndex = 0;
+                let flowTimer;
+                let chapterTimer;
+
+                function updateDemoScale() {
+                    if (!scaleQuery.matches) {
+                        flowDemo.style.removeProperty('--demo-scale');
+                        flowDemo.style.removeProperty('--demo-visual-width');
+                        flowDemo.style.removeProperty('--demo-visual-height');
+                        return;
+                    }
+
+                    const baseWidth = 1152;
+                    const baseHeight = 720;
+                    const horizontalGutter = window.matchMedia('(max-width: 639px)').matches ? 16 : 32;
+                    const availableWidth = Math.max(280, window.innerWidth - horizontalGutter);
+                    const availableHeight = Math.max(260, window.innerHeight - 32);
+                    const scale = Math.min(1, availableWidth / baseWidth, availableHeight / baseHeight);
+
+                    flowDemo.style.setProperty('--demo-scale', scale.toFixed(4));
+                    flowDemo.style.setProperty('--demo-visual-width', `${Math.floor(baseWidth * scale)}px`);
+                    flowDemo.style.setProperty('--demo-visual-height', `${Math.floor(baseHeight * scale)}px`);
+                }
+
+                function typeChapterText(text, onComplete) {
+                    if (!chapterText) {
+                        onComplete();
+                        return;
+                    }
+
+                    clearTimeout(chapterTimer);
+                    chapterText.textContent = '';
+
+                    let charIndex = 0;
+                    function typeNextCharacter() {
+                        chapterText.textContent = text.slice(0, charIndex);
+                        charIndex += 1;
+
+                        if (charIndex <= text.length) {
+                            chapterTimer = setTimeout(typeNextCharacter, 26);
+                        } else {
+                            chapterTimer = setTimeout(onComplete, 180);
+                        }
+                    }
+
+                    typeNextCharacter();
+                }
+
+                updateDemoScale();
+                window.addEventListener('resize', updateDemoScale);
+                window.addEventListener('beforeunload', () => {
+                    clearTimeout(flowTimer);
+                    clearTimeout(chapterTimer);
+                    window.removeEventListener('resize', updateDemoScale);
+                });
+
+                function runFlowStep() {
+                    const current = flowSteps[flowIndex];
+                    flowDemo.classList.add('is-typing');
+                    flowDemo.setAttribute('data-flow-step', current.step);
+                    if (chapter && chapterText) {
+                        chapter.classList.toggle('is-visible', Boolean(current.chapter));
+                        chapter.classList.toggle('is-boxed', Boolean(current.boxed));
+                        typeChapterText(current.chapter, () => flowDemo.classList.remove('is-typing'));
+                    } else {
+                        flowDemo.classList.remove('is-typing');
+                    }
+
+                    flowIndex = (flowIndex + 1) % flowSteps.length;
+                    flowTimer = setTimeout(runFlowStep, current.duration);
+                }
+
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    flowDemo.setAttribute('data-flow-step', '6');
+                    if (chapter && chapterText) {
+                        chapterText.textContent = flowSteps[6].chapter;
+                        chapter.classList.add('is-visible');
+                        chapter.classList.toggle('is-boxed', Boolean(flowSteps[6].boxed));
+                    }
+                } else {
+                    flowTimer = setTimeout(runFlowStep, 600);
+                }
+            }
+        </script>
     </main>
 
     <!-- Browser Selection Modal -->
@@ -296,6 +1215,277 @@
         </div>
     </div>
 
+    <section class="py-16 sm:py-24 border-y border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-500">Why Markdownizer</p>
+                <h2 class="mt-4 text-3xl font-extrabold text-slate-100 sm:text-4xl">Why not just paste it?</h2>
+                <p class="mt-4 text-lg leading-relaxed text-slate-400">
+                    Copy-paste, URLs, and screenshots all work sometimes. Markdownizer is for the pages where structure,
+                    access, and clean text context matter.
+                </p>
+            </div>
+
+            <div class="mt-12 space-y-8">
+                <article class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/75">
+                    <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+                        <div class="border-b border-slate-800 p-6 lg:border-b-0 lg:border-r lg:p-8">
+                            <div class="inline-flex rounded-full border border-rose-400/30 bg-rose-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-rose-300">
+                                Raw copy-paste
+                            </div>
+                            <h3 class="mt-5 text-2xl font-bold text-slate-100">Copy-paste flattens the page.</h3>
+                            <p class="mt-3 text-slate-400 leading-relaxed">
+                                A quick <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+A</code>,
+                                <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+C</code>,
+                                <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+V</code> often drops hierarchy, breaks tables, and turns code into
+                                plain text soup.
+                            </p>
+                        </div>
+                        <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 lg:p-8">
+                            <div class="rounded-xl border border-rose-400/20 bg-slate-950 p-4">
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-rose-300">Without Markdownizer</p>
+                                <div class="mt-4 rounded-lg bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-400">
+                                    <p>Assignment 2 AI Research Brief Getting Started Read the starter code guide Check submission policy Criteria Weight Notes Problem framing 30% Evidence 25% python analyze_brief.py...</p>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border border-emerald-400/25 bg-slate-950 p-4">
+                                <div class="flex items-center justify-between gap-3">
+                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">With Markdownizer</p>
+                                    <p class="hidden text-[10px] uppercase tracking-[0.16em] text-slate-500 md:block">Drag to compare</p>
+                                </div>
+                                <div class="split-preview relative mt-4 h-[24rem] overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+                                    <div class="split-pane-code absolute overflow-hidden bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-200">
+                                        <p class="text-cyan-300"># Assignment 2: AI Research Brief</p>
+                                        <p>## Getting Started</p>
+                                        <p>- Read the starter code guide</p>
+                                        <p>- Check the submission policy</p>
+                                        <p class="mt-3 text-cyan-300">| Criteria | Weight | Notes |</p>
+                                        <p>| --- | --- | --- |</p>
+                                        <p>| Problem framing | 30% | Clear summary |</p>
+                                        <p>| Evidence | 25% | Use references |</p>
+                                        <p class="mt-3 text-cyan-300">```python</p>
+                                        <p>python analyze_brief.py</p>
+                                        <p>```</p>
+                                    </div>
+                                    <div class="split-pane-rendered absolute overflow-auto bg-white p-4 text-slate-900">
+                                        <h4 class="text-lg font-bold text-slate-950">Assignment 2: AI Research Brief</h4>
+                                        <h5 class="mt-4 text-sm font-semibold text-slate-800">Getting Started</h5>
+                                        <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                                            <li>Read the starter code guide</li>
+                                            <li>Check the submission policy</li>
+                                        </ul>
+                                        <div class="mt-4 overflow-hidden rounded-md border border-slate-200">
+                                            <table class="min-w-full divide-y divide-slate-200 text-left text-xs">
+                                                <thead class="bg-slate-100 text-slate-600">
+                                                    <tr>
+                                                        <th class="px-3 py-2 font-medium">Criteria</th>
+                                                        <th class="px-3 py-2 font-medium">Weight</th>
+                                                        <th class="px-3 py-2 font-medium">Notes</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="divide-y divide-slate-200 text-slate-700">
+                                                    <tr>
+                                                        <td class="px-3 py-2">Problem framing</td>
+                                                        <td class="px-3 py-2">30%</td>
+                                                        <td class="px-3 py-2">Clear summary</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-3 py-2">Evidence</td>
+                                                        <td class="px-3 py-2">25%</td>
+                                                        <td class="px-3 py-2">Use references</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <pre class="mt-4 overflow-hidden rounded-md bg-slate-900 p-3 font-mono text-xs leading-5 text-slate-100">python analyze_brief.py</pre>
+                                    </div>
+                                    <div class="split-divider absolute top-0 z-10 h-full w-0 -translate-x-1/2 cursor-ew-resize border-l border-cyan-300/80">
+                                        <div class="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/70 bg-slate-950 text-cyan-100 shadow-[0_0_24px_rgba(45,212,191,0.35)]">
+                                            <span class="text-xs">&harr;</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/75">
+                    <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+                        <div class="border-b border-slate-800 p-6 lg:border-b-0 lg:border-r lg:p-8">
+                            <div class="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">
+                                URL pasting
+                            </div>
+                            <h3 class="mt-5 text-2xl font-bold text-slate-100">URLs fail when the LLM cannot access the page.</h3>
+                            <p class="mt-3 text-slate-400 leading-relaxed">
+                                If a page needs a login, session, course portal, workspace account, or private docs access, a bare link may
+                                give the LLM nothing useful.
+                            </p>
+                        </div>
+                        <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 lg:p-8">
+                            <div class="rounded-xl border border-amber-400/20 bg-[#212121] p-4 text-[#ececec]">
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">Paste URL</p>
+                                <div class="mt-4 rounded-2xl bg-[#303030] p-4 text-sm leading-6">
+                                    <p>Can you summarize this assignment page?</p>
+                                    <p class="mt-2 text-cyan-200">course.example.edu/assignments/brief</p>
+                                </div>
+                                <div class="mt-4 rounded-2xl bg-[#171717] p-4 text-sm leading-6 text-slate-300">
+                                    I cannot access pages behind a login. Please paste the content here.
+                                </div>
+                            </div>
+                            <div class="rounded-xl border border-emerald-400/25 bg-slate-950 p-4">
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">Use the open tab</p>
+                                <div class="mt-4 rounded-lg border border-slate-800 bg-slate-900 p-4 text-sm leading-6 text-slate-300">
+                                    <p class="font-semibold text-slate-100">Markdownizer captures what you can already see.</p>
+                                    <p class="mt-3">Open the page, run the extension, and paste clean Markdown into your preferred LLM.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/75">
+                    <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+                        <div class="border-b border-slate-800 p-6 lg:border-b-0 lg:border-r lg:p-8">
+                            <div class="inline-flex rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">
+                                Screenshots
+                            </div>
+                            <h3 class="mt-5 text-2xl font-bold text-slate-100">Screenshots make the LLM read pixels.</h3>
+                            <p class="mt-3 text-slate-400 leading-relaxed">
+                                Vision models are useful, but they can miss table details, misread code, and cost more to process than clean text.
+                            </p>
+                        </div>
+                        <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 lg:p-8">
+                            <div class="rounded-xl border border-sky-400/20 bg-slate-950 p-4">
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">Screenshot</p>
+                                <div class="mt-4 rounded-lg border border-slate-700 bg-slate-800 p-4">
+                                    <div class="h-24 rounded bg-slate-700/70 p-3">
+                                        <div class="h-3 w-2/3 rounded bg-slate-500"></div>
+                                        <div class="mt-3 grid grid-cols-3 gap-2">
+                                            <div class="h-10 rounded bg-slate-600"></div>
+                                            <div class="h-10 rounded bg-slate-600"></div>
+                                            <div class="h-10 rounded bg-slate-600"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 space-y-2 text-xs text-slate-400">
+                                        <p>Vision has to infer headings, rows, and code.</p>
+                                        <p>Large images can cost more tokens and still miss details.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border border-emerald-400/25 bg-slate-950 p-4">
+                                <div class="flex items-center justify-between gap-3">
+                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">Markdown</p>
+                                    <p class="hidden text-[10px] uppercase tracking-[0.16em] text-slate-500 md:block">Drag to compare</p>
+                                </div>
+                                <div class="split-preview relative mt-4 h-[18rem] overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+                                    <div class="split-pane-code absolute overflow-hidden bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-200">
+                                        <p class="text-cyan-300">## Marking Breakdown</p>
+                                        <p>| Criteria | Weight |</p>
+                                        <p>| --- | --- |</p>
+                                        <p>| Problem framing | 30% |</p>
+                                        <p>| Evidence | 25% |</p>
+                                        <p class="mt-3 text-cyan-300">```python</p>
+                                        <p>python generate_outline.py</p>
+                                        <p>```</p>
+                                    </div>
+                                    <div class="split-pane-rendered absolute overflow-auto bg-white p-4 text-slate-900">
+                                        <h4 class="text-base font-bold text-slate-950">Marking Breakdown</h4>
+                                        <div class="mt-3 overflow-hidden rounded-md border border-slate-200">
+                                            <table class="min-w-full divide-y divide-slate-200 text-left text-xs">
+                                                <thead class="bg-slate-100 text-slate-600">
+                                                    <tr>
+                                                        <th class="px-3 py-2 font-medium">Criteria</th>
+                                                        <th class="px-3 py-2 font-medium">Weight</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="divide-y divide-slate-200 text-slate-700">
+                                                    <tr>
+                                                        <td class="px-3 py-2">Problem framing</td>
+                                                        <td class="px-3 py-2">30%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-3 py-2">Evidence</td>
+                                                        <td class="px-3 py-2">25%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <pre class="mt-4 overflow-hidden rounded-md bg-slate-900 p-3 font-mono text-xs leading-5 text-slate-100">python generate_outline.py</pre>
+                                    </div>
+                                    <div class="split-divider absolute top-0 z-10 h-full w-0 -translate-x-1/2 cursor-ew-resize border-l border-cyan-300/80">
+                                        <div class="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/70 bg-slate-950 text-cyan-100 shadow-[0_0_24px_rgba(45,212,191,0.35)]">
+                                            <span class="text-xs">&harr;</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.split-preview').forEach((preview) => {
+            const divider = preview.querySelector('.split-divider');
+            if (!divider) return;
+
+            const setSplit = (clientX) => {
+                const rect = preview.getBoundingClientRect();
+                const rawPercent = ((clientX - rect.left) / rect.width) * 100;
+                const clampedPercent = Math.min(98, Math.max(2, rawPercent));
+                preview.style.setProperty('--split', `${clampedPercent}%`);
+            };
+
+            divider.addEventListener('pointerdown', (event) => {
+                event.preventDefault();
+                divider.setPointerCapture(event.pointerId);
+                setSplit(event.clientX);
+            });
+
+            divider.addEventListener('pointermove', (event) => {
+                if (!divider.hasPointerCapture(event.pointerId)) return;
+                setSplit(event.clientX);
+            });
+
+            divider.addEventListener('pointerup', (event) => {
+                if (divider.hasPointerCapture(event.pointerId)) {
+                    divider.releasePointerCapture(event.pointerId);
+                }
+            });
+        });
+    </script>
+
+    <section class="py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-5 text-center max-w-3xl mx-auto mb-14">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-500">How it works</p>
+                <h2 class="text-3xl font-extrabold text-slate-100">From page to prompt in three steps</h2>
+                <p class="text-slate-400 text-lg">The workflow is deliberately simple: open the page, capture the structure, and hand your LLM something more useful than plain copy-paste, raw HTML, or just sending the link.</p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-3">
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-8">
+                    <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">01</div>
+                    <h3 class="text-xl font-bold text-slate-100">Open the page you actually care about</h3>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Assignment briefs, API docs, grading rubrics, articles, and research pages work well because the structure matters as much as the text.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-8">
+                    <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">02</div>
+                    <h3 class="text-xl font-bold text-slate-100">Capture a Markdown version that keeps the structure</h3>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer strips away menus, sidebars, and other page clutter, preserves useful hierarchy, and keeps code blocks, tables, and lists readable for downstream tools.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-8">
+                    <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">03</div>
+                    <h3 class="text-xl font-bold text-slate-100">Paste it into your preferred LLM</h3>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Use the Markdown as context for planning, summarizing, code assistance, assignment help, or extracting requirements without relying on messy copy-paste, noisy HTML, or a bare URL.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="py-16 sm:py-24 bg-slate-800/50 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -317,8 +1507,8 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-100 mb-2">Privacy First</h3>
                     <p class="text-slate-400 leading-relaxed">
-                        Text processing happens locally or is skeletonized. We don't store your browsing history or note
-                        data.
+                        Readable page text is tokenized locally before conversion. We do not store readable page text,
+                        final Markdown output, or full page URLs in analytics.
                     </p>
                 </div>
 
@@ -368,7 +1558,7 @@
                         <span class="text-lg font-bold text-slate-200">Markdownizer</span>
                     </div>
                     <p class="text-slate-500 text-sm max-w-xs">
-                        The essential browser extension for developers, writers, and AI power users.
+                        Turn webpages into clean Markdown context for your preferred LLM.
                     </p>
                 </div>
                 <div class="flex flex-col md:items-end justify-center space-y-2">

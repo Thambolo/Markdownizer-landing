@@ -33,36 +33,55 @@
 
     <main class="max-w-3xl mx-auto px-4 pb-20 prose prose-invert prose-brand">
         <h1 class="text-3xl font-bold text-slate-100 mb-2">Privacy Policy</h1>
-        <p class="text-sm text-slate-500 mb-8">Last Updated: January 1, 2025</p>
+        <p class="text-sm text-slate-500 mb-8">Last Updated: May 22, 2026</p>
 
         <section class="space-y-4">
             <p>At Markdownizer, accessible from our extension and website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Markdownizer and how we use it.</p>
 
             <h2 class="text-xl font-semibold text-slate-100 mt-8 mb-4">Information Collection</h2>
-            <p>We believe in data minimization. The Markdownizer extension is designed to process data locally within your browser whenever possible.</p>
+            <p>We believe in data minimization. Markdownizer is designed so that readable page text is tokenized locally in your browser before conversion.</p>
             <ul class="list-disc pl-5 space-y-2">
-                <li><strong>Web Content:</strong> To convert pages to Markdown, the extension temporarily accesses the content of the active tab. This data is processed in ephemeral memory and is not stored on our servers permanently.</li>
-                <li><strong>Usage Data:</strong> We may collect anonymous usage statistics to improve the product (e.g., error rates, successful conversion counts).</li>
+                <li><strong>Web Content:</strong> To convert a page into Markdown, the extension temporarily accesses the content of the active tab. Readable page text is tokenized locally and is not sent to our servers as readable text.</li>
+                <li><strong>Structural Conversion Data:</strong> Markdownizer sends a structural page skeleton to the backend so the service can convert structure into Markdown. This structural payload may still include non-text page elements such as links, image references, and other HTML attributes.</li>
+                <li><strong>Operational Data:</strong> We collect limited operational data needed to run, secure, and improve the service. This may include an anonymous user identifier, request size, output size, conversion duration, failure or status information, extraction strategy, and IP address.</li>
+                <li><strong>What We Do Not Store For Analytics:</strong> We do not store readable page text, final Markdown output, full page URLs, or raw HTML skeletons in our analytics data.</li>
             </ul>
 
             <h2 class="text-xl font-semibold text-slate-100 mt-8 mb-4">How We Use Your Information</h2>
             <p>We use the information we collect in various ways, including to:</p>
             <ul class="list-disc pl-5 space-y-2">
                 <li>Provide, operate, and maintain our extension.</li>
-                <li>Improve, personalize, and expand our extension.</li>
-                <li>Find and fix bugs.</li>
+                <li>Measure conversion success, performance, and reliability.</li>
+                <li>Investigate failures, abuse, and suspicious traffic patterns.</li>
+                <li>Improve conversion quality and overall product stability.</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-slate-100 mt-8 mb-4">Privacy Summary</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Readable page text never leaves your browser as readable text.</li>
+                <li>Markdownizer sends a structural skeleton for conversion.</li>
+                <li>We keep limited operational metrics so the service can be run safely and improved over time.</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-slate-100 mt-8 mb-4">Chrome Web Store Limited Use Disclosure</h2>
+            <p>Markdownizer uses page data only to provide its user-facing feature: converting the current page into clean Markdown for your preferred LLM or notes workflow.</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Allowed use:</strong> Page data is used only to provide or improve Markdown conversion and related reliability, abuse prevention, and security functions.</li>
+                <li><strong>Allowed transfer:</strong> Structural conversion data is transferred only as needed to provide the conversion service, operate the backend safely, or comply with applicable law.</li>
+                <li><strong>No advertising use:</strong> User data is not used or transferred for personalized, retargeted, or interest-based advertising.</li>
+                <li><strong>No human review of readable content:</strong> We do not allow humans to read readable page text as part of normal operations. Limited exceptions may apply for security, legal compliance, or support situations where a user explicitly consents.</li>
             </ul>
 
             <h2 class="text-xl font-semibold text-slate-100 mt-8 mb-4">Third-Party Privacy Policies</h2>
             <p>Markdownizer's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.</p>
 
             <h2 class="text-xl font-semibold text-slate-100 mt-8 mb-4">Contact Us</h2>
-            <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <a href="mailto:support@markdownizer.com" class="text-brand-500 hover:underline">support@markdownizer.com</a>.</p>
+            <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <a href="mailto:support@markdownizer.thambolo.com" class="text-brand-500 hover:underline">support@markdownizer.thambolo.com</a>.</p>
         </section>
     </main>
 
     <footer class="text-center py-8 border-t border-slate-800 text-slate-600 text-sm">
-        &copy; 2025 Markdownizer. All rights reserved.
+        &copy; 2026 Markdownizer. All rights reserved.
     </footer>
 
 </body>
