@@ -4,12 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdownizer - Turn the Web into Markdown</title>
+    <title>Markdownizer - Convert Webpages to Markdown for ChatGPT & LLMs</title>
     <link rel="icon" type="image/svg+xml" href="public/icons/icon16.svg">
+    <link rel="canonical" href="https://markdownizer.thambolo.com/">
     <meta name="description"
-        content="Privacy-first browser extension that converts any webpage into clean Markdown for your preferred LLM. Ideal for assignment briefs, docs, articles, and research pages.">
+        content="Convert webpages to clean Markdown for ChatGPT, Claude, Gemini, notes, and docs. Preserve headings, tables, links, lists, and code blocks for better LLM context.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Markdownizer">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Markdownizer">
+    <meta property="og:title" content="Markdownizer - Convert Webpages to Markdown for ChatGPT & LLMs">
+    <meta property="og:description"
+        content="Turn webpages into clean Markdown context for ChatGPT, Claude, Gemini, notes, docs, and coding workflows.">
+    <meta property="og:url" content="https://markdownizer.thambolo.com/">
+    <meta property="og:image" content="https://markdownizer.thambolo.com/public/icons/icon16.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Markdownizer - Convert Webpages to Markdown for ChatGPT & LLMs">
+    <meta name="twitter:description"
+        content="Convert webpages into clean Markdown that preserves headings, tables, links, lists, and code blocks for better LLM context.">
+    <meta name="twitter:image" content="https://markdownizer.thambolo.com/public/icons/icon16.svg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7804081481073915"
      crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Markdownizer",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome, Chromium browsers",
+            "description": "Markdownizer converts webpages into clean Markdown for ChatGPT, Claude, Gemini, notes, documentation, and coding workflows.",
+            "url": "https://markdownizer.thambolo.com/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga?utm_source=markdownizer_landing",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -592,7 +624,7 @@
             <h1
                 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight flex flex-col items-center gap-2 sm:gap-4 mb-8">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                    <span>Turn</span>
+                    <span>Convert</span>
                     <!-- Fixed width container determined by JS, CSS handles centering -->
                     <span id="typewriter-container"
                         class="inline-flex justify-center border-b-4 border-brand-500/30 pb-1 whitespace-nowrap transition-all duration-300 max-w-full">
@@ -600,7 +632,7 @@
                             class="animate-pulse text-brand-500">|</span>
                     </span>
                 </div>
-                <span>into <span class="text-brand-500">Markdown</span>.</span>
+                <span>into <span class="text-brand-500">Markdown</span> for LLMs.</span>
             </h1>
 
             <!-- Hidden element to measure width of words for centering calculations -->
@@ -664,8 +696,8 @@
                 calculateMaxWidth();
             </script>
             <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
-                Capture the current page, turn it into clean Markdown, and give your preferred LLM better context than
-                plain copy-paste, raw HTML, or a URL on its own.
+                Capture the current page, convert webpages to Markdown, and give ChatGPT, Claude, Gemini, or your
+                preferred LLM better context than plain copy-paste, raw HTML, screenshots, or a URL on its own.
             </p>
             <div class="mt-8 flex justify-center gap-4">
                 <a href="javascript:void(0)"
@@ -1551,6 +1583,99 @@
         </div>
     </section>
 
+
+    <section id="use-cases" class="py-16 sm:py-20 border-t border-slate-800/70 bg-slate-950/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-500">Use cases</p>
+                <h2 class="mt-4 text-3xl font-extrabold text-slate-100">A Markdown web clipper for better LLM context</h2>
+                <p class="mt-4 text-lg leading-relaxed text-slate-400">
+                    Markdownizer helps when you need to copy a webpage to ChatGPT, convert documentation to Markdown,
+                    preserve assignment specs, or turn research pages into structured notes without losing tables,
+                    lists, links, headings, and code blocks.
+                </p>
+            </div>
+            <div class="mt-10 grid gap-5 md:grid-cols-3">
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left">
+                    <h3 class="text-lg font-bold text-slate-100">Webpage to Markdown</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-400">Convert articles, docs, course pages, API references, and research pages into clean Markdown you can copy or download.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left">
+                    <h3 class="text-lg font-bold text-slate-100">Copy webpages to ChatGPT</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-400">Give ChatGPT, Claude, Gemini, and other LLMs structured text context instead of flattened copy-paste or inaccessible URLs.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left">
+                    <h3 class="text-lg font-bold text-slate-100">Markdown for code and tables</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-400">Keep code blocks, tables, lists, headings, and links readable for prompts, notes, documentation, and coding workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 sm:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-500">FAQ</p>
+                <h2 class="mt-4 text-3xl font-extrabold text-slate-100">Markdownizer questions, answered</h2>
+            </div>
+            <div class="space-y-4 text-left">
+                <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6" open>
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">What is Markdownizer?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer is a Chrome extension that converts the current webpage into clean Markdown for LLM prompts, notes, docs, and coding workflows.</p>
+                </details>
+                <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">How is Markdownizer different from copy-paste?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Raw copy-paste often flattens headings, tables, lists, and code. Markdownizer preserves useful page structure as Markdown so the result is easier for humans and LLMs to read.</p>
+                </details>
+                <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Can Markdownizer capture pages ChatGPT cannot open?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer works from the page you can already view in your browser. That can help when ChatGPT, Claude, Gemini, or another LLM cannot open a URL because it is behind a login, course portal, workspace account, or private session.</p>
+                </details>
+                <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Does sensitive text on my page get extracted?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer extracts the current page only when you start it. Readable page text is tokenized locally before conversion, the backend receives a structural skeleton, and the final readable Markdown is rebuilt locally in your browser.</p>
+                </details>
+                <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Can I download the Markdown file?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Yes. After conversion succeeds, you can copy the Markdown to your clipboard or download it as a `.md` file.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Markdownizer?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Markdownizer is a Chrome extension that converts the current webpage into clean Markdown for LLM prompts, notes, docs, and coding workflows."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "How is Markdownizer different from copy-paste?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Raw copy-paste often flattens headings, tables, lists, and code. Markdownizer preserves useful page structure as Markdown so the result is easier for humans and LLMs to read."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can Markdownizer capture pages ChatGPT cannot open?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Markdownizer works from the page you can already view in your browser. That can help when ChatGPT, Claude, Gemini, or another LLM cannot open a URL because it is behind a login, course portal, workspace account, or private session."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does sensitive text on my page get extracted?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Markdownizer extracts the current page only when you start it. Readable page text is tokenized locally before conversion, the backend receives a structural skeleton, and the final readable Markdown is rebuilt locally in your browser."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I download the Markdown file?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Yes. After conversion succeeds, you can copy the Markdown to your clipboard or download it as a .md file."}
+                }
+            ]
+        }
+    </script>
+
     <!-- Footer -->
     <footer class="bg-slate-900 border-t border-slate-800 pt-12 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1568,7 +1693,11 @@
                 <div class="flex flex-col md:items-end justify-center space-y-2">
                     <a href="mailto:support@markdownizer.thambolo.com"
                         class="text-slate-400 hover:text-brand-500 transition-colors text-sm">support@markdownizer.thambolo.com</a>
-                    <div class="flex space-x-6">
+                    <div class="flex flex-wrap justify-start gap-x-6 gap-y-2 md:justify-end">
+                        <a href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga?utm_source=markdownizer_landing_footer"
+                            target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-300 text-sm">Chrome Web Store</a>
+                        <a href="#use-cases" class="text-slate-500 hover:text-slate-300 text-sm">Use Cases</a>
+                        <a href="#faq" class="text-slate-500 hover:text-slate-300 text-sm">FAQ</a>
                         <a href="privacy.html" class="text-slate-500 hover:text-slate-300 text-sm">Privacy Policy</a>
                         <a href="terms.html" class="text-slate-500 hover:text-slate-300 text-sm">Terms of Service</a>
                     </div>
