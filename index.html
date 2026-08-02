@@ -24,7 +24,7 @@
         content="Convert webpages and HTML into clean Markdown for AI, notes, docs, and coding workflows.">
     <meta name="twitter:image" content="https://markdownizer.thambolo.com/public/icons/icon16.svg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7804081481073915"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -200,10 +200,13 @@
         }
 
         @keyframes demo-tap-breathe {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0.46;
                 transform: scale(0.85);
             }
+
             50% {
                 opacity: 0.9;
                 transform: scale(1.12);
@@ -259,9 +262,11 @@
                 opacity: 0;
                 transform: scale(0.35);
             }
+
             25% {
                 opacity: 0.75;
             }
+
             100% {
                 opacity: 0;
                 transform: scale(2.2);
@@ -491,6 +496,7 @@
                 opacity: 0;
                 transform: translateY(-14px) scale(0.965);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -502,6 +508,7 @@
                 opacity: 0;
                 transform: translateY(10px) scale(0.992);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -513,6 +520,7 @@
                 opacity: 0;
                 transform: translateY(12px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -524,6 +532,7 @@
                 opacity: 0;
                 transform: scale(0.94);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -535,6 +544,7 @@
                 opacity: 0;
                 transform: translateY(18px) scale(0.985);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -619,7 +629,7 @@
         <div class="space-y-4 max-w-3xl mx-auto">
             <div
                 class="inline-flex items-center px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-500 text-xs font-medium mb-4">
-                v1.0 Now Available
+                v1.2.0 Now Available
             </div>
             <h1
                 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight flex flex-col items-center gap-2 sm:gap-4 mb-8">
@@ -721,198 +731,245 @@
         <div id="flow-demo" class="flow-demo mt-14 relative group" data-flow-step="0">
             <div class="demo-scale-wrap relative mx-auto max-w-6xl">
                 <div class="demo-scale-stage relative">
-                <div
-                    class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200">
-                </div>
-                <div
-                    class="demo-shell relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950 shadow-2xl flex flex-col">
-                <div class="flex-shrink-0 border-b border-slate-800 bg-slate-950 px-4 py-3 text-left">
-                    <div class="flex items-center gap-2">
-                        <span class="h-3 w-3 rounded-full bg-rose-500"></span>
-                        <span class="h-3 w-3 rounded-full bg-amber-400"></span>
-                        <span class="h-3 w-3 rounded-full bg-emerald-500"></span>
-                        <div class="ml-3 hidden min-w-0 items-end gap-1 sm:flex">
-                            <span
-                                class="demo-tab demo-tab-page rounded-t-md border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium text-cyan-100">
-                                Source
-                            </span>
-                            <span
-                                class="demo-tab demo-tab-chat rounded-t-md border border-slate-700 bg-slate-900/60 px-3 py-1 text-[11px] font-medium text-slate-400">
-                                ChatGPT
-                            </span>
-                        </div>
-                        <div
-                            class="flex-1 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs text-slate-400 sm:ml-0">
-                            <span class="url-page">course.example.edu/assignments/brief</span>
-                            <span class="url-chat">chatgpt.com</span>
-                        </div>
-                        <button
-                            class="demo-extension-trigger relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md border border-cyan-400/30 bg-cyan-400/10">
-                            <img src="public/icons/icon16.svg" class="h-5 w-5 rounded" alt="Markdownizer extension icon">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="relative min-h-0 flex-1 overflow-hidden bg-[#07111f] p-4 sm:p-5">
                     <div
-                        class="source-page flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white text-left text-slate-900 shadow-[0_20px_70px_rgba(15,23,42,0.25)]">
-                        <div class="flex-shrink-0 border-b border-slate-200 bg-white px-5 py-3">
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">Source page</p>
-                                    <h3 class="mt-1.5 text-xl font-bold text-slate-950 sm:text-2xl">Assignment 2: AI Research Brief</h3>
-                                    <p class="mt-1.5 max-w-2xl text-sm text-slate-600">
-                                        A shortened assignment page with links, tables, lists, and code that convert cleanly into Markdown.
-                                    </p>
+                        class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200">
+                    </div>
+                    <div
+                        class="demo-shell relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950 shadow-2xl flex flex-col">
+                        <div class="flex-shrink-0 border-b border-slate-800 bg-slate-950 px-4 py-3 text-left">
+                            <div class="flex items-center gap-2">
+                                <span class="h-3 w-3 rounded-full bg-rose-500"></span>
+                                <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+                                <span class="h-3 w-3 rounded-full bg-emerald-500"></span>
+                                <div class="ml-3 hidden min-w-0 items-end gap-1 sm:flex">
+                                    <span
+                                        class="demo-tab demo-tab-page rounded-t-md border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium text-cyan-100">
+                                        Source
+                                    </span>
+                                    <span
+                                        class="demo-tab demo-tab-chat rounded-t-md border border-slate-700 bg-slate-900/60 px-3 py-1 text-[11px] font-medium text-slate-400">
+                                        ChatGPT
+                                    </span>
                                 </div>
                                 <div
-                                    class="hidden sm:inline-flex rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-medium text-blue-700">
-                                    Active tab
+                                    class="flex-1 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs text-slate-400 sm:ml-0">
+                                    <span class="url-page">course.example.edu/assignments/brief</span>
+                                    <span class="url-chat">chatgpt.com</span>
                                 </div>
+                                <button
+                                    class="demo-extension-trigger relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md border border-cyan-400/30 bg-cyan-400/10">
+                                    <img src="public/icons/icon16.svg" class="h-5 w-5 rounded"
+                                        alt="Markdownizer extension icon">
+                                </button>
                             </div>
                         </div>
 
-                        <div class="source-frame min-h-0 flex-1 overflow-hidden bg-slate-50 px-4 py-4 sm:px-5 sm:py-5">
-                            <div class="source-canvas">
-                                <div class="source-grid grid gap-5">
-                                    <div class="space-y-4">
-                                        <section class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                                            <div
-                                                class="inline-flex rounded-sm bg-blue-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-800">
-                                                Stage 1
-                                            </div>
-                                            <h4 class="mt-4 text-base font-semibold text-slate-950">Getting Started</h4>
-                                            <ul class="mt-3 space-y-2 text-sm text-slate-700">
-                                                <li>1. Read the <a href="#" class="text-blue-700 underline underline-offset-2">starter code guide</a>.</li>
-                                                <li>2. Check the <a href="#" class="text-blue-700 underline underline-offset-2">submission policy</a> and due date.</li>
-                                                <li>3. Use the rubric table below when planning your response.</li>
-                                            </ul>
-                                        </section>
-
-                                        <section class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                                            <div
-                                                class="inline-flex rounded-sm bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-800">
-                                                Assessment
-                                            </div>
-                                            <h4 class="mt-4 text-base font-semibold text-slate-950">Marking Breakdown</h4>
-                                            <div class="mt-4 overflow-hidden rounded-lg border border-slate-200">
-                                                <table class="min-w-full divide-y divide-slate-200 text-sm text-slate-700">
-                                                    <thead class="bg-slate-100 text-slate-600">
-                                                        <tr>
-                                                            <th class="px-4 py-3 text-left font-medium">Criteria</th>
-                                                            <th class="px-4 py-3 text-left font-medium">Weight</th>
-                                                            <th class="px-4 py-3 text-left font-medium">Notes</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="divide-y divide-slate-200 bg-white">
-                                                        <tr>
-                                                            <td class="px-4 py-3">Problem framing</td>
-                                                            <td class="px-4 py-3">30%</td>
-                                                            <td class="px-4 py-3">Clear summary of the brief</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="px-4 py-3">Evidence and sources</td>
-                                                            <td class="px-4 py-3">25%</td>
-                                                            <td class="px-4 py-3">Use the linked references</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="px-4 py-3">Technical accuracy</td>
-                                                            <td class="px-4 py-3">25%</td>
-                                                            <td class="px-4 py-3">Match the required terminology</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </section>
-
-                                        <section class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                                            <div
-                                                class="inline-flex rounded-sm bg-rose-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-rose-800">
-                                                Example
-                                            </div>
-                                            <h4 class="mt-4 text-base font-semibold text-slate-950">Reference Commands</h4>
-                                            <p class="mt-3 text-sm text-slate-600">
-                                                This is the kind of mixed content that gets messy with copy-paste but stays readable in Markdown.
+                        <div class="relative min-h-0 flex-1 overflow-hidden bg-[#07111f] p-4 sm:p-5">
+                            <div
+                                class="source-page flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white text-left text-slate-900 shadow-[0_20px_70px_rgba(15,23,42,0.25)]">
+                                <div class="flex-shrink-0 border-b border-slate-200 bg-white px-5 py-3">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <p
+                                                class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">
+                                                Source page</p>
+                                            <h3 class="mt-1.5 text-xl font-bold text-slate-950 sm:text-2xl">Assignment
+                                                2: AI Research Brief</h3>
+                                            <p class="mt-1.5 max-w-2xl text-sm text-slate-600">
+                                                A shortened assignment page with links, tables, lists, and code that
+                                                convert cleanly into Markdown.
                                             </p>
-                                            <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-slate-900 p-4 font-mono text-sm text-slate-100">
-                                                <p class="text-slate-400">// required commands</p>
-                                                <p class="mt-2">python analyze_brief.py --input ass2.txt</p>
-                                                <p>python generate_outline.py --format markdown</p>
-                                            </div>
-                                        </section>
+                                        </div>
+                                        <div
+                                            class="hidden sm:inline-flex rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-medium text-blue-700">
+                                            Active tab
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <aside class="space-y-4">
-                                        <div class="demo-highlight rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Linked references</p>
-                                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
-                                                <li><a href="#" class="text-blue-700 underline underline-offset-2">rubric.pdf</a></li>
-                                                <li><a href="#" class="text-blue-700 underline underline-offset-2">starter-files.zip</a></li>
-                                                <li><a href="#" class="text-blue-700 underline underline-offset-2">faq and clarifications</a></li>
-                                            </ul>
+                                <div
+                                    class="source-frame min-h-0 flex-1 overflow-hidden bg-slate-50 px-4 py-4 sm:px-5 sm:py-5">
+                                    <div class="source-canvas">
+                                        <div class="source-grid grid gap-5">
+                                            <div class="space-y-4">
+                                                <section
+                                                    class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                                                    <div
+                                                        class="inline-flex rounded-sm bg-blue-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-800">
+                                                        Stage 1
+                                                    </div>
+                                                    <h4 class="mt-4 text-base font-semibold text-slate-950">Getting
+                                                        Started</h4>
+                                                    <ul class="mt-3 space-y-2 text-sm text-slate-700">
+                                                        <li>1. Read the <a href="#"
+                                                                class="text-blue-700 underline underline-offset-2">starter
+                                                                code guide</a>.</li>
+                                                        <li>2. Check the <a href="#"
+                                                                class="text-blue-700 underline underline-offset-2">submission
+                                                                policy</a> and due date.</li>
+                                                        <li>3. Use the rubric table below when planning your response.
+                                                        </li>
+                                                    </ul>
+                                                </section>
+
+                                                <section
+                                                    class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                                                    <div
+                                                        class="inline-flex rounded-sm bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-800">
+                                                        Assessment
+                                                    </div>
+                                                    <h4 class="mt-4 text-base font-semibold text-slate-950">Marking
+                                                        Breakdown</h4>
+                                                    <div
+                                                        class="mt-4 overflow-hidden rounded-lg border border-slate-200">
+                                                        <table
+                                                            class="min-w-full divide-y divide-slate-200 text-sm text-slate-700">
+                                                            <thead class="bg-slate-100 text-slate-600">
+                                                                <tr>
+                                                                    <th class="px-4 py-3 text-left font-medium">Criteria
+                                                                    </th>
+                                                                    <th class="px-4 py-3 text-left font-medium">Weight
+                                                                    </th>
+                                                                    <th class="px-4 py-3 text-left font-medium">Notes
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="divide-y divide-slate-200 bg-white">
+                                                                <tr>
+                                                                    <td class="px-4 py-3">Problem framing</td>
+                                                                    <td class="px-4 py-3">30%</td>
+                                                                    <td class="px-4 py-3">Clear summary of the brief
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="px-4 py-3">Evidence and sources</td>
+                                                                    <td class="px-4 py-3">25%</td>
+                                                                    <td class="px-4 py-3">Use the linked references</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="px-4 py-3">Technical accuracy</td>
+                                                                    <td class="px-4 py-3">25%</td>
+                                                                    <td class="px-4 py-3">Match the required terminology
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </section>
+
+                                                <section
+                                                    class="demo-highlight rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                                                    <div
+                                                        class="inline-flex rounded-sm bg-rose-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-rose-800">
+                                                        Example
+                                                    </div>
+                                                    <h4 class="mt-4 text-base font-semibold text-slate-950">Reference
+                                                        Commands</h4>
+                                                    <p class="mt-3 text-sm text-slate-600">
+                                                        This is the kind of mixed content that gets messy with
+                                                        copy-paste but stays readable in Markdown.
+                                                    </p>
+                                                    <div
+                                                        class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-slate-900 p-4 font-mono text-sm text-slate-100">
+                                                        <p class="text-slate-400">// required commands</p>
+                                                        <p class="mt-2">python analyze_brief.py --input ass2.txt</p>
+                                                        <p>python generate_outline.py --format markdown</p>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                            <aside class="space-y-4">
+                                                <div
+                                                    class="demo-highlight rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+                                                    <p
+                                                        class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                                                        Linked references</p>
+                                                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                                        <li><a href="#"
+                                                                class="text-blue-700 underline underline-offset-2">rubric.pdf</a>
+                                                        </li>
+                                                        <li><a href="#"
+                                                                class="text-blue-700 underline underline-offset-2">starter-files.zip</a>
+                                                        </li>
+                                                        <li><a href="#"
+                                                                class="text-blue-700 underline underline-offset-2">faq
+                                                                and clarifications</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+                                                    <p
+                                                        class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                                                        Page clutter</p>
+                                                    <p class="mt-3 text-sm text-slate-600">
+                                                        Navigation, sidebars, and visual scaffolding are left behind
+                                                        while the useful structure becomes Markdown.
+                                                    </p>
+                                                </div>
+                                            </aside>
                                         </div>
-                                        <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Page clutter</p>
-                                            <p class="mt-3 text-sm text-slate-600">
-                                                Navigation, sidebars, and visual scaffolding are left behind while the useful structure becomes Markdown.
-                                            </p>
-                                        </div>
-                                    </aside>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div
-                        class="chat-page h-full min-h-0 overflow-hidden rounded-xl border border-slate-800 bg-[#212121] text-left text-[#ececec] shadow-[0_20px_70px_rgba(2,6,23,0.45)]">
-                        <aside class="hidden w-52 flex-shrink-0 flex-col border-r border-[#303030] bg-[#171717] px-3 py-3 md:flex">
-                            <div class="flex items-center justify-between">
-                                <button class="rounded-lg p-2 text-sm text-[#f4f4f4] hover:bg-[#2f2f2f]">
-                                    <span class="block h-4 w-4 rounded border border-[#8a8a8a]"></span>
-                                </button>
-                                <button class="rounded-lg p-2 text-[#c5c5c5] hover:bg-[#2f2f2f]" aria-label="New chat">
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                            d="M12 5v14M5 12h14" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <button class="mt-4 flex items-center gap-2 rounded-lg bg-[#2f2f2f] px-3 py-2 text-sm text-[#f4f4f4]">
-                                <span class="h-5 w-5 rounded-full bg-[#10a37f]"></span>
-                                <span>New chat</span>
-                            </button>
-                            <div class="mt-6 space-y-1 text-sm text-[#b4b4b4]">
-                                <p class="px-3 py-2 text-xs text-[#777]">Today</p>
-                                <p class="truncate rounded-lg px-3 py-2">Assignment brief plan</p>
-                                <p class="truncate rounded-lg px-3 py-2">Research summary</p>
-                            </div>
-                            <div class="mt-auto rounded-lg px-3 py-2 text-sm text-[#b4b4b4]">Dave</div>
-                        </aside>
+                            <div
+                                class="chat-page h-full min-h-0 overflow-hidden rounded-xl border border-slate-800 bg-[#212121] text-left text-[#ececec] shadow-[0_20px_70px_rgba(2,6,23,0.45)]">
+                                <aside
+                                    class="hidden w-52 flex-shrink-0 flex-col border-r border-[#303030] bg-[#171717] px-3 py-3 md:flex">
+                                    <div class="flex items-center justify-between">
+                                        <button class="rounded-lg p-2 text-sm text-[#f4f4f4] hover:bg-[#2f2f2f]">
+                                            <span class="block h-4 w-4 rounded border border-[#8a8a8a]"></span>
+                                        </button>
+                                        <button class="rounded-lg p-2 text-[#c5c5c5] hover:bg-[#2f2f2f]"
+                                            aria-label="New chat">
+                                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                                    d="M12 5v14M5 12h14" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <button
+                                        class="mt-4 flex items-center gap-2 rounded-lg bg-[#2f2f2f] px-3 py-2 text-sm text-[#f4f4f4]">
+                                        <span class="h-5 w-5 rounded-full bg-[#10a37f]"></span>
+                                        <span>New chat</span>
+                                    </button>
+                                    <div class="mt-6 space-y-1 text-sm text-[#b4b4b4]">
+                                        <p class="px-3 py-2 text-xs text-[#777]">Today</p>
+                                        <p class="truncate rounded-lg px-3 py-2">Assignment brief plan</p>
+                                        <p class="truncate rounded-lg px-3 py-2">Research summary</p>
+                                    </div>
+                                    <div class="mt-auto rounded-lg px-3 py-2 text-sm text-[#b4b4b4]">Dave</div>
+                                </aside>
 
-                        <section class="flex min-w-0 flex-1 flex-col bg-[#212121]">
-                            <header class="flex h-14 flex-shrink-0 items-center justify-between px-4">
-                                <button class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-[#ececec] hover:bg-[#2f2f2f]">
-                                    <span>ChatGPT</span>
-                                    <span class="text-[#a8a8a8]">5</span>
-                                    <svg class="h-4 w-4 text-[#a8a8a8]" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button class="rounded-full border border-[#4a4a4a] px-3 py-1.5 text-xs font-medium text-[#ececec]">
-                                    Share
-                                </button>
-                            </header>
+                                <section class="flex min-w-0 flex-1 flex-col bg-[#212121]">
+                                    <header class="flex h-14 flex-shrink-0 items-center justify-between px-4">
+                                        <button
+                                            class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-[#ececec] hover:bg-[#2f2f2f]">
+                                            <span>ChatGPT</span>
+                                            <span class="text-[#a8a8a8]">5</span>
+                                            <svg class="h-4 w-4 text-[#a8a8a8]" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            class="rounded-full border border-[#4a4a4a] px-3 py-1.5 text-xs font-medium text-[#ececec]">
+                                            Share
+                                        </button>
+                                    </header>
 
-                            <div class="demo-scroll min-h-0 flex-1 overflow-y-auto px-4">
-                                <div class="chat-empty flex h-full flex-col items-center justify-center text-center">
-                                    <h3 class="text-2xl font-semibold text-[#ececec]">What can I help with?</h3>
-                                </div>
-                                <div class="chat-message mx-auto max-w-3xl pb-28 pt-6">
-                                    <div class="demo-chat-message ml-auto max-w-2xl rounded-3xl bg-[#303030] px-5 py-4 text-sm leading-6 text-[#f4f4f4]">
-                                        <p>Here is my assignment brief in Markdown. Help me make a plan and point out any hidden requirements.</p>
-                                        <pre class="mt-4 max-h-[38dvh] overflow-auto rounded-xl border border-[#4a4a4a] bg-[#171717] p-4 text-xs leading-5 text-[#ececec]"># Assignment 2: AI Research Brief
+                                    <div class="demo-scroll min-h-0 flex-1 overflow-y-auto px-4">
+                                        <div
+                                            class="chat-empty flex h-full flex-col items-center justify-center text-center">
+                                            <h3 class="text-2xl font-semibold text-[#ececec]">What can I help with?</h3>
+                                        </div>
+                                        <div class="chat-message mx-auto max-w-3xl pb-28 pt-6">
+                                            <div
+                                                class="demo-chat-message ml-auto max-w-2xl rounded-3xl bg-[#303030] px-5 py-4 text-sm leading-6 text-[#f4f4f4]">
+                                                <p>Here is my assignment brief in Markdown. Help me make a plan and
+                                                    point out any hidden requirements.</p>
+                                                <pre
+                                                    class="mt-4 max-h-[38dvh] overflow-auto rounded-xl border border-[#4a4a4a] bg-[#171717] p-4 text-xs leading-5 text-[#ececec]"># Assignment 2: AI Research Brief
 ## Getting Started
 - Read the starter code guide
 - Check the submission policy
@@ -922,223 +979,237 @@
 | --- | --- | --- |
 | Problem framing | 30% | Clear summary |
 | Evidence and sources | 25% | Use linked references |</pre>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex-shrink-0 px-4 pb-5">
-                                <div class="mx-auto max-w-3xl rounded-3xl border border-[#3a3a3a] bg-[#303030] px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
-                                    <p class="text-sm text-[#b4b4b4]">
-                                        Paste your Markdown with a prompt
-                                    </p>
-                                    <div class="mt-4 flex items-center justify-between">
-                                        <div class="flex items-center gap-2 text-[#b4b4b4]">
-                                            <button class="flex h-8 w-8 items-center justify-center rounded-full border border-[#555]">+</button>
-                                            <button class="rounded-full border border-[#555] px-3 py-1.5 text-xs">Tools</button>
+                                            </div>
                                         </div>
-                                        <button class="flex h-8 w-8 items-center justify-center rounded-full bg-[#ececec] text-[#212121]">
-                                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 16.5a.75.75 0 01-.75-.75V5.56L6.03 8.78a.75.75 0 01-1.06-1.06l4.5-4.5a.75.75 0 011.06 0l4.5 4.5a.75.75 0 11-1.06 1.06l-3.22-3.22v10.19a.75.75 0 01-.75.75z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </button>
                                     </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
 
-                    <div
-                        class="demo-popup absolute right-3 top-12 w-[320px] max-w-[calc(100%-1.5rem)] min-h-[400px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100 shadow-[0_30px_90px_rgba(2,6,23,0.8)] sm:right-4 sm:top-16">
-                        <header class="px-5 py-4 flex items-center justify-between border-b border-slate-800">
-                            <div class="flex items-center gap-3">
-                                <img src="public/icons/icon16.svg" class="w-5 h-5 rounded-md opacity-100" alt="Logo" />
-                                <span class="text-sm font-medium tracking-wide text-slate-100">Markdownizer</span>
+                                    <div class="flex-shrink-0 px-4 pb-5">
+                                        <div
+                                            class="mx-auto max-w-3xl rounded-3xl border border-[#3a3a3a] bg-[#303030] px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+                                            <p class="text-sm text-[#b4b4b4]">
+                                                Paste your Markdown with a prompt
+                                            </p>
+                                            <div class="mt-4 flex items-center justify-between">
+                                                <div class="flex items-center gap-2 text-[#b4b4b4]">
+                                                    <button
+                                                        class="flex h-8 w-8 items-center justify-center rounded-full border border-[#555]">+</button>
+                                                    <button
+                                                        class="rounded-full border border-[#555] px-3 py-1.5 text-xs">Tools</button>
+                                                </div>
+                                                <button
+                                                    class="flex h-8 w-8 items-center justify-center rounded-full bg-[#ececec] text-[#212121]">
+                                                    <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 16.5a.75.75 0 01-.75-.75V5.56L6.03 8.78a.75.75 0 01-1.06-1.06l4.5-4.5a.75.75 0 011.06 0l4.5 4.5a.75.75 0 11-1.06 1.06l-3.22-3.22v10.19a.75.75 0 01-.75.75z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
-                        </header>
-
-                        <main class="flex flex-col p-6 items-center justify-center gap-6 relative">
-                            <button
-                                class="demo-idle relative z-10 w-32 h-32 rounded-full flex flex-col items-center justify-center bg-slate-900/90 text-indigo-400 ring-1 ring-indigo-500">
-                                <svg class="w-8 h-8 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                                <span class="mt-1 text-sm font-light text-indigo-100">start</span>
-                            </button>
 
                             <div
-                                class="demo-processing w-32 h-32 rounded-full items-center justify-center border-2 border-indigo-500/50 border-t-indigo-400 animate-spin">
+                                class="demo-popup absolute right-3 top-12 w-[320px] max-w-[calc(100%-1.5rem)] min-h-[400px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100 shadow-[0_30px_90px_rgba(2,6,23,0.8)] sm:right-4 sm:top-16">
+                                <header class="px-5 py-4 flex items-center justify-between border-b border-slate-800">
+                                    <div class="flex items-center gap-3">
+                                        <img src="public/icons/icon16.svg" class="w-5 h-5 rounded-md opacity-100"
+                                            alt="Logo" />
+                                        <span
+                                            class="text-sm font-medium tracking-wide text-slate-100">Markdownizer</span>
+                                    </div>
+                                </header>
+
+                                <main class="flex flex-col p-6 items-center justify-center gap-6 relative">
+                                    <button
+                                        class="demo-idle relative z-10 w-32 h-32 rounded-full flex flex-col items-center justify-center bg-slate-900/90 text-indigo-400 ring-1 ring-indigo-500">
+                                        <svg class="w-8 h-8 opacity-90" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                        <span class="mt-1 text-sm font-light text-indigo-100">start</span>
+                                    </button>
+
+                                    <div
+                                        class="demo-processing w-32 h-32 rounded-full items-center justify-center border-2 border-indigo-500/50 border-t-indigo-400 animate-spin">
+                                    </div>
+
+                                    <button
+                                        class="demo-success w-32 h-32 rounded-full items-center justify-center bg-slate-900/90 text-indigo-400 ring-1 ring-indigo-500">
+                                        <div class="flex flex-col items-center gap-1.5">
+                                            <svg class="w-8 h-8 opacity-90" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                            <span class="text-sm font-light text-indigo-100">start</span>
+                                        </div>
+                                    </button>
+
+                                    <div
+                                        class="text-center space-y-1 h-12 pt-2 flex flex-col items-center justify-start">
+                                        <h2 class="demo-idle text-sm font-light text-indigo-200">Ready to capture</h2>
+                                        <h2 class="demo-processing text-sm font-light text-indigo-200">Processing
+                                            content...</h2>
+                                        <h2
+                                            class="demo-success text-sm font-medium items-center justify-center gap-2 text-emerald-300 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            <span>Content extracted</span>
+                                        </h2>
+                                        <p class="demo-success text-[10px] font-mono mt-1 text-slate-400">3168 chars</p>
+                                    </div>
+
+                                    <div class="demo-actions flex-col gap-3 w-full">
+                                        <button
+                                            class="demo-copy-default w-full py-3 font-medium rounded-xl border transition-all flex items-center justify-center gap-2 bg-indigo-600/10 border-indigo-400/50 text-indigo-200">
+                                            Copy to Clipboard
+                                        </button>
+                                        <button
+                                            class="demo-copy-done w-full py-3 font-medium rounded-xl border transition-all items-center justify-center gap-2 bg-emerald-500/20 border-emerald-500/50 text-emerald-300">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            <span>Copied to Clipboard</span>
+                                        </button>
+                                        <button
+                                            class="w-full py-3 font-medium rounded-xl border transition-all flex items-center justify-center gap-2 bg-slate-800 border-slate-500 text-slate-300">
+                                            Download .md
+                                        </button>
+                                    </div>
+                                </main>
+
+                                <footer class="p-3 text-center border-t border-slate-800 bg-slate-950">
+                                    <label class="inline-flex items-center gap-2 text-xs text-slate-400 cursor-default">
+                                        <input type="checkbox" checked
+                                            class="rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-0" />
+                                        <span>Auto-download on success</span>
+                                    </label>
+                                </footer>
                             </div>
 
-                            <button
-                                class="demo-success w-32 h-32 rounded-full items-center justify-center bg-slate-900/90 text-indigo-400 ring-1 ring-indigo-500">
-                                <div class="flex flex-col items-center gap-1.5">
-                                    <svg class="w-8 h-8 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                    <span class="text-sm font-light text-indigo-100">start</span>
-                                </div>
-                            </button>
-
-                            <div class="text-center space-y-1 h-12 pt-2 flex flex-col items-center justify-start">
-                                <h2 class="demo-idle text-sm font-light text-indigo-200">Ready to capture</h2>
-                                <h2 class="demo-processing text-sm font-light text-indigo-200">Processing content...</h2>
-                                <h2
-                                    class="demo-success text-sm font-medium items-center justify-center gap-2 text-emerald-300 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40">
-                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Content extracted</span>
-                                </h2>
-                                <p class="demo-success text-[10px] font-mono mt-1 text-slate-400">3168 chars</p>
+                        </div>
+                        <div
+                            class="demo-chapter pointer-events-none absolute z-40 text-left text-2xl font-semibold leading-tight sm:text-3xl">
+                            <span id="demo-chapter-text"></span>
+                        </div>
+                        <div class="demo-cursor pointer-events-none absolute z-50 h-9 w-9">
+                            <div
+                                class="demo-tap-halo absolute inset-0 rounded-full border border-cyan-300/70 bg-cyan-300/10">
                             </div>
-
-                            <div class="demo-actions flex-col gap-3 w-full">
-                                <button
-                                    class="demo-copy-default w-full py-3 font-medium rounded-xl border transition-all flex items-center justify-center gap-2 bg-indigo-600/10 border-indigo-400/50 text-indigo-200">
-                                    Copy to Clipboard
-                                </button>
-                                <button
-                                    class="demo-copy-done w-full py-3 font-medium rounded-xl border transition-all items-center justify-center gap-2 bg-emerald-500/20 border-emerald-500/50 text-emerald-300">
-                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Copied to Clipboard</span>
-                                </button>
-                                <button
-                                    class="w-full py-3 font-medium rounded-xl border transition-all flex items-center justify-center gap-2 bg-slate-800 border-slate-500 text-slate-300">
-                                    Download .md
-                                </button>
+                            <div class="demo-click-ring absolute inset-0 rounded-full border border-cyan-200"></div>
+                            <div
+                                class="demo-tap-dot absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full">
                             </div>
-                        </main>
-
-                        <footer class="p-3 text-center border-t border-slate-800 bg-slate-950">
-                            <label class="inline-flex items-center gap-2 text-xs text-slate-400 cursor-default">
-                                <input type="checkbox" checked
-                                    class="rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-0" />
-                                <span>Auto-download on success</span>
-                            </label>
-                        </footer>
+                        </div>
                     </div>
-
-                </div>
-                <div
-                    class="demo-chapter pointer-events-none absolute z-40 text-left text-2xl font-semibold leading-tight sm:text-3xl">
-                    <span id="demo-chapter-text"></span>
-                </div>
-                <div class="demo-cursor pointer-events-none absolute z-50 h-9 w-9">
-                    <div class="demo-tap-halo absolute inset-0 rounded-full border border-cyan-300/70 bg-cyan-300/10"></div>
-                    <div class="demo-click-ring absolute inset-0 rounded-full border border-cyan-200"></div>
-                    <div class="demo-tap-dot absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
-                </div>
                 </div>
             </div>
-        </div>
-        <script>
-            const flowDemo = document.getElementById('flow-demo');
+            <script>
+                const flowDemo = document.getElementById('flow-demo');
 
-            if (flowDemo) {
-                const chapterText = document.getElementById('demo-chapter-text');
-                const chapter = flowDemo.querySelector('.demo-chapter');
-                const scaleQuery = window.matchMedia('(max-width: 1023px)');
-                const flowSteps = [
-                    { step: '0', duration: 1800, chapter: 'Open the page you need.', boxed: true },
-                    { step: '1', duration: 2000, chapter: 'Capture it with Markdownizer.', boxed: false },
-                    { step: '2', duration: 2300, chapter: 'Page structure becomes Markdown.', boxed: true },
-                    { step: '3', duration: 2300, chapter: 'Markdown is ready to use.', boxed: false },
-                    { step: '4', duration: 2100, chapter: 'Copy the clean Markdown.', boxed: false },
-                    { step: '5', duration: 1800, chapter: 'Move to your preferred LLM.', boxed: true },
-                    { step: '6', duration: 3600, chapter: 'Paste better context.', boxed: true }
-                ];
-                let flowIndex = 0;
-                let flowTimer;
-                let chapterTimer;
+                if (flowDemo) {
+                    const chapterText = document.getElementById('demo-chapter-text');
+                    const chapter = flowDemo.querySelector('.demo-chapter');
+                    const scaleQuery = window.matchMedia('(max-width: 1023px)');
+                    const flowSteps = [
+                        { step: '0', duration: 1800, chapter: 'Open the page you need.', boxed: true },
+                        { step: '1', duration: 2000, chapter: 'Capture it with Markdownizer.', boxed: false },
+                        { step: '2', duration: 2300, chapter: 'Page structure becomes Markdown.', boxed: true },
+                        { step: '3', duration: 2300, chapter: 'Markdown is ready to use.', boxed: false },
+                        { step: '4', duration: 2100, chapter: 'Copy the clean Markdown.', boxed: false },
+                        { step: '5', duration: 1800, chapter: 'Move to your preferred LLM.', boxed: true },
+                        { step: '6', duration: 3600, chapter: 'Paste better context.', boxed: true }
+                    ];
+                    let flowIndex = 0;
+                    let flowTimer;
+                    let chapterTimer;
 
-                function updateDemoScale() {
-                    if (!scaleQuery.matches) {
-                        flowDemo.style.removeProperty('--demo-scale');
-                        flowDemo.style.removeProperty('--demo-visual-width');
-                        flowDemo.style.removeProperty('--demo-visual-height');
-                        return;
-                    }
-
-                    const baseWidth = 1152;
-                    const baseHeight = 720;
-                    const horizontalGutter = window.matchMedia('(max-width: 639px)').matches ? 16 : 32;
-                    const availableWidth = Math.max(280, window.innerWidth - horizontalGutter);
-                    const availableHeight = Math.max(260, window.innerHeight - 32);
-                    const scale = Math.min(1, availableWidth / baseWidth, availableHeight / baseHeight);
-
-                    flowDemo.style.setProperty('--demo-scale', scale.toFixed(4));
-                    flowDemo.style.setProperty('--demo-visual-width', `${Math.floor(baseWidth * scale)}px`);
-                    flowDemo.style.setProperty('--demo-visual-height', `${Math.floor(baseHeight * scale)}px`);
-                }
-
-                function typeChapterText(text, onComplete) {
-                    if (!chapterText) {
-                        onComplete();
-                        return;
-                    }
-
-                    clearTimeout(chapterTimer);
-                    chapterText.textContent = '';
-
-                    let charIndex = 0;
-                    function typeNextCharacter() {
-                        chapterText.textContent = text.slice(0, charIndex);
-                        charIndex += 1;
-
-                        if (charIndex <= text.length) {
-                            chapterTimer = setTimeout(typeNextCharacter, 26);
-                        } else {
-                            chapterTimer = setTimeout(onComplete, 180);
+                    function updateDemoScale() {
+                        if (!scaleQuery.matches) {
+                            flowDemo.style.removeProperty('--demo-scale');
+                            flowDemo.style.removeProperty('--demo-visual-width');
+                            flowDemo.style.removeProperty('--demo-visual-height');
+                            return;
                         }
+
+                        const baseWidth = 1152;
+                        const baseHeight = 720;
+                        const horizontalGutter = window.matchMedia('(max-width: 639px)').matches ? 16 : 32;
+                        const availableWidth = Math.max(280, window.innerWidth - horizontalGutter);
+                        const availableHeight = Math.max(260, window.innerHeight - 32);
+                        const scale = Math.min(1, availableWidth / baseWidth, availableHeight / baseHeight);
+
+                        flowDemo.style.setProperty('--demo-scale', scale.toFixed(4));
+                        flowDemo.style.setProperty('--demo-visual-width', `${Math.floor(baseWidth * scale)}px`);
+                        flowDemo.style.setProperty('--demo-visual-height', `${Math.floor(baseHeight * scale)}px`);
                     }
 
-                    typeNextCharacter();
-                }
+                    function typeChapterText(text, onComplete) {
+                        if (!chapterText) {
+                            onComplete();
+                            return;
+                        }
 
-                updateDemoScale();
-                window.addEventListener('resize', updateDemoScale);
-                window.addEventListener('beforeunload', () => {
-                    clearTimeout(flowTimer);
-                    clearTimeout(chapterTimer);
-                    window.removeEventListener('resize', updateDemoScale);
-                });
+                        clearTimeout(chapterTimer);
+                        chapterText.textContent = '';
 
-                function runFlowStep() {
-                    const current = flowSteps[flowIndex];
-                    flowDemo.classList.add('is-typing');
-                    flowDemo.setAttribute('data-flow-step', current.step);
-                    if (chapter && chapterText) {
-                        chapter.classList.toggle('is-visible', Boolean(current.chapter));
-                        chapter.classList.toggle('is-boxed', Boolean(current.boxed));
-                        typeChapterText(current.chapter, () => flowDemo.classList.remove('is-typing'));
+                        let charIndex = 0;
+                        function typeNextCharacter() {
+                            chapterText.textContent = text.slice(0, charIndex);
+                            charIndex += 1;
+
+                            if (charIndex <= text.length) {
+                                chapterTimer = setTimeout(typeNextCharacter, 26);
+                            } else {
+                                chapterTimer = setTimeout(onComplete, 180);
+                            }
+                        }
+
+                        typeNextCharacter();
+                    }
+
+                    updateDemoScale();
+                    window.addEventListener('resize', updateDemoScale);
+                    window.addEventListener('beforeunload', () => {
+                        clearTimeout(flowTimer);
+                        clearTimeout(chapterTimer);
+                        window.removeEventListener('resize', updateDemoScale);
+                    });
+
+                    function runFlowStep() {
+                        const current = flowSteps[flowIndex];
+                        flowDemo.classList.add('is-typing');
+                        flowDemo.setAttribute('data-flow-step', current.step);
+                        if (chapter && chapterText) {
+                            chapter.classList.toggle('is-visible', Boolean(current.chapter));
+                            chapter.classList.toggle('is-boxed', Boolean(current.boxed));
+                            typeChapterText(current.chapter, () => flowDemo.classList.remove('is-typing'));
+                        } else {
+                            flowDemo.classList.remove('is-typing');
+                        }
+
+                        flowIndex = (flowIndex + 1) % flowSteps.length;
+                        flowTimer = setTimeout(runFlowStep, current.duration);
+                    }
+
+                    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        flowDemo.setAttribute('data-flow-step', '6');
+                        if (chapter && chapterText) {
+                            chapterText.textContent = flowSteps[6].chapter;
+                            chapter.classList.add('is-visible');
+                            chapter.classList.toggle('is-boxed', Boolean(flowSteps[6].boxed));
+                        }
                     } else {
-                        flowDemo.classList.remove('is-typing');
+                        flowTimer = setTimeout(runFlowStep, 600);
                     }
-
-                    flowIndex = (flowIndex + 1) % flowSteps.length;
-                    flowTimer = setTimeout(runFlowStep, current.duration);
                 }
-
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    flowDemo.setAttribute('data-flow-step', '6');
-                    if (chapter && chapterText) {
-                        chapterText.textContent = flowSteps[6].chapter;
-                        chapter.classList.add('is-visible');
-                        chapter.classList.toggle('is-boxed', Boolean(flowSteps[6].boxed));
-                    }
-                } else {
-                    flowTimer = setTimeout(runFlowStep, 600);
-                }
-            }
-        </script>
+            </script>
     </main>
 
     <!-- Browser Selection Modal -->
@@ -1170,8 +1241,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Chromium Card -->
                         <a href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga?utm_source=markdownizer_landing"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target="_blank" rel="noopener noreferrer"
                             class="group relative flex flex-col p-6 bg-slate-900 border border-slate-700 rounded-xl hover:border-brand-500 hover:bg-slate-900/80 transition-all duration-200">
                             <h4 class="text-lg font-semibold text-slate-100 mb-4 flex items-center gap-2">
                                 Chromium Browsers
@@ -1266,31 +1336,42 @@
                 <article class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/75">
                     <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
                         <div class="border-b border-slate-800 p-6 lg:border-b-0 lg:border-r lg:p-8">
-                            <div class="inline-flex rounded-full border border-rose-400/30 bg-rose-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-rose-300">
+                            <div
+                                class="inline-flex rounded-full border border-rose-400/30 bg-rose-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-rose-300">
                                 Raw copy-paste
                             </div>
                             <h3 class="mt-5 text-2xl font-bold text-slate-100">Copy-paste flattens the page.</h3>
                             <p class="mt-3 text-slate-400 leading-relaxed">
-                                A quick <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+A</code>,
+                                A quick <code
+                                    class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+A</code>,
                                 <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+C</code>,
-                                <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+V</code> often drops hierarchy, breaks tables, and turns code into
+                                <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Ctrl+V</code>
+                                often drops hierarchy, breaks tables, and turns code into
                                 plain text soup.
                             </p>
                         </div>
                         <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 lg:p-8">
                             <div class="rounded-xl border border-rose-400/20 bg-slate-950 p-4">
-                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-rose-300">Without Markdownizer</p>
-                                <div class="mt-4 rounded-lg bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-400">
-                                    <p>Assignment 2 AI Research Brief Getting Started Read the starter code guide Check submission policy Criteria Weight Notes Problem framing 30% Evidence 25% python analyze_brief.py...</p>
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-rose-300">Without
+                                    Markdownizer</p>
+                                <div
+                                    class="mt-4 rounded-lg bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-400">
+                                    <p>Assignment 2 AI Research Brief Getting Started Read the starter code guide Check
+                                        submission policy Criteria Weight Notes Problem framing 30% Evidence 25% python
+                                        analyze_brief.py...</p>
                                 </div>
                             </div>
                             <div class="rounded-xl border border-emerald-400/25 bg-slate-950 p-4">
                                 <div class="flex items-center justify-between gap-3">
-                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">With Markdownizer</p>
-                                    <p class="hidden text-[10px] uppercase tracking-[0.16em] text-slate-500 md:block">Drag to compare</p>
+                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">With
+                                        Markdownizer</p>
+                                    <p class="hidden text-[10px] uppercase tracking-[0.16em] text-slate-500 md:block">
+                                        Drag to compare</p>
                                 </div>
-                                <div class="split-preview relative mt-4 h-[24rem] overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
-                                    <div class="split-pane-code absolute overflow-hidden bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-200">
+                                <div
+                                    class="split-preview relative mt-4 h-[24rem] overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+                                    <div
+                                        class="split-pane-code absolute overflow-hidden bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-200">
                                         <p class="text-cyan-300"># Assignment 2: AI Research Brief</p>
                                         <p>## Getting Started</p>
                                         <p>- Read the starter code guide</p>
@@ -1304,7 +1385,8 @@
                                         <p>```</p>
                                     </div>
                                     <div class="split-pane-rendered absolute overflow-auto bg-white p-4 text-slate-900">
-                                        <h4 class="text-lg font-bold text-slate-950">Assignment 2: AI Research Brief</h4>
+                                        <h4 class="text-lg font-bold text-slate-950">Assignment 2: AI Research Brief
+                                        </h4>
                                         <h5 class="mt-4 text-sm font-semibold text-slate-800">Getting Started</h5>
                                         <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
                                             <li>Read the starter code guide</li>
@@ -1333,10 +1415,13 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <pre class="mt-4 overflow-hidden rounded-md bg-slate-900 p-3 font-mono text-xs leading-5 text-slate-100">python analyze_brief.py</pre>
+                                        <pre
+                                            class="mt-4 overflow-hidden rounded-md bg-slate-900 p-3 font-mono text-xs leading-5 text-slate-100">python analyze_brief.py</pre>
                                     </div>
-                                    <div class="split-divider absolute top-0 z-10 h-full w-0 -translate-x-1/2 cursor-ew-resize border-l border-cyan-300/80">
-                                        <div class="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/70 bg-slate-950 text-cyan-100 shadow-[0_0_24px_rgba(45,212,191,0.35)]">
+                                    <div
+                                        class="split-divider absolute top-0 z-10 h-full w-0 -translate-x-1/2 cursor-ew-resize border-l border-cyan-300/80">
+                                        <div
+                                            class="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/70 bg-slate-950 text-cyan-100 shadow-[0_0_24px_rgba(45,212,191,0.35)]">
                                             <span class="text-xs">&harr;</span>
                                         </div>
                                     </div>
@@ -1349,18 +1434,22 @@
                 <article class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/75">
                     <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
                         <div class="border-b border-slate-800 p-6 lg:border-b-0 lg:border-r lg:p-8">
-                            <div class="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">
+                            <div
+                                class="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">
                                 URL pasting
                             </div>
-                            <h3 class="mt-5 text-2xl font-bold text-slate-100">URLs fail when the LLM cannot access the page.</h3>
+                            <h3 class="mt-5 text-2xl font-bold text-slate-100">URLs fail when the LLM cannot access the
+                                page.</h3>
                             <p class="mt-3 text-slate-400 leading-relaxed">
-                                If a page needs a login, session, course portal, workspace account, or private docs access, a bare link may
+                                If a page needs a login, session, course portal, workspace account, or private docs
+                                access, a bare link may
                                 give the LLM nothing useful.
                             </p>
                         </div>
                         <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 lg:p-8">
                             <div class="rounded-xl border border-amber-400/20 bg-[#212121] p-4 text-[#ececec]">
-                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">Paste URL</p>
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">Paste URL
+                                </p>
                                 <div class="mt-4 rounded-2xl bg-[#303030] p-4 text-sm leading-6">
                                     <p>Can you summarize this assignment page?</p>
                                     <p class="mt-2 text-cyan-200">course.example.edu/assignments/brief</p>
@@ -1370,10 +1459,14 @@
                                 </div>
                             </div>
                             <div class="rounded-xl border border-emerald-400/25 bg-slate-950 p-4">
-                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">Use the open tab</p>
-                                <div class="mt-4 rounded-lg border border-slate-800 bg-slate-900 p-4 text-sm leading-6 text-slate-300">
-                                    <p class="font-semibold text-slate-100">Markdownizer captures what you can already see.</p>
-                                    <p class="mt-3">Open the page, run the extension, and paste clean Markdown into your preferred LLM.</p>
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">Use the
+                                    open tab</p>
+                                <div
+                                    class="mt-4 rounded-lg border border-slate-800 bg-slate-900 p-4 text-sm leading-6 text-slate-300">
+                                    <p class="font-semibold text-slate-100">Markdownizer captures what you can already
+                                        see.</p>
+                                    <p class="mt-3">Open the page, run the extension, and paste clean Markdown into your
+                                        preferred LLM.</p>
                                 </div>
                             </div>
                         </div>
@@ -1383,12 +1476,15 @@
                 <article class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/75">
                     <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
                         <div class="border-b border-slate-800 p-6 lg:border-b-0 lg:border-r lg:p-8">
-                            <div class="inline-flex rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">
+                            <div
+                                class="inline-flex rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">
                                 Screenshots
                             </div>
-                            <h3 class="mt-5 text-2xl font-bold text-slate-100">Screenshots make the LLM read pixels.</h3>
+                            <h3 class="mt-5 text-2xl font-bold text-slate-100">Screenshots make the LLM read pixels.
+                            </h3>
                             <p class="mt-3 text-slate-400 leading-relaxed">
-                                Vision models are useful, but they can miss table details, misread code, and cost more to process than clean text.
+                                Vision models are useful, but they can miss table details, misread code, and cost more
+                                to process than clean text.
                             </p>
                         </div>
                         <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 lg:p-8">
@@ -1411,11 +1507,15 @@
                             </div>
                             <div class="rounded-xl border border-emerald-400/25 bg-slate-950 p-4">
                                 <div class="flex items-center justify-between gap-3">
-                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">Markdown</p>
-                                    <p class="hidden text-[10px] uppercase tracking-[0.16em] text-slate-500 md:block">Drag to compare</p>
+                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                                        Markdown</p>
+                                    <p class="hidden text-[10px] uppercase tracking-[0.16em] text-slate-500 md:block">
+                                        Drag to compare</p>
                                 </div>
-                                <div class="split-preview relative mt-4 h-[18rem] overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
-                                    <div class="split-pane-code absolute overflow-hidden bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-200">
+                                <div
+                                    class="split-preview relative mt-4 h-[18rem] overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+                                    <div
+                                        class="split-pane-code absolute overflow-hidden bg-slate-900 p-4 font-mono text-xs leading-6 text-slate-200">
                                         <p class="text-cyan-300">## Marking Breakdown</p>
                                         <p>| Criteria | Weight |</p>
                                         <p>| --- | --- |</p>
@@ -1447,10 +1547,13 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <pre class="mt-4 overflow-hidden rounded-md bg-slate-900 p-3 font-mono text-xs leading-5 text-slate-100">python generate_outline.py</pre>
+                                        <pre
+                                            class="mt-4 overflow-hidden rounded-md bg-slate-900 p-3 font-mono text-xs leading-5 text-slate-100">python generate_outline.py</pre>
                                     </div>
-                                    <div class="split-divider absolute top-0 z-10 h-full w-0 -translate-x-1/2 cursor-ew-resize border-l border-cyan-300/80">
-                                        <div class="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/70 bg-slate-950 text-cyan-100 shadow-[0_0_24px_rgba(45,212,191,0.35)]">
+                                    <div
+                                        class="split-divider absolute top-0 z-10 h-full w-0 -translate-x-1/2 cursor-ew-resize border-l border-cyan-300/80">
+                                        <div
+                                            class="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/70 bg-slate-950 text-cyan-100 shadow-[0_0_24px_rgba(45,212,191,0.35)]">
                                             <span class="text-xs">&harr;</span>
                                         </div>
                                     </div>
@@ -1499,24 +1602,38 @@
             <div class="flex flex-col gap-5 text-center max-w-3xl mx-auto mb-14">
                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-500">How it works</p>
                 <h2 class="text-3xl font-extrabold text-slate-100">From page to prompt in three steps</h2>
-                <p class="text-slate-400 text-lg">The workflow is deliberately simple: open the page, capture the structure, and hand your LLM something more useful than plain copy-paste, raw HTML, or just sending the link.</p>
+                <p class="text-slate-400 text-lg">The workflow is deliberately simple: open the page, capture the
+                    structure, and hand your LLM something more useful than plain copy-paste, raw HTML, or just sending
+                    the link.</p>
             </div>
 
             <div class="grid gap-6 lg:grid-cols-3">
                 <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-8">
-                    <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">01</div>
+                    <div
+                        class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">
+                        01</div>
                     <h3 class="text-xl font-bold text-slate-100">Open the page you actually care about</h3>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Assignment briefs, API docs, grading rubrics, articles, and research pages work well because the structure matters as much as the text.</p>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Assignment briefs, API docs, grading rubrics,
+                        articles, and research pages work well because the structure matters as much as the text.</p>
                 </div>
                 <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-8">
-                    <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">02</div>
-                    <h3 class="text-xl font-bold text-slate-100">Capture a Markdown version that keeps the structure</h3>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer strips away menus, sidebars, and other page clutter, preserves useful hierarchy, and keeps code blocks, tables, and lists readable for downstream tools.</p>
+                    <div
+                        class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">
+                        02</div>
+                    <h3 class="text-xl font-bold text-slate-100">Capture a Markdown version that keeps the structure
+                    </h3>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer strips away menus, sidebars, and other
+                        page clutter, preserves useful hierarchy, and keeps code blocks, tables, and lists readable for
+                        downstream tools.</p>
                 </div>
                 <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-8">
-                    <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">03</div>
+                    <div
+                        class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-400">
+                        03</div>
                     <h3 class="text-xl font-bold text-slate-100">Paste it into your preferred LLM</h3>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Use the Markdown as context for planning, summarizing, code assistance, assignment help, or extracting requirements without relying on messy copy-paste, noisy HTML, or a bare URL.</p>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Use the Markdown as context for planning,
+                        summarizing, code assistance, assignment help, or extracting requirements without relying on
+                        messy copy-paste, noisy HTML, or a bare URL.</p>
                 </div>
             </div>
         </div>
@@ -1588,7 +1705,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center">
                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-500">Use cases</p>
-                <h2 class="mt-4 text-3xl font-extrabold text-slate-100">A Markdown web clipper for better LLM context</h2>
+                <h2 class="mt-4 text-3xl font-extrabold text-slate-100">A Markdown web clipper for better LLM context
+                </h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-400">
                     Markdownizer helps when you need to copy a webpage to ChatGPT, convert documentation to Markdown,
                     preserve assignment specs, or turn research pages into structured notes without losing tables,
@@ -1598,15 +1716,18 @@
             <div class="mt-10 grid gap-5 md:grid-cols-3">
                 <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left">
                     <h3 class="text-lg font-bold text-slate-100">Webpage to Markdown</h3>
-                    <p class="mt-3 text-sm leading-6 text-slate-400">Convert articles, docs, course pages, API references, and research pages into clean Markdown you can copy or download.</p>
+                    <p class="mt-3 text-sm leading-6 text-slate-400">Convert articles, docs, course pages, API
+                        references, and research pages into clean Markdown you can copy or download.</p>
                 </div>
                 <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left">
                     <h3 class="text-lg font-bold text-slate-100">Copy webpages to ChatGPT</h3>
-                    <p class="mt-3 text-sm leading-6 text-slate-400">Give ChatGPT, Claude, Gemini, and other LLMs structured text context instead of flattened copy-paste or inaccessible URLs.</p>
+                    <p class="mt-3 text-sm leading-6 text-slate-400">Give ChatGPT, Claude, Gemini, and other LLMs
+                        structured text context instead of flattened copy-paste or inaccessible URLs.</p>
                 </div>
                 <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left">
                     <h3 class="text-lg font-bold text-slate-100">Markdown for code and tables</h3>
-                    <p class="mt-3 text-sm leading-6 text-slate-400">Keep code blocks, tables, lists, headings, and links readable for prompts, notes, documentation, and coding workflows.</p>
+                    <p class="mt-3 text-sm leading-6 text-slate-400">Keep code blocks, tables, lists, headings, and
+                        links readable for prompts, notes, documentation, and coding workflows.</p>
                 </div>
             </div>
         </div>
@@ -1621,23 +1742,35 @@
             <div class="space-y-4 text-left">
                 <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6" open>
                     <summary class="cursor-pointer text-lg font-semibold text-slate-100">What is Markdownizer?</summary>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer is a Chrome extension that converts the current webpage into clean Markdown for LLM prompts, notes, docs, and coding workflows.</p>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer is a Chrome extension that converts the
+                        current webpage into clean Markdown for LLM prompts, notes, docs, and coding workflows.</p>
                 </details>
                 <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">How is Markdownizer different from copy-paste?</summary>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Raw copy-paste often flattens headings, tables, lists, and code. Markdownizer preserves useful page structure as Markdown so the result is easier for humans and LLMs to read.</p>
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">How is Markdownizer different
+                        from copy-paste?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Raw copy-paste often flattens headings, tables,
+                        lists, and code. Markdownizer preserves useful page structure as Markdown so the result is
+                        easier for humans and LLMs to read.</p>
                 </details>
                 <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Can Markdownizer capture pages ChatGPT cannot open?</summary>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer works from the page you can already view in your browser. That can help when ChatGPT, Claude, Gemini, or another LLM cannot open a URL because it is behind a login, course portal, workspace account, or private session.</p>
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Can Markdownizer capture pages
+                        ChatGPT cannot open?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer works from the page you can already view
+                        in your browser. That can help when ChatGPT, Claude, Gemini, or another LLM cannot open a URL
+                        because it is behind a login, course portal, workspace account, or private session.</p>
                 </details>
                 <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Does sensitive text on my page get extracted?</summary>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer extracts the current page only when you start it. Readable page text is tokenized locally before conversion, the backend receives a structural skeleton, and the final readable Markdown is rebuilt locally in your browser.</p>
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Does sensitive text on my page
+                        get extracted?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Markdownizer extracts the current page only when you
+                        start it. Readable page text is tokenized locally before conversion, the backend receives a
+                        structural skeleton, and the final readable Markdown is rebuilt locally in your browser.</p>
                 </details>
                 <details class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Can I download the Markdown file?</summary>
-                    <p class="mt-3 text-slate-400 leading-relaxed">Yes. After conversion succeeds, you can copy the Markdown to your clipboard or download it as a `.md` file.</p>
+                    <summary class="cursor-pointer text-lg font-semibold text-slate-100">Can I download the Markdown
+                        file?</summary>
+                    <p class="mt-3 text-slate-400 leading-relaxed">Yes. After conversion succeeds, you can copy the
+                        Markdown to your clipboard or download it as a `.md` file.</p>
                 </details>
             </div>
         </div>
@@ -1695,7 +1828,8 @@
                         class="text-slate-400 hover:text-brand-500 transition-colors text-sm">support@markdownizer.thambolo.com</a>
                     <div class="flex flex-wrap justify-start gap-x-6 gap-y-2 md:justify-end">
                         <a href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga?utm_source=markdownizer_landing_footer"
-                            target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-300 text-sm">Chrome Web Store</a>
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-slate-500 hover:text-slate-300 text-sm">Chrome Web Store</a>
                         <a href="#use-cases" class="text-slate-500 hover:text-slate-300 text-sm">Use Cases</a>
                         <a href="#faq" class="text-slate-500 hover:text-slate-300 text-sm">FAQ</a>
                         <a href="privacy.html" class="text-slate-500 hover:text-slate-300 text-sm">Privacy Policy</a>
