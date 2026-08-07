@@ -5,3 +5,6 @@ Thumbs.db
 # Superpowers workspace state (public repo: planning artifacts stay ignored)
 .superpowers/
 docs/superpowers/
+
+# Repo instructions (private, local only — never commit)
+AGENTS.md
