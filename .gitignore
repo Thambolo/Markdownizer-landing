@@ -1,3 +1,7 @@
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Superpowers workspace state (public repo: planning artifacts stay ignored)
+.superpowers/
+docs/superpowers/
