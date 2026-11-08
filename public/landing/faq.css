@@ -1,0 +1,9 @@
+.faq-section summary{display:flex;align-items:center;justify-content:space-between;gap:24px;list-style:none;line-height:1.5;transition:color 180ms ease}
+.faq-section summary::-webkit-details-marker{display:none}
+.faq-section summary::marker{content:''}
+.faq-section summary:hover{color:#fff}
+.faq-chevron{flex-shrink:0;color:#aaa59d;transition:transform 280ms cubic-bezier(.22,1,.36,1),color 180ms ease}
+.faq-section details[data-expanded="true"] .faq-chevron{transform:rotate(180deg);color:#fffcf2}
+.faq-section details p{padding-right:44px}
+@media(max-width:760px){.faq-section summary{gap:18px}.faq-section details p{padding-right:0}}
+@media(prefers-reduced-motion:reduce){.faq-section summary,.faq-chevron{transition:none}}

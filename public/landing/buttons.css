@@ -1,0 +1,11 @@
+/* One text-button style, matching the hero. Bare carousel chevrons are intentional. */
+.button,.hero header .button,.hero .hero-content>.button,.story-navigation>.button,.closing .button,.movie-controls .button{
+  display:inline-flex;align-items:center;justify-content:center;gap:16px;
+  min-height:50px;padding:0 23px;border:0;border-radius:2px;
+  background:#fff;color:#151515;font:600 13px/1 'Inter Display',Arial,sans-serif;
+  text-decoration:none;white-space:nowrap;cursor:pointer;
+}
+.button .button-icon{display:block;width:14px;height:14px;flex:0 0 14px;object-fit:contain;margin:0}
+.button:hover,.hero header .button:hover,.hero .hero-content>.button:hover,.story-navigation>.button:hover,.closing .button:hover,.movie-controls .button:hover{background:#ccc5b9;color:#151515;box-shadow:inset 0 0 0 1px #25242235,0 0 22px #fffcf208}
+.button:active,.movie-controls .button:active{box-shadow:inset 0 1px 3px #25242226}
+@media(max-width:400px){.hero header .button{padding-left:14px;padding-right:14px;gap:10px}.movie-controls{align-items:center}}

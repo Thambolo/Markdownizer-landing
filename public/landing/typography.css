@@ -1,0 +1,73 @@
+/* Screen Movie reference: Inter Display, 700-weight headlines,
+   1:1 headline line-height, and -0.05em headline tracking.
+   Local Latin font subsets. See fonts/LICENSE.txt for the Inter license. */
+@font-face {
+  font-family: 'Inter Display';
+  src: url('fonts/InterDisplay-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Display';
+  src: url('fonts/InterDisplay-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Display';
+  src: url('fonts/InterDisplay-SemiBold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Display';
+  src: url('fonts/InterDisplay-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+body { --font-sans: 'Inter Display', Arial, sans-serif; font-family: var(--font-sans); }
+button, .arrow, .eyebrow, .floating-caption, .floating-bar,
+.floating-foot, .demo-caption, .sample-brand, .source-article h3,
+.source-article p, .source-article li, .document h3,
+.destinations span:nth-child(2), .destinations span:last-child,
+.step .number, .concept-tag { font-family: var(--font-sans); }
+
+.hero h1, .section-head h2, .feature-copy h2, .closing h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.hero h1 { font-size: clamp(64px, 6.7vw, 96px); }
+.section-head h2, .feature-copy h2 { font-size: clamp(40px, 4.2vw, 60px); }
+.closing h2 { font-size: clamp(44px, 5.6vw, 80px); }
+.hero h1 em, .feature-copy h2 em, .closing h2 em {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  letter-spacing: inherit;
+}
+.source-article h3, .document h3, .step h3, .privacy h3 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.hero .intro, .feature-copy p { font-size: 16px; line-height: 1.5; }
+.section-head p { font-size: 15px; line-height: 1.5; }
+.eyebrow { font-weight: 600; letter-spacing: 0.08em; }
+.destinations span:nth-child(2) { font-weight: 600; }
+.source-article p, .source-article li { font-size: 11px; line-height: 1.6; }
+.floating-caption, .demo-caption { letter-spacing: 0.05em; }
+.floating-caption { top: 530px; }
+
+@media (max-width: 760px) {
+  .hero h1 { font-size: clamp(58px, 10.8vw, 80px); }
+  .section-head h2, .feature-copy h2 { font-size: 40px; }
+  .closing h2 { font-size: 46px; }
+  .hero .intro, .feature-copy p, .section-head p { font-size: 14px; }
+  .floating-caption { top: auto; }
+}

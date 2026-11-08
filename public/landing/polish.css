@@ -1,0 +1,19 @@
+/* Small, consistent responses. Scroll-driven transforms remain immediate. */
+:root{--feedback-duration:180ms;--panel-duration:280ms;--feedback-ease:cubic-bezier(.22,1,.36,1)}
+.button{transition:background-color var(--feedback-duration) ease,box-shadow var(--feedback-duration) ease,transform 100ms var(--feedback-ease)}
+.button:hover{box-shadow:inset 0 0 0 1px #25242235,0 0 22px #fffcf208}
+.button.orange:hover{box-shadow:inset 0 0 0 1px #fffcf24d,0 0 22px #eb5e2814}
+.button:active{transform:translateY(1px);box-shadow:inset 0 1px 3px #25242226}
+.movie-controls button,.story-side-control{transition:color var(--feedback-duration) ease,opacity var(--feedback-duration) ease,box-shadow var(--feedback-duration) ease}
+.movie-controls button:hover{color:#fff;box-shadow:inset 0 0 0 1px #ccc5b94d}
+.movie-controls button:active{box-shadow:inset 0 1px 4px #0005}
+nav a,.hero-note a{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-size:0% 1px;background-position:left bottom;padding-bottom:3px;text-decoration:none;transition:background-size var(--feedback-duration) var(--feedback-ease),color var(--feedback-duration) ease}
+nav a:hover,.hero-note a:hover,nav a:focus-visible,.hero-note a:focus-visible{background-size:100% 1px;text-decoration:none;color:#fffcf2}
+.privacy p a,.faq-section details p a{text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:#ccc5b970;transition:text-decoration-color var(--feedback-duration) ease,color var(--feedback-duration) ease}
+.privacy p a:hover,.faq-section details p a:hover{color:#fffcf2;text-decoration-color:currentColor}
+.context-frame .compare-card{border-color:#ffffff20;transition:border-color var(--panel-duration) ease,box-shadow var(--panel-duration) ease}
+.context-frame.is-focused .compare-card{border-color:#b58d6f59;box-shadow:inset 0 0 0 1px #eb5e2809}
+.context-frame.is-focused .preserved-card{border-color:#b58d6f80}
+.faq-chevron{transition:transform var(--panel-duration) var(--feedback-ease),color var(--feedback-duration) ease}
+@media(hover:none){.button:hover{box-shadow:none}.button.orange:hover{box-shadow:none}nav a:hover,.hero-note a:hover{background-size:0% 1px}.movie-controls button:hover{box-shadow:none}}
+@media(prefers-reduced-motion:reduce){.button,.movie-controls button,.story-side-control,nav a,.hero-note a,.privacy p a,.faq-section details p a,.context-frame .compare-card,.faq-chevron{transition:none}.button:active{transform:none}}

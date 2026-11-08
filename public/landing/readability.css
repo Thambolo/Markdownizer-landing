@@ -1,0 +1,43 @@
+/* Focused comparison layout. General typography comes from the original styles. */
+.product-markdown{overflow-wrap:anywhere}.product-actions{flex-wrap:wrap}.hero-copy,.prompt-copy{min-height:44px}.prompt-attachment{gap:10px}.source-brief .brief-code{white-space:pre-wrap;overflow-wrap:anywhere}.deck-card{box-shadow:none}.hero-deck{align-items:start}.deck-left,.deck-right{transform:none}
+.conversion-story{height:280vh}.story-sticky{padding-top:28px;padding-bottom:30px}.story-navigation{gap:20px}.frame-controls{display:flex;align-items:center;gap:22px;color:#ccc5b9}.frame-controls button{width:46px;height:46px;border-radius:50%;background:#171717;color:#fffcf2;border:1px solid #444;font-size:22px!important}.frame-controls button:disabled{opacity:.35;cursor:default}.frame-controls span{font-size:16px}.story-heading{padding:45px 0 40px;min-height:0}.story-heading h2{font-size:clamp(36px,4.5vw,64px);max-width:1000px;margin:0 auto;line-height:1.05}.story-frames{max-width:1080px;margin:auto}.context-frame{display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:300px}.context-frame[hidden]{display:none!important}.compare-card{border:1px solid #333;border-radius:12px;overflow:hidden;min-width:0}.compare-card>h3{font-size:16px;font-weight:500;margin:0;padding:20px 26px;border-bottom:1px solid #333}.plain-card{background:#141414;color:#ccc5b9}.preserved-card{background:#f1eee7;color:#252422}.preserved-card>h3{border-color:#d7d0c4}.plain-card>p,.structured-example{padding:32px;margin:0}.plain-card>p{font-size:22px!important;line-height:1.7;overflow-wrap:anywhere}.structured-example h4{font-size:27px;letter-spacing:-.03em;margin:0 0 24px;font-weight:600}.structured-example ul{padding-left:22px;margin:0}.structured-example li,.structured-example p{font-size:22px!important;line-height:1.7}.structured-example li+li{margin-top:12px}.structured-example table{width:100%;border-collapse:collapse;text-align:left}.structured-example td,.structured-example th{font-size:22px!important;padding:15px 0;border-bottom:1px solid #cfc7ba}.structured-example th{font-weight:600}.structured-example pre{margin:0;background:#e2dcd0;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;border-radius:5px}.structured-example code{font-size:19px!important;line-height:1.6}.story-progress{max-width:1080px;margin:40px auto 0}.example-tools{padding-top:30px;text-align:center}.example-tools>p{color:#aaa59d;line-height:1.7;max-width:650px;margin:0 auto 20px}.example-tools>div{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.example-tools button{background:#171717;color:#fffcf2;border:1px solid #555;border-radius:6px;padding:13px 20px}.example-tools #story-status{margin:15px auto;min-height:24px}.markdown-source{text-align:left}.story-panel{overflow:visible}.story-navigation>.button{font-size:16px}.prompt-frame .plain-card>p{font-size:22px!important}.prompt-frame .structured-example>p{margin:0}
+@media(max-width:760px),(max-height:790px){.conversion-story{height:auto}.story-sticky{position:static;padding-top:15px}.story-navigation{justify-content:space-between;flex-wrap:nowrap}.frame-controls{gap:12px}.story-heading{padding:35px 0 28px}.story-heading h2{font-size:36px}.context-frame{grid-template-columns:1fr;gap:18px;min-height:0}.compare-card>h3{padding:18px 22px}.plain-card>p,.structured-example{padding:25px}.plain-card>p,.structured-example li,.structured-example p,.structured-example td,.structured-example th{font-size:20px!important}.structured-example h4{font-size:25px;margin-bottom:18px}.structured-example code{font-size:16px!important}.story-progress{display:block;margin-top:28px}.example-tools{padding-top:25px}.hero header .brand{gap:7px}.hero header .button{padding:0 10px}.hero header .arrow{display:none}.hero header .brand-logo{width:26px;height:26px}.product-bar{flex-wrap:wrap;gap:10px}.product-actions{gap:12px}.product-actions button{width:100%;justify-content:center}.source-brief{padding:20px!important}.source-brief td,.source-brief th{padding:10px 0}.hero-deck{grid-template-columns:repeat(3,94%)}footer{flex-direction:column}footer small{text-align:left;max-width:none}.destinations{gap:20px}.prompt-attachment{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.conversion-story{height:auto}.story-sticky{position:static}.frame-controls{display:none}.story-frames{display:grid;gap:30px}.context-frame[hidden]{display:grid!important}.story-progress{display:none}}
+
+/* A short desktop viewport is still desktop. Keep the story pinned and readable. */
+@media(min-width:761px){
+  .conversion-story{height:280vh}
+  .story-sticky{position:sticky;top:0;padding-top:20px;padding-bottom:20px}
+  .story-navigation{justify-content:space-between;flex-wrap:nowrap}
+  .context-frame{grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:300px}
+  .story-progress{display:block}
+}
+/* Bound the central preview itself, not just the page's overflow. */
+.hero-deck{width:calc(100vw - 48px);max-width:1400px;margin-left:calc((100% - min(1400px,100vw - 48px))/2);grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) minmax(0,1fr);gap:20px}
+.deck-card,.product-bar,#hero-rendered{min-width:0;max-width:100%}
+.product-bar{flex-wrap:wrap;overflow-wrap:anywhere}
+.product-brand{min-width:0;flex-wrap:wrap}
+.source-brief table{table-layout:fixed}
+.source-brief td,.source-brief th{overflow-wrap:anywhere}
+.source-brief pre{max-width:100%;overflow-wrap:anywhere}
+@media(min-width:761px) and (max-height:700px){
+  .story-sticky{padding-top:16px;padding-bottom:16px}
+  .story-heading{padding:24px 0}
+  .story-heading h2{font-size:38px}
+  .context-frame{min-height:245px;gap:20px}
+  .compare-card>h3{padding:16px 22px}
+  .plain-card>p,.structured-example{padding:22px}
+  .plain-card>p,.structured-example li,.structured-example p,.structured-example td,.structured-example th{font-size:20px!important;line-height:1.6}
+  .structured-example h4{font-size:25px;margin-bottom:16px}
+  .structured-example td,.structured-example th{padding:10px 0}
+  .structured-example code{font-size:17px!important}
+  .story-progress{margin-top:24px}
+}
+@media(max-width:760px){
+  .hero-deck{width:calc(100% + 44px);max-width:none;margin-left:-22px;grid-template-columns:repeat(3,calc(100vw - 64px));gap:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .conversion-story{height:auto}
+  .story-sticky{position:static}
+  .story-progress{display:none}
+}

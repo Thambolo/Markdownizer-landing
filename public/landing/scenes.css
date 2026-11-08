@@ -1,0 +1,127 @@
+/* Each chapter fills a viewport, but can grow for content, zoom, or open FAQs. */
+html{scroll-snap-type:none}
+.scene{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:center;margin-top:0;margin-bottom:0;padding-top:64px;padding-bottom:64px;scroll-snap-align:start;scroll-snap-stop:normal}
+.scene-content{width:100%;transform:translateY(var(--scene-y,0px)) scale(var(--scene-scale,1));opacity:var(--scene-opacity,1);filter:brightness(var(--scene-brightness,1))}
+.hero.scene{padding:0;min-height:100svh;display:block}
+.hero.scene>.hero-art{height:100%;object-position:65% center}
+.hero.scene::before{height:100%;background:linear-gradient(180deg,#0002,#0001 60%,#000 100%)}
+.hero.scene>.wrap{min-height:100svh;display:flex;flex-direction:column}
+.hero.scene header{flex-shrink:0}
+.hero.scene .hero-content{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:55px 0 110px}
+.hero.scene .hero-content h1{margin-top:0}
+.hero.scene .hero-note{margin-bottom:0}
+.demo-scene .hero-movie{margin:0 auto;width:100%;max-width:1120px}
+.demo-scene .context-strip{border:0;margin:0;padding:24px 0 0;display:flex;justify-content:center}
+.demo-scene .destinations{gap:34px;flex-wrap:wrap}
+.conversion-story{height:500svh;margin-top:0;scroll-snap-align:none}
+.story-sticky{min-height:100svh;position:sticky;top:0;display:flex;flex-direction:column;justify-content:center;padding-top:32px;padding-bottom:32px;box-sizing:border-box}
+.story-navigation{flex-shrink:0}
+.story-heading{padding-top:clamp(25px,5vh,55px);padding-bottom:clamp(25px,5vh,55px)}
+.story-frames{width:100%;margin-left:auto;margin-right:auto}
+.story-progress{width:100%;margin-top:32px}
+.access-section.scene,.use-section.scene,.faq-section.scene{padding-top:64px;padding-bottom:64px}
+.access-section .scene-content>p{max-width:580px;margin:26px auto 0;font-size:18px;line-height:1.7;color:#ccc5b9}
+.access-section .scene-content>.access-note{max-width:520px;font-size:13px;margin-top:25px;color:#aaa59d}
+.use-section .use-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:100%;gap:36px;margin-top:60px;margin-bottom:0}
+.use-section .use-items article{padding-top:24px;padding-bottom:0}
+.use-section .use-items h3{font-size:26px}
+.use-section .use-items p{font-size:17px}
+.use-section .scene-content>h2,.faq-section .scene-content>h2{font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-.05em;margin-top:0;font-weight:700}
+.privacy.scene{border:0;padding-top:64px;padding-bottom:64px;gap:0}
+.privacy .scene-content>div h3{font-size:clamp(38px,4.5vw,64px);line-height:1.05;letter-spacing:-.05em;max-width:850px;margin:0 auto 28px}
+.privacy .scene-content>p{font-size:17px;max-width:590px;line-height:1.75;margin:auto;color:#ccc5b9}
+.faq-section .scene-content>h2{margin-bottom:32px}
+.faq-section details{width:100%}
+.closing.scene{padding:64px 24px}
+.closing .scene-content>.button{margin-top:0}
+footer{scroll-snap-align:end}
+@media(min-width:761px) and (max-height:700px){
+  .scene,.access-section.scene,.use-section.scene,.privacy.scene,.faq-section.scene,.closing.scene{padding-top:35px;padding-bottom:35px}
+  .hero.scene{padding:0}
+  .hero.scene header{height:74px}
+  .hero.scene .hero-content{padding-top:25px;padding-bottom:70px}
+  .demo-scene .movie-stage{height:375px}
+  .demo-scene .hero-movie .movie-chrome{height:46px}
+  .demo-scene .movie-controls{padding-top:12px;padding-bottom:12px}
+  .demo-scene .context-strip{padding-top:16px}
+  .story-sticky{padding-top:20px;padding-bottom:20px}
+  .story-heading{padding:25px 0}
+  .story-progress{margin-top:24px}
+}
+@media(max-width:760px){
+  html{scroll-snap-type:none}
+  .scene,.access-section.scene,.use-section.scene,.privacy.scene,.faq-section.scene,.closing.scene{min-height:100svh;padding-top:48px;padding-bottom:48px}
+  .hero.scene{padding:0}
+  .hero.scene .hero-content{padding-top:35px;padding-bottom:100px}
+  .hero.scene>.hero-art{object-position:60% center}
+  .demo-scene .context-strip{padding-top:25px}
+  .demo-scene .destinations{gap:22px}
+  .conversion-story{height:auto;margin:0}
+  .story-sticky{position:static;min-height:100svh;padding-top:35px;padding-bottom:35px}
+  .story-heading{padding:30px 0}
+  .use-section .use-items{grid-template-columns:1fr;gap:26px;max-width:440px;margin-top:35px;margin-left:auto;margin-right:auto}
+  .use-section .use-items article{padding-top:20px}
+  .access-section .scene-content>p,.privacy .scene-content>p{font-size:16px;line-height:1.7}
+  .privacy .scene-content>div h3{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;scroll-snap-type:none}
+  .scene-content{opacity:1!important;transform:none!important}
+  .conversion-story{height:auto}
+  .story-sticky{position:static}
+  .context-frame{min-height:70svh;align-content:center}
+}
+
+/* A continuous horizontal track avoids display swaps and threshold flicker. */
+.story-frames{overflow:hidden;margin:0 auto;max-width:1080px}
+.story-track{display:flex;align-items:stretch;width:100%;will-change:transform}
+.story-track{transition:none}
+.story-track>.context-frame{transform:scale(.92);opacity:.35;transform-origin:center;transition:none}
+.story-track>.context-frame.is-focused{transform:scale(1);opacity:1}
+.story-track>.context-frame{flex:0 0 100%;width:100%;min-width:0;padding:0 12px;box-sizing:border-box}
+.story-sticky{padding-top:100px;padding-bottom:90px}
+.story-navigation{position:absolute;top:30px;left:48px;right:48px}
+.story-heading{padding:0 0 clamp(20px,3vh,32px);min-height:0}
+.story-heading h2{margin:0 auto;line-height:1.1}
+.story-heading #story-description{max-width:640px;min-height:3.2em;margin:12px auto 0;font-size:16px;line-height:1.6;color:#ccc5b9}
+.story-progress{position:absolute;bottom:35px;left:60px;right:60px;width:auto;margin:0}
+@media(min-width:761px) and (max-height:700px){
+  .story-sticky{padding-top:90px;padding-bottom:60px}
+  .story-navigation{top:18px}
+  .story-heading{padding:0 0 22px}
+  .story-progress{bottom:25px}
+}
+@media(max-width:760px){
+  .story-sticky{padding-top:32px;padding-bottom:32px}
+  .story-navigation{position:static;margin-bottom:30px}
+  .story-heading{padding:0 0 25px}
+  .story-track{display:block;transform:none!important;will-change:auto}
+  .story-track>.context-frame{transform:none;opacity:1;transition:none}
+  .story-track>.context-frame{padding:0}
+  .story-progress{position:static;width:100%;margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  .story-track{display:grid;gap:30px;transform:none!important;will-change:auto}
+  .story-track,.story-track>.context-frame{transition:none;transform:none;opacity:1}
+  .story-navigation{position:static;margin-bottom:30px}
+  .story-sticky{padding-top:40px;padding-bottom:40px}
+  .story-progress{display:none}
+}
+
+.story-navigation{justify-content:flex-end}
+.story-carousel{position:relative;width:100%;max-width:1080px;margin:0 auto}
+.story-side-control{position:absolute;top:50%;transform:translateY(-50%);z-index:2;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:0;background:transparent;color:#fffcf2;cursor:pointer;transition:opacity .2s}
+.story-previous{left:-38px}.story-next{right:-38px}
+.story-side-control:hover:not(:disabled){opacity:.7}
+.story-side-control:disabled{opacity:.25;cursor:default}
+.story-side-control svg{display:block;flex-shrink:0}
+@media(max-width:760px){.story-side-control{width:36px;height:44px}.story-previous{left:-20px}.story-next{right:-20px}}
+@media(prefers-reduced-motion:reduce){.story-side-control{display:none}}
+
+.use-section.scene{height:400svh;display:block;padding-top:0;padding-bottom:0}
+.use-section .use-sticky{position:sticky;top:0;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:60px;padding-bottom:60px;box-sizing:border-box}
+.use-section .use-items{overflow:hidden;padding-bottom:5px}
+.use-section .use-items article{will-change:transform,opacity}
+@media(max-width:760px){.use-section.scene{height:auto}.use-section .use-sticky{position:static;padding-top:48px;padding-bottom:48px}.use-section .use-items article{will-change:auto}}
+@media(prefers-reduced-motion:reduce){.use-section.scene{height:auto}.use-section .use-sticky{position:static}.use-section .use-items article{opacity:1!important;transform:none!important;will-change:auto}}
+@media(prefers-reduced-motion:reduce){.scene-content,.story-track>.context-frame{filter:none!important}}
