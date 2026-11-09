@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Split a Long Document into AI Prompts - Markdownizer</title>
+  <meta name="description" content="Split long documents at meaningful boundaries, keep section IDs and source details, and synthesize only after reviewing each chunk.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/blog/split-long-documents-ai-prompts.html"><link rel="icon" type="image/svg+xml" href="../public/icons/icon16.svg">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Markdownizer"><meta property="og:title" content="How do I split a long document into smaller AI prompts?"><meta property="og:description" content="A chunking workflow that keeps section boundaries, qualifications, source IDs, and later synthesis connected."><meta property="og:url" content="https://markdownizer.thambolo.com/blog/split-long-documents-ai-prompts.html"><meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Split a long document into smaller AI prompts"><meta name="twitter:description" content="Chunk by structure and keep a traceable path back to the original."><meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <link rel="stylesheet" href="../public/landing/typography.css"><link rel="stylesheet" href="../public/landing/buttons.css"><link rel="stylesheet" href="../public/landing/features.css"><link rel="stylesheet" href="../public/landing/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://markdownizer.thambolo.com/blog/split-long-documents-ai-prompts.html","headline":"How do I split a long document into smaller AI prompts?","description":"A chunking workflow that keeps section boundaries, qualifications, source IDs, and later synthesis connected.","author":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"publisher":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"isPartOf":{"@type":"Blog","url":"https://markdownizer.thambolo.com/blog.html","name":"Markdownizer Blog"},"image":"https://markdownizer.thambolo.com/public/landing/blog-hero.webp"}</script>
+</head>
+<body class="blog-page article-page">
+  <header class="features-header features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../features.html">Features</a><a href="../blog.html">Blog</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="../public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+  <nav class="blog-breadcrumb features-wrap" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blog.html">Blog</a></nav>
+  <main class="article-layout features-wrap"><article>
+    <header class="article-header"><p class="blog-category">Document workflow</p><h1>How do I split a long document into smaller AI prompts?</h1><p class="article-deck">Divide the document by meaning, keep each part traceable to its source, and plan the synthesis before sending the first chunk.</p></header>
+    <div class="article-body">
+      <p>Split a long document into sections that make sense on their own, such as chapters, numbered requirements, or topic headings. Label each section with the document title, version, and section ID, keep nearby definitions and exceptions, and use the same extraction question for each part. After processing the sections, compare the notes and synthesize them with the original source available for review.</p>
+      <h2>Plan the whole task before dividing the text</h2>
+      <p>Write down the question you ultimately need to answer and the facts that answer depends on. This helps you choose boundaries that preserve meaning. If you need to compare requirements across a manual, for example, keep the relevant definitions, requirement clauses, and exceptions rather than splitting at arbitrary character counts.</p>
+      <p>Check the destination tool's current file and context handling before deciding whether chunking is necessary. The context window, file upload allowance, and message quota are not the same limit. This guide is about maintaining continuity across parts, not about calculating a universal prompt size. See <a href="ai-context-window-explained.html">the plain-English context-window explanation</a> for that distinction.</p>
+      <h2>Choose boundaries that preserve relationships</h2>
+      <ul><li>Prefer headings, chapters, appendices, or numbered sections over cutting in the middle of a paragraph.</li><li>Keep a table's heading row with its data and retain units, footnotes, and table notes.</li><li>Repeat a short definition or scope note when a later section depends on it.</li><li>For a rule and its exception, keep them together or refer clearly to both section IDs.</li><li>If a section must be split, include a small deliberate overlap and label the repeated range.</li></ul>
+      <p>Overlaps can help preserve a transition, but repeated text may also cause duplicate findings. Mark overlap as context, and do not count the same statement twice during synthesis.</p>
+      <h2>Use a stable label and the same prompt for every part</h2>
+      <p>Give each chunk a unique ID and identify where it came from. Ask the AI to extract evidence and uncertainty, not to write the final whole-document answer from one fragment.</p>
+      <pre><code>Document: Operations guide, revision 3
+Source ID: Part 04 of 12
+Location: Chapter 2, sections 2.4-2.7
+Task: Extract the stated requirements and their exceptions.
+For each item, keep the section number and a short supporting quote.
+Mark missing, ambiguous, or conflicting details. Do not infer across parts.
+Text: [this labeled section]</code></pre>
+      <p>Keep the source's section numbering in your own notes. Do not assume that a response's page number or citation is accurate unless you can trace it back.</p>
+      <h2>Synthesize from an evidence ledger</h2>
+      <p>After all parts have been processed, place the extracted facts in a simple ledger with columns such as claim, source ID, location, caveat, and status. Then ask a new, bounded question using that ledger and the original document's identity. Request that the answer distinguish repeated statements from genuinely separate evidence and flag contradictions rather than reconciling them silently.</p>
+      <p>Review the final synthesis against the original sections, especially when it will guide a decision. Processing every chunk does not guarantee that a detail was extracted correctly, that a qualification survived, or that two versions are comparable.</p>
+      <h2>When not to split</h2>
+      <p>If a file-upload workflow is available and suitable, the application may handle it differently from pasted text. Check the supported formats, extraction behavior, and privacy rules for that destination. If a document contains sensitive or restricted information, get permission and use an approved service before uploading or pasting any part.</p>
+      <p>For a summary of one article, see <a href="summarize-long-articles-ai.html">how to summarize a long article</a>. For the overall prompt structure, see <a href="give-ai-useful-context.html">how to provide useful context</a>.</p>
+      <aside class="article-related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="summarize-long-articles-ai.html">Summarize a long article without losing key details</a></li><li><a href="source-material-ai-prompts.html">Choose how much source material to include</a></li><li><a href="research-article-ai-context.html">Prepare a research article as AI context</a></li></ul></aside>
+    </div>
+  </article></main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="../features.html">Features</a><a href="../blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="../public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></nav></footer>
+</body>
+</html>

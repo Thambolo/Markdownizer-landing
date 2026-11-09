@@ -1,0 +1,84 @@
+# Markdownizer
+
+> Markdownizer is a browser extension that converts the current webpage into Markdown for AI context, notes, documentation, and coding workflows. The site also publishes practical guides to prompts, research, Markdown, privacy, and source review.
+
+## Product information
+
+- [Features](https://markdownizer.thambolo.com/features.html): Detailed feature reference, including extraction, Markdown structure, export, settings, compatibility, and limitations. Use this page for current product capabilities.
+- [Homepage](https://markdownizer.thambolo.com/): Product overview, usage steps, and an illustrative conversion example.
+
+## AI prompts and context
+
+- [Blog](https://markdownizer.thambolo.com/blog.html): Index of Markdownizer tutorials and discussions.
+- [Why ChatGPT may not read a link](https://markdownizer.thambolo.com/blog/why-chatgpt-cannot-read-links.html): Check web-tool availability, page access, and authorized ways to provide source content.
+- [Give an AI useful context](https://markdownizer.thambolo.com/blog/give-ai-useful-context.html): Structure a request around the task, relevant background, constraints, sources, and output.
+- [Summarize a long article with AI](https://markdownizer.thambolo.com/blog/summarize-long-articles-ai.html): Preserve evidence and caveats, then check the summary against the article.
+- [Ask AI about multiple webpages](https://markdownizer.thambolo.com/blog/ask-ai-about-multiple-webpages.html): Label sources, confirm access, and compare claims without hiding disagreement.
+- [Get AI to cite provided sources](https://markdownizer.thambolo.com/blog/get-ai-to-cite-provided-sources.html): Keep claims tied to supplied evidence and verify every citation.
+- [Why AI may miss instructions](https://markdownizer.thambolo.com/blog/why-ai-ignores-instructions.html): Troubleshoot conflicting, ambiguous, buried, or unavailable requirements.
+- [AI context windows explained](https://markdownizer.thambolo.com/blog/ai-context-window-explained.html): Understand the model's working context and how it differs from other product limits.
+- [Split long documents into prompts](https://markdownizer.thambolo.com/blog/split-long-documents-ai-prompts.html): Preserve section boundaries, source IDs, and continuity during later synthesis.
+- [Separate instructions from reference material](https://markdownizer.thambolo.com/blog/separate-instructions-from-reference.html): Make prompt boundaries clear without treating formatting as a security guarantee.
+- [Webpage prompt injection](https://markdownizer.thambolo.com/blog/webpage-prompt-injection.html): Defensive guidance for untrusted page text, tool access, and review.
+- [How much source material to include in an AI prompt](https://markdownizer.thambolo.com/blog/source-material-ai-prompts.html): Select the smallest complete source and check tool-specific limits.
+- [What actually saves tokens](https://markdownizer.thambolo.com/blog/reduce-context-tokens.html): Separate format changes from removing irrelevant content.
+- [Measure prompt tokens with OpenAI's tokenizer](https://markdownizer.thambolo.com/blog/measure-prompt-tokens.html): Exact synthetic samples, selected model family, date, counts, and limitations.
+
+## Research and source checking
+
+- [Research article AI context](https://markdownizer.thambolo.com/blog/research-article-ai-context.html): Keep methods, findings, limitations, and citation details together.
+- [Compare product pages with AI](https://markdownizer.thambolo.com/blog/compare-product-pages-with-ai.html): Compare separate sources while recording variants, dates, prices, units, and unknowns.
+- [Review a webpage before sharing it with AI](https://markdownizer.thambolo.com/blog/review-webpage-before-sharing-ai.html): Check permissions, sensitive content, links, attributes, and output before pasting.
+- [Pages that require login](https://markdownizer.thambolo.com/blog/pages-that-require-login.html): Access, sharing permissions, privacy considerations, and compatibility limits.
+- [Organize online research into notes](https://markdownizer.thambolo.com/blog/organize-online-research-notes.html): Record the question, source identity, evidence, uncertainty, and next steps.
+- [Keep source links in notes](https://markdownizer.thambolo.com/blog/keep-source-links-in-notes.html): Preserve page titles, URLs, dates, and source context for later review.
+- [Compare conflicting web sources](https://markdownizer.thambolo.com/blog/compare-conflicting-web-sources.html): Check dates, definitions, scope, evidence, and unresolved disagreement.
+- [Paste work documents into AI safely](https://markdownizer.thambolo.com/blog/paste-work-documents-ai-safely.html): Confirm permission and approved destinations before reviewing service controls or sharing.
+- [Verify an AI summary](https://markdownizer.thambolo.com/blog/verify-ai-summary-accuracy.html): Trace claims, numbers, quotes, and caveats to the source.
+
+## Webpage workflows
+
+- [Webpage to Markdown for AI](https://markdownizer.thambolo.com/blog/webpage-to-markdown-for-ai.html): Conversion workflow, output-review checklist, and an illustrative prompt.
+- [Smart selection vs. full-page capture](https://markdownizer.thambolo.com/blog/smart-selection-vs-full-page.html): Choose capture scope and check for unloaded or unrelated page content.
+- [Save a webpage as a Markdown file](https://markdownizer.thambolo.com/blog/save-webpage-as-markdown.html): Download a notes file, retain its source record, and review it outside the popup.
+- [Documentation for an AI coding workflow](https://markdownizer.thambolo.com/blog/documentation-ai-coding-workflow.html): Preserve API versions and code context, and review commands before use.
+- [Check copied webpage tables](https://markdownizer.thambolo.com/blog/check-copied-webpage-tables.html): Verify headers, row associations, units, notes, and complex table layouts.
+- [Download webpage images alongside Markdown](https://markdownizer.thambolo.com/blog/download-webpage-images-markdown.html): Optional ZIP contents, image-fetch limits, and archive limitations.
+- [Understand technical documentation with AI](https://markdownizer.thambolo.com/blog/understand-technical-documentation-ai.html): Ask version-aware questions and verify terms, code, and commands against the docs.
+- [Why copied webpage text looks messy](https://markdownizer.thambolo.com/blog/why-copied-webpage-text-is-messy.html): Understand how page layout, clipboard data, selection, and destination affect pasted text.
+- [Remove menus and ads from copied text](https://markdownizer.thambolo.com/blog/remove-menus-ads-copied-text.html): Clean unrelated clutter while preserving context, warnings, captions, and evidence.
+
+## Markdown and formats
+
+- [What Markdown is and why AI tools use it](https://markdownizer.thambolo.com/blog/what-is-markdown-ai.html): Core syntax, portability, and limitations for AI context.
+- [Open and edit a .md file](https://markdownizer.thambolo.com/blog/open-edit-markdown-files.html): Use a text editor, preserve the extension, and preview the rendered file.
+- [Markdown vs. copy-paste](https://markdownizer.thambolo.com/blog/markdown-vs-copy-paste.html): When structure is useful and when ordinary copy-paste is sufficient.
+- [Markdown vs. screenshots for AI context](https://markdownizer.thambolo.com/blog/markdown-vs-screenshots-ai-context.html): Choose text or visual context based on the task and destination tool.
+- [Markdown vs. HTML token cost](https://markdownizer.thambolo.com/blog/markdown-vs-html-tokens.html): Understand markup overhead and compare equivalent text with one tokenizer.
+- [Markdown vs. plain text](https://markdownizer.thambolo.com/blog/markdown-vs-plain-text-tokens.html): Weigh formatting markers against useful structure in an exact prompt.
+- [Markdown vs. JSON for AI context](https://markdownizer.thambolo.com/blog/markdown-vs-json-ai-context.html): Compare readable prose with named, machine-readable fields.
+- [Markdown vs. XML for prompts](https://markdownizer.thambolo.com/blog/markdown-vs-xml-ai-prompts.html): Compare readable headings and explicit tags without treating either as security.
+- [Markdown tables vs. CSV vs. JSON](https://markdownizer.thambolo.com/blog/markdown-tables-vs-csv-json.html): Consider labels, parsing needs, and sample-specific token costs.
+- [Markdown vs. PDF uploads](https://markdownizer.thambolo.com/blog/markdown-vs-pdf-uploads.html): Choose a reviewed text excerpt or a supported PDF workflow by source needs.
+- [Markdown vs. DOCX for AI](https://markdownizer.thambolo.com/blog/markdown-vs-docx-ai.html): Match focused text or native-document workflows to required structure.
+- [Markdown vs. screenshots for tables](https://markdownizer.thambolo.com/blog/markdown-vs-screenshots-tables.html): Compare explicit text cells with visual grouping and merged headers.
+
+## Tool comparisons
+
+- [Markdownizer vs. MarkDownload](https://markdownizer.thambolo.com/blog/markdownizer-vs-markdownload.html): Compare documented page capture, selection, popup editing, and export.
+- [Markdownizer vs. Copy as Markdown](https://markdownizer.thambolo.com/blog/markdownizer-vs-copy-as-markdown.html): Compare page conversion with selected text, links, images, and tabs.
+- [Markdownizer vs. Obsidian Web Clipper](https://markdownizer.thambolo.com/blog/markdownizer-vs-obsidian-web-clipper.html): Compare direct export with templates, highlights, and a vault workflow.
+- [Markdownizer vs. Jina Reader](https://markdownizer.thambolo.com/blog/markdownizer-vs-jina-reader.html): Compare active-tab conversion with a URL-driven Reader API.
+- [Markdownizer vs. Firecrawl](https://markdownizer.thambolo.com/blog/markdownizer-vs-firecrawl.html): Compare a browser extension with developer web-extraction APIs.
+- [Markdownizer vs. Readwise Reader](https://markdownizer.thambolo.com/blog/markdownizer-vs-readwise-reader.html): Compare direct page export with a reading library and highlights.
+- [Markdown web clippers for AI context](https://markdownizer.thambolo.com/blog/markdown-web-clippers-ai-context.html): Documentation-based overview of clippers, readers, and extraction APIs.
+
+## Policies
+
+- [Privacy Policy](https://markdownizer.thambolo.com/privacy.html): Authoritative information about page text, structural conversion data, and operational data.
+- [Terms of Service](https://markdownizer.thambolo.com/terms.html): Authoritative terms for using Markdownizer.
+
+## Source and installation
+
+- [Extension source](https://github.com/Thambolo/Markdownizer-extension): Public browser extension repository.
+- [Chrome Web Store](https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga): Installation page.

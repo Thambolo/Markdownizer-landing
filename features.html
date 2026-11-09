@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdownizer Features - Webpage to Markdown Browser Extension</title>
+  <meta name="description" content="Explore Markdownizer's webpage-to-Markdown features, extraction options, preserved formatting, clipboard and file export, settings, privacy, and limitations.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/features.html">
+  <link rel="icon" type="image/svg+xml" href="public/icons/icon16.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Markdownizer">
+  <meta property="og:title" content="Markdownizer Features - Webpage to Markdown">
+  <meta property="og:description" content="A detailed guide to what Markdownizer extracts, preserves, and exports, with its privacy model and current limitations.">
+  <meta property="og:url" content="https://markdownizer.thambolo.com/features.html">
+  <meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/hero-folds.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Markdownizer Features - Webpage to Markdown">
+  <meta name="twitter:description" content="Explore extraction, formatting, export, settings, privacy, and current limitations.">
+  <meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/hero-folds.png">
+  <link rel="preload" href="public/landing/fonts/InterDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="public/landing/typography.css">
+  <link rel="stylesheet" href="public/landing/buttons.css">
+  <link rel="stylesheet" href="public/landing/features.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://markdownizer.thambolo.com/features.html#page","url":"https://markdownizer.thambolo.com/features.html","name":"Markdownizer Features - Webpage to Markdown Browser Extension","description":"A detailed guide to Markdownizer's extraction, formatting, export, settings, privacy, and limitations.","about":{"@type":"SoftwareApplication","name":"Markdownizer","url":"https://markdownizer.thambolo.com/","applicationCategory":"BrowserApplication"},"breadcrumb":{"@id":"https://markdownizer.thambolo.com/features.html#breadcrumbs"}},{"@type":"BreadcrumbList","@id":"https://markdownizer.thambolo.com/features.html#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://markdownizer.thambolo.com/"},{"@type":"ListItem","position":2,"name":"Features","item":"https://markdownizer.thambolo.com/features.html"}]}]}</script>
+</head>
+<body class="features-page">
+  <header class="features-header features-wrap">
+    <a class="features-brand" href="index.html" aria-label="Markdownizer home"><img src="public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="features.html" aria-current="page">Features</a><a href="blog.html">Blog</a><a href="privacy.html">Privacy</a></nav>
+    <a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a>
+  </header>
+  <main class="features-wrap">
+    <section class="feature-intro scene" aria-labelledby="features-title">
+      <h1 id="features-title">Webpage to Markdown.<br>The full feature guide.</h1>
+      <p class="feature-lead">Markdownizer converts the webpage you have open into clean Markdown for AI chats, notes, documentation, and coding workflows.</p>
+      <p class="feature-summary">Choose what to extract, keep useful page structure, then copy the result or download a Markdown file. This page describes the available features and the limits to keep in mind.</p>
+      <a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a>
+    </section>
+    <nav class="feature-toc" aria-label="Feature sections"><h2>Explore the features</h2><ul><li><a href="#extraction">Page extraction</a></li><li><a href="#formatting">Markdown structure</a></li><li><a href="#export">Copy and download</a></li><li><a href="#settings">Settings and workflow</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#compatibility">Compatibility and limits</a></li></ul></nav>
+    <!-- Feature inventory: update these static sections when a feature ships.
+         Verify against the extension implementation, the approved product fact sheet,
+         and the authoritative privacy/terms pages. Keep planned features out. -->
+    <section class="feature-section scene" id="extraction" aria-labelledby="extraction-title">
+      <div class="feature-section-heading"><h2 id="extraction-title">Choose what<br>to bring along.</h2><p>Capture content from the active webpage, with a visible selection preview and alternatives for different layouts.</p></div>
+      <div class="feature-section-body">
+        <article class="feature-entry"><h3>Active-webpage conversion</h3><p>Open Markdownizer from your browser toolbar and start the conversion. It works from an HTTP or HTTPS webpage you already have open, rather than asking an AI tool to fetch a bare URL.</p></article>
+        <article class="feature-entry"><h3>Smart selection</h3><p>The default capture mode looks for the page's article or main-content area, falling back to the page body when needed. This helps focus extraction on the main material rather than assuming that every element on the page is relevant.</p></article>
+        <article class="feature-entry"><h3>Full-page capture</h3><p>Enable <strong>Capture full page</strong> to capture the whole page body when Smart selection misses something important. A larger capture can also include more navigation and unrelated material, so review the result. This mode resets to Smart selection when you reopen the popup.</p></article>
+        <article class="feature-entry"><h3>Selection preview on the webpage</h3><p>See the area selected for capture before converting. The preview highlights visible text and outlines images and common controls. It can be turned off with <strong>Preview selection</strong>. This overlay shows capture scope; it is not a rendered Markdown preview.</p></article>
+        <article class="feature-entry"><h3>Eligible embedded frames</h3><p>The <strong>Include iframes</strong> option appears when eligible embedded content is detected. Markdownizer can include readable same-origin frames. Cross-origin or inaccessible frames are skipped; this is not universal support for embedded documents.</p></article>
+        <article class="feature-entry"><h3>Handling for selected complex page types</h3><p>There is targeted extraction handling for some CodeMirror editors, ReDoc API documentation, and simple CSS-generated text. Results depend on the page implementation and loaded content. These are compatibility measures, not a guarantee that every editor or dynamically generated page will convert.</p></article>
+      </div>
+    </section>
+    <section class="feature-section scene" id="formatting" aria-labelledby="formatting-title">
+      <div class="feature-section-heading"><h2 id="formatting-title">Structure that<br>travels with the text.</h2><p>Markdown expresses the relationships between headings, lists, references, and code without carrying the entire webpage layout.</p></div>
+      <div class="feature-section-body">
+        <article class="feature-entry"><h3>Headings, lists, and text formatting</h3><p>Convert heading hierarchy, ordered and unordered lists, and supported text formatting into Markdown. GitHub Flavored Markdown features include strikethrough. Review the hierarchy when the source page uses unusual markup.</p></article>
+        <article class="feature-entry"><h3>Tables</h3><p>Convert supported HTML tables to Markdown tables, keeping row and column relationships explicit. Nested tables are simplified, and missing headers may be inferred. Merged cells and complex visual groupings need particular attention during review.</p></article>
+        <article class="feature-entry"><h3>Link labels and destinations</h3><p>Markdown links carry the label and target together. Relative links are resolved against the page URL so the reference remains useful outside the original webpage. A link in the output does not mean an AI tool has opened or verified its destination.</p></article>
+        <article class="feature-entry"><h3>Code blocks</h3><p>Code is represented with fenced blocks, with language labels when detectable. Keep commands distinct from surrounding prose and inspect indentation, line breaks, and completeness before using the result in a coding workflow.</p></article>
+        <article class="feature-entry"><h3>Image references</h3><p>Supported images become Markdown image references. Relative image sources are resolved against the page URL. The normal Markdown output references images; downloading local image files is a separate option described below.</p></article>
+        <article class="feature-entry"><h3>Standard interface controls</h3><p>Some native controls can be represented as text or Markdown markers, including buttons, checkbox and radio states, selected options, and certain field values. Password and hidden input values are redacted by the extraction code, but other field values can appear in the result. Review captures for sensitive information; this is not a form-backup feature.</p></article>
+      </div>
+    </section>
+    <section class="feature-section scene" id="export" aria-labelledby="export-title">
+      <div class="feature-section-heading"><h2 id="export-title">Copy it.<br>Save it. Reuse it.</h2><p>Move converted content into your preferred AI chat, notes, editor, or documentation workflow.</p></div>
+      <div class="feature-section-body">
+        <article class="feature-entry"><h3>Copy to clipboard</h3><p>Copy the converted Markdown, then paste it wherever you want to use it. In an AI chat, add your own question alongside the source material. Markdownizer does not generate the AI response or send your prompt to an AI service for you.</p></article>
+        <article class="feature-entry"><h3>Download a Markdown file</h3><p>Save the result as a <code>.md</code> file with a filename derived from the page title. Keep it in a local notes collection, edit it, or reuse the source later. File-upload support depends on the destination app.</p></article>
+        <article class="feature-entry"><h3>Optional image ZIP export</h3><p>Enable <strong>Download images</strong> to build a ZIP containing the Markdown file, a README, and fetched images in an <code>images/</code> directory. Image references in the bundled Markdown are rewritten to local paths. Eligible conversions start the bundle automatically when this option is enabled.</p></article>
+        <article class="feature-entry"><h3>Image-download progress</h3><p>Follow bundle progress in the popup. Once an image bundle has started building in the background, it can finish after the popup closes. This background ZIP operation is separate from the structural conversion service.</p></article>
+        <article class="feature-entry"><h3>Image-download permissions and limits</h3><p>Image downloads may request optional site-access permission. The bundle uses fetchable image references from the converted Markdown, not every visual asset on the page. Unavailable images, <code>blob:</code> references, timeouts, and size limits can leave some images out.</p><p class="feature-note">Current image-fetch limits are 15 MB per image, 60 MB in total, and a 10-second fetch timeout. The ZIP is not a complete offline archive of the website.</p></article>
+      </div>
+    </section>
+    <section class="feature-section scene" id="settings" aria-labelledby="settings-title">
+      <div class="feature-section-heading"><h2 id="settings-title">A workflow<br>you can adjust.</h2><p>Use the popup settings to control capture scope and what happens after a successful conversion.</p></div>
+      <div class="feature-section-body">
+        <article class="feature-entry"><h3>Preview selection</h3><p>On by default. Turn the webpage highlight on or off; the preference is saved locally across popup sessions.</p></article>
+        <article class="feature-entry"><h3>Capture full page</h3><p>Off by default. Use it for the current capture when you want the whole page body instead of Smart selection. The mode is not retained when the popup is reopened.</p></article>
+        <article class="feature-entry"><h3>Include iframes</h3><p>Available when eligible embedded frames are detected. Eligible content is included automatically unless excluded. This choice is specific to the capture session rather than a permanently saved preference.</p></article>
+        <article class="feature-entry"><h3>Download images</h3><p>Off by default. This locally saved preference enables the optional image-bundle workflow and may require additional site-access permission.</p></article>
+        <article class="feature-entry"><h3>Auto-download on success</h3><p>Off by default. Enable it to download the Markdown file automatically after a successful conversion. The preference persists locally. When image bundling is active, its ZIP-download path takes precedence.</p></article>
+        <article class="feature-entry"><h3>Status and output size</h3><p>The popup reports conversion status and the resulting character count, then makes the output actions available. Conversion errors are surfaced rather than silently treated as successful output.</p></article>
+        <article class="feature-entry"><h3>Use your normal paste shortcut</h3><p>After copying, use <kbd>Ctrl</kbd> + <kbd>V</kbd> on Windows or Linux, or <kbd>Cmd</kbd> + <kbd>V</kbd> on Mac. These are the destination app's paste shortcuts, not a separate Markdownizer extraction hotkey.</p></article>
+      </div>
+    </section>
+    <section class="feature-section scene" id="privacy" aria-labelledby="feature-privacy-title">
+      <div class="feature-section-heading"><h2 id="feature-privacy-title">Readable text<br>is restored locally.</h2><p>A browser-and-backend conversion workflow, not an entirely offline or fully local converter.</p></div>
+      <div class="feature-section-body">
+        <article class="feature-entry"><h3>Local text tokenization</h3><p>Readable page text is replaced with tokens locally in your browser before structural conversion. The backend converts a structural skeleton, and the extension restores the original readable text in the Markdown in your browser.</p></article>
+        <article class="feature-entry"><h3>Structural data still leaves the browser</h3><p>The structural skeleton can include links, image references, and other HTML attributes. Do not assume that everything associated with a page stays on your device, or that page URLs are never transmitted.</p></article>
+        <article class="feature-entry"><h3>Limited operational data</h3><p>The privacy policy describes operational data used to operate, secure, and improve the service. It states that readable page text, final Markdown output, full page URLs, and raw HTML skeletons are not stored in analytics data.</p></article>
+        <article class="feature-entry"><h3>You choose where to share the output</h3><p>Copying the result into another app is a separate action. Review the Markdown and check sharing permissions before pasting private, personal, course, workplace, or client information into an AI service.</p></article>
+        <p class="feature-note">The <a href="privacy.html">privacy policy</a> and <a href="terms.html">terms of service</a> are the authoritative policies. <a href="https://github.com/Thambolo/Markdownizer-extension">View the extension source on GitHub</a> for implementation details.</p>
+      </div>
+    </section>
+    <section class="feature-section scene" id="compatibility" aria-labelledby="compatibility-title">
+      <div class="feature-section-heading"><h2 id="compatibility-title">Know the limits<br>before you convert.</h2><p>Page structure, browser restrictions, and the destination tool all affect what you can do with the result.</p></div>
+      <div class="feature-section-body">
+        <article class="feature-entry"><h3>Chrome and Chromium browsers</h3><p>Markdownizer targets Chrome and Chromium-based browsers. Install from the <a href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Chrome Web Store</a> in a browser that supports those extensions. Firefox and Safari support are not listed as available here.</p></article>
+        <article class="feature-entry"><h3>Webpages, not every document format</h3><p>The conversion flow targets ordinary HTTP and HTTPS webpages. Browser-internal pages are restricted. Markdownizer is not presented as a standalone PDF converter or an arbitrary local HTML-file converter.</p></article>
+        <article class="feature-entry"><h3>Pages that require login</h3><p>Markdownizer works from the page you can already open in your browser, but compatibility varies and not every logged-in page has been verified. It does not bypass access restrictions or give permission to share private content.</p></article>
+        <article class="feature-entry"><h3>Large captures</h3><p>Very large structural captures can exceed the conversion size limit. Smart selection may try a more focused extraction; full-page or iframe-inclusive captures may need to be reduced. The limit applies to the structural payload, not simply the number of words you see on screen.</p></article>
+        <article class="feature-entry"><h3>Loaded content and complex layouts</h3><p>Content that has not loaded, inaccessible frames, complicated tables, interactive widgets, and visual information may not be represented completely. Review the result, especially data tables and code, before relying on it.</p></article>
+        <article class="feature-entry"><h3>AI and app behavior</h3><p>Markdown does not remove an AI tool's context limits or guarantee a more accurate response. Markdownizer supplies converted source material; your chosen app handles the prompt, answer, or file. Check its limits and privacy settings separately.</p></article>
+      </div>
+    </section>
+    <section class="features-closing scene" aria-labelledby="features-closing-title"><h2 id="features-closing-title">Bring the page<br>to your next prompt.</h2><p>See the conversion in context, or install Markdownizer from the Chrome Web Store.</p><a class="button" href="index.html#workflow">Watch the demo</a></section>
+  </main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="index.html"><img src="public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="features.html" aria-current="page">Features</a><a href="blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
+  <script src="public/landing/scenes.js"></script>
+</body>
+</html>

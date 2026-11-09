@@ -13,6 +13,6 @@
 @media(prefers-reduced-motion:reduce){.promo-backdrop-video{display:none}}
 
 @media(max-width:760px){
-  .promo-play-label{top:8px;right:8px;width:clamp(112px,33vw,128px);padding:6px 10px;font-size:clamp(10px,2.9vw,11px);line-height:1.25}
-  .promo-play-label svg{left:11px;width:13px;height:17px}
+  .promo-play-label{top:8px;right:8px;width:clamp(112px,33vw,128px);padding:6px 10px;gap:6px;font-size:clamp(10px,2.9vw,11px);line-height:1.25}
+  .promo-play-label svg{position:static;left:auto;top:auto;transform:none;width:13px;height:17px}
 }

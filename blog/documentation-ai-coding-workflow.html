@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bring Documentation into an AI Coding Workflow - Markdownizer</title>
+  <meta name="description" content="Bring documentation into an AI coding workflow with its product version, task-relevant sections, preserved code blocks, and careful command review.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/blog/documentation-ai-coding-workflow.html"><link rel="icon" type="image/svg+xml" href="../public/icons/icon16.svg">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Markdownizer"><meta property="og:title" content="How to bring documentation into your AI coding workflow"><meta property="og:description" content="Keep API versions, code blocks, prerequisites, and command safety in view when you provide documentation to a coding assistant."><meta property="og:url" content="https://markdownizer.thambolo.com/blog/documentation-ai-coding-workflow.html"><meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Bring documentation into an AI coding workflow"><meta name="twitter:description" content="A source-aware workflow for API docs, code snippets, version details, and safe review."><meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <link rel="stylesheet" href="../public/landing/typography.css"><link rel="stylesheet" href="../public/landing/buttons.css"><link rel="stylesheet" href="../public/landing/features.css"><link rel="stylesheet" href="../public/landing/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://markdownizer.thambolo.com/blog/documentation-ai-coding-workflow.html","headline":"How to bring documentation into your AI coding workflow","description":"A source-aware workflow for API docs, code snippets, version details, and safe review.","author":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"publisher":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"isPartOf":{"@type":"Blog","url":"https://markdownizer.thambolo.com/blog.html","name":"Markdownizer Blog"},"image":"https://markdownizer.thambolo.com/public/landing/blog-hero.webp"}</script>
+</head>
+<body class="blog-page article-page">
+  <header class="features-header features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../features.html">Features</a><a href="../blog.html">Blog</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="../public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+  <nav class="blog-breadcrumb features-wrap" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blog.html">Blog</a></nav>
+  <main class="article-layout features-wrap"><article>
+    <header class="article-header"><p class="blog-category">Coding workflow</p><h1>How to bring documentation into your AI coding workflow</h1><p class="article-deck">Give the coding assistant the right version of the docs, the relevant code, and explicit safety boundaries.</p></header>
+    <div class="article-body">
+      <p>To bring documentation into an AI coding workflow, provide a focused excerpt from the version that matches your project, preserve code blocks and prerequisites, and state what change you are asking for. Keep the documentation's title and URL with the excerpt. Then review suggested code against your actual dependencies and environment before running it.</p>
+      <p>A documentation link alone may not be enough: an AI tool may not open the page, may see a different version, or may interpret an incomplete snippet without its surrounding requirements. Markdownizer can convert an open webpage into Markdown to copy or download, but it does not validate examples or execute commands. See the <a href="../features.html#formatting">feature guide for code handling and current limits</a>.</p>
+      <h2>Pin down the version and task first</h2>
+      <p>Before collecting documentation, note the language, framework, library, runtime, and version already used by the project. API names and setup instructions can change between releases. If the docs have a version selector, confirm it is set to the version your code actually depends on; do not assume the latest page matches an older project.</p>
+      <p>Define a narrow task such as "show how to configure this client in the existing module" or "explain why this request returns this error." A broad request to "build the app from the docs" often mixes setup, usage, and unrelated examples, leaving too much room for assumptions.</p>
+      <h2>Capture the smallest complete documentation unit</h2>
+      <ol><li><strong>Open the relevant reference page</strong> for the specific API, guide, or migration note. Let the content load before converting.</li><li><strong>Choose a useful capture scope.</strong> Smart selection is the default; full-page capture can include material elsewhere in the body but does not automatically scroll and load every section.</li><li><strong>Review the converted Markdown.</strong> Look for parameter names, return types, prerequisites, warnings, version labels, and code fences. Compare with the page if any line appears truncated or ambiguous.</li><li><strong>Keep provenance beside the excerpt:</strong> documentation title, product/version, URL, and the date checked.</li><li><strong>Provide relevant project context</strong> separately, such as the current function signature, package versions, operating system, or error message, after removing secrets.</li></ol>
+      <p>Use one page when one page is sufficient. If setup instructions refer to a separate compatibility note, include that note or link it explicitly and say whether the AI should rely only on the pasted excerpt. A Markdown link contains a destination; it does not prove the assistant has retrieved or verified that page.</p>
+      <h2>Separate reference material from instructions</h2>
+      <p>Label the documentation as reference, not as instructions to obey. Keep your actual request and safety rules outside the quoted source. For example:</p>
+      <pre><code>Task: Adapt the example to the existing function below.
+Use the documentation version recorded here. Do not invent APIs.
+Explain assumptions and show a diff before suggesting commands.
+Do not run commands or change files without my review.
+
+Reference: [product and version]
+Source: [documentation URL]
+Documentation excerpt:
+[Paste reviewed Markdown]
+
+Current code and environment:
+[Paste only the relevant, secret-free context]</code></pre>
+      <p>This is an illustrative prompt, not a guaranteed way to control every tool. Some coding assistants can edit files or run commands when connected to tools. Review each action and the tool's permission settings separately.</p>
+      <h2>Inspect commands before using them</h2>
+      <p>Preserved code fences can help distinguish commands from prose, but a code block is not a safety endorsement. Read each command, verify the target path and package, check whether it downloads or deletes data, and compare it with the official documentation for your version. Do not paste credentials, access tokens, private keys, or production data into a prompt or terminal transcript.</p>
+      <p>If documentation includes tables of parameters or supported versions, check that the headings and units stayed aligned. Complex or nested tables may require manual review; see <a href="check-copied-webpage-tables.html">the table-checking guide</a>.</p>
+      <h2>Keep a useful, maintainable record</h2>
+      <p>If you save the excerpt for later, include the source and version in the file itself, and revisit it when the project upgrades. A downloaded Markdown file is a snapshot of converted content, not a synchronized copy of the docs. <a href="save-webpage-as-markdown.html">This notes workflow</a> covers filenames and source records.</p>
+      <p>Before sharing internal documentation, confirm that the AI service is approved for that material. Markdownizer tokenizes readable page text locally, sends a structural skeleton for conversion, and rebuilds readable Markdown in the browser; the skeleton may include links and attributes. The <a href="../privacy.html">privacy policy</a> describes the product's data handling. Pasting the finished Markdown into a coding assistant is a separate sharing event.</p>
+      <aside class="article-related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="check-copied-webpage-tables.html">Check tables of parameters and versions</a></li><li><a href="review-webpage-before-sharing-ai.html">Review webpage content before sharing it with AI</a></li><li><a href="save-webpage-as-markdown.html">Save a webpage as a Markdown file for notes</a></li></ul></aside>
+    </div>
+  </article></main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="../features.html">Features</a><a href="../blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="../public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></nav></footer>
+</body>
+</html>

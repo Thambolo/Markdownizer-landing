@@ -1,0 +1,35 @@
+.usage-steps{padding-top:88px;padding-bottom:96px;color:#fffcf2}
+.usage-steps h2{max-width:760px;margin:0 auto 56px;text-align:center;font-size:clamp(32px,4.2vw,56px);font-weight:700;line-height:1.05;letter-spacing:-.05em}
+.usage-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin:0;padding:0;list-style:none}
+.usage-list>li{position:relative;min-width:0;text-align:center}
+.usage-number{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin:0 auto 26px;box-sizing:border-box;border:1px solid #eb5e28;border-radius:50%;background:#000;color:#fffcf2;font-size:15px;font-weight:500;line-height:1}
+.usage-list>li:not(:last-child)::after{content:"";position:absolute;top:20px;left:calc(50% + 32px);width:calc(100% + 40px - 64px);height:1px;background:linear-gradient(90deg,#726b60,#403d39)}
+.usage-copy h3{margin:0 0 12px;font-size:22px;font-weight:600;line-height:1.2;letter-spacing:-.035em}
+.usage-copy p{max-width:285px;margin:0 auto;color:#ccc5b9;font-size:15px;line-height:1.65}
+.usage-cue{display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px;margin:18px 0 12px;color:#fffcf2;font-size:13px;line-height:1.3}
+.usage-icon{display:flex;align-items:center;justify-content:center;width:42px;height:42px;flex-shrink:0;border:1px solid #403d39;border-bottom-color:#eb5e28;border-radius:9px;background:#161616;color:#fffcf2}
+.usage-icon svg{display:block}
+.usage-list>li:first-child .usage-icon svg{transform:translate(1px,-1px)}
+.usage-shortcut{gap:8px;margin-bottom:4px}
+.usage-shortcut>span{color:#ccc5b9}
+.usage-shortcut kbd{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:38px;box-sizing:border-box;padding:0 11px;border:1px solid #726b60;border-bottom:3px solid #eb5e28;border-radius:6px;background:linear-gradient(#252422,#161616);color:#fffcf2;font:500 14px/1 'Inter Display',Arial,sans-serif;box-shadow:0 2px 0 #252422}
+.usage-shortcut-note{display:block;margin:0 0 12px;color:#ccc5b9;font-size:11px;line-height:1.4}
+@media(max-width:760px){
+  .usage-steps{padding-top:48px;padding-bottom:56px}
+  .usage-steps h2{margin-bottom:36px;font-size:clamp(28px,7.5vw,36px)}
+  .usage-list{grid-template-columns:minmax(0,1fr);gap:0;max-width:440px;margin:0 auto}
+  .usage-list>li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:18px;text-align:left;padding-bottom:30px}
+  .usage-list>li:last-child{padding-bottom:0}
+  .usage-number{width:36px;height:36px;margin:0;font-size:14px}
+  .usage-list>li:not(:last-child)::after{top:46px;bottom:10px;left:17.5px;width:1px;height:auto;background:linear-gradient(180deg,#726b60,#403d39)}
+  .usage-copy{padding-top:6px}
+  .usage-copy h3{margin-bottom:8px;font-size:19px}
+  .usage-copy p{max-width:none;margin:0;font-size:14px;line-height:1.6}
+  .usage-cue{justify-content:flex-start;margin-top:12px;font-size:12px}
+  .usage-cue{min-height:34px;gap:8px}
+  .usage-icon{width:34px;height:34px;border-radius:7px}
+  .usage-icon svg{width:19px;height:19px}
+  .usage-list>li:nth-child(2) .usage-icon svg{width:17px}
+  .usage-shortcut kbd{min-width:32px;height:32px;padding:0 8px;font-size:12px;border-radius:5px}
+  .usage-shortcut-note{font-size:11px}
+}

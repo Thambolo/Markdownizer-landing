@@ -8,3 +8,6 @@ docs/superpowers/
 
 # Repo instructions (private, local only — never commit)
 AGENTS.md
+
+# Local project skills (agent instructions, not public website content)
+.opencode/skills/

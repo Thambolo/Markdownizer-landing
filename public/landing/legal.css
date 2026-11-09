@@ -1,0 +1,36 @@
+/* Shared legal-page presentation. Policy text remains in the HTML files. */
+:root{color-scheme:dark;background:#000;color:#ccc5b9;font-family:'Inter Display',Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:#ccc5b9;-webkit-font-smoothing:antialiased}
+nav{max-width:1120px;margin:0 auto;padding:28px 48px;border-bottom:1px solid #403d39}
+nav a{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:#fffcf2;text-decoration:none;font-size:14px;font-weight:500}
+nav svg{display:block;width:18px;height:18px;flex-shrink:0;color:#eb5e28}
+nav a:hover{color:#ccc5b9}
+main{max-width:840px;margin:0 auto;padding:76px 48px 96px}
+h1{margin:0 0 20px;color:#fffcf2;font-size:clamp(40px,5vw,64px);font-weight:700;line-height:1.05;letter-spacing:-.05em}
+main>p{margin:0 0 48px;font-size:13px;line-height:1.6;color:#ccc5b9}
+main>p::after{content:'';display:block;width:40px;height:2px;background:#eb5e28;margin-top:28px}
+section{font-size:16px;line-height:1.85;overflow-wrap:anywhere}
+section>p{margin:0 0 20px}
+h2{margin:44px 0 16px;color:#fffcf2;font-size:25px;font-weight:600;line-height:1.25;letter-spacing:-.035em;text-wrap:balance}
+section>h2:first-child{margin-top:0}
+ul{padding-left:22px;margin:16px 0 24px;list-style:disc}
+li{padding-left:5px}
+li+li{margin-top:14px}
+li::marker{color:#eb5e28}
+strong{font-weight:600;color:#fffcf2}
+section a{color:#fffcf2;text-decoration:underline;text-decoration-color:#eb5e28;text-underline-offset:4px;text-decoration-thickness:1px}
+section a:hover{color:#ccc5b9;text-decoration-color:currentColor}
+a:focus-visible{outline:2px solid #eb5e28;outline-offset:5px;border-radius:2px}
+footer{max-width:1120px;margin:0 auto;padding:28px 48px;border-top:1px solid #403d39;color:#ccc5b9;font-size:12px;line-height:1.6}
+@media(max-width:760px){
+  nav{padding:18px 24px}
+  main{padding:48px 24px 64px}
+  h1{font-size:clamp(36px,9vw,46px)}
+  main>p{margin-bottom:36px;font-size:12px}
+  section{font-size:15px;line-height:1.8}
+  h2{font-size:23px;margin-top:36px}
+  ul{padding-left:19px}
+  li{padding-left:3px}
+  footer{padding:24px}
+}

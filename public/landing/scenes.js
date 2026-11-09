@@ -1,7 +1,7 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 760px)');
-  const chapters = [...document.querySelectorAll('.scene, .conversion-story')];
+  const chapters = [...document.querySelectorAll('.scene, .conversion-story, .usage-steps, .context-example')];
   const items = chapters.map(chapter => {
     let content;
     if (chapter.classList.contains('conversion-story')) {
@@ -19,8 +19,8 @@
     return {chapter, content};
   });
   const useCase = items.find(item => item.chapter.classList.contains('use-section'));
-  useCase.content.classList.add('use-sticky');
-  const useCards = [...useCase.content.querySelectorAll('.use-items article')];
+  useCase?.content.classList.add('use-sticky');
+  const useCards = useCase ? [...useCase.content.querySelectorAll('.use-items article')] : [];
   const near = new Set(items);
   const clamp = value => Math.max(0, Math.min(1, value));
   function update() {
@@ -32,8 +32,11 @@
       let opacity = 1;
       let offset = 0;
       if (!reduced.matches && !focused && !expanded) {
-        const enter = clamp((height * .65 - rect.top) / (height * .5));
-        const exit = clamp((rect.bottom - height * .35) / (height * .5));
+        // Short sections need a full-opacity reading zone too, even near page end.
+        const shortSection = rect.height < height;
+        const fadeDistance = shortSection ? Math.max(1, rect.height * .35) : height * .5;
+        const enter = clamp(((shortSection ? height : height * .65) - rect.top) / fadeDistance);
+        const exit = clamp((rect.bottom - (shortSection ? 0 : height * .35)) / fadeDistance);
         opacity = Math.min(enter, exit);
         if (mobile.matches) opacity = .75 + opacity * .25;
         else {
@@ -45,7 +48,7 @@
       content.style.setProperty('--scene-y', `${offset}px`);
       content.style.setProperty('--scene-scale', reduced.matches || mobile.matches ? 1 : .96 + opacity * .04);
       content.style.setProperty('--scene-brightness', reduced.matches || mobile.matches ? 1 : .7 + opacity * .3);
-      if (chapter === useCase.chapter) {
+      if (chapter === useCase?.chapter) {
         const progress = clamp(-rect.top / Math.max(1, chapter.offsetHeight - content.offsetHeight));
         useCards.forEach((card, i) => {
           const reveal = reduced.matches ? 1 : mobile.matches

@@ -13,11 +13,16 @@
   <meta property="og:title" content="HTML to Markdown Converter - Markdownizer">
   <meta property="og:description" content="Convert webpages and HTML into clean Markdown for AI, notes, docs, and coding workflows.">
   <meta property="og:url" content="https://markdownizer.thambolo.com/">
-  <meta property="og:image" content="https://markdownizer.thambolo.com/public/icons/icon16.svg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Markdownizer: Better context. Better responses. Turn the page you have open into clean Markdown for your AI chat or notes.">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HTML to Markdown Converter - Markdownizer">
   <meta name="twitter:description" content="Convert webpages and HTML into clean Markdown for AI, notes, docs, and coding workflows.">
-  <meta name="twitter:image" content="https://markdownizer.thambolo.com/public/icons/icon16.svg">
+  <meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/social-preview.png">
+  <meta name="twitter:image:alt" content="Markdownizer: Better context. Better responses. Turn the page you have open into clean Markdown for your AI chat or notes.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Markdownizer","applicationCategory":"BrowserApplication","operatingSystem":"Chrome, Chromium browsers","description":"Markdownizer converts webpages and HTML into clean Markdown for AI, notes, documentation, and coding workflows.","url":"https://markdownizer.thambolo.com/","downloadUrl":"https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga"}</script>
   <style>
     :root{--paper:#fffcf2;--stone:#ccc5b9;--muted:#66615a;--ink:#252422;--ink-soft:#403d39;--orange:#eb5e28;--line:#dcd6ca}
@@ -43,59 +48,97 @@
   <link rel="stylesheet" href="public/landing/faq.css">
   <link rel="stylesheet" href="public/landing/polish.css">
   <link rel="stylesheet" href="public/landing/buttons.css">
+  <link rel="stylesheet" href="public/landing/usage-steps.css">
+  <link rel="stylesheet" href="public/landing/context-example.css">
 </head>
 <body>
+  <main>
   <section class="hero scene" id="top">
-    <img class="hero-art" src="public/landing/hero-folds.png" alt="" fetchpriority="high">
+    <img class="hero-art" src="public/landing/hero-folds.webp" width="1672" height="941" alt="" fetchpriority="high">
     <div class="wrap">
-      <header><a class="brand" href="#" aria-label="Markdownizer home"><img class="brand-logo" src="public/icons/icon16.svg" width="32" height="32" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="#in-action">In action</a><a href="#workflow">How it works</a><a href="#privacy">Privacy</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+      <header><a class="brand" href="#" aria-label="Markdownizer home"><img class="brand-logo" src="public/icons/icon16.svg" width="32" height="32" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="#workflow">Demo</a><a href="#how-to-use">How to use</a><a href="#in-action">Example</a><a href="features.html">Features</a><a href="blog.html">Blog</a><a href="#privacy">Privacy</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
       <div class="hero-content">
         <h1>Better context.<br>Better responses.</h1>
-        <p class="intro">Convert webpages into clean Markdown, with headings, tables, links, and code preserved. Ready for your AI chat or notes.</p>
+        <p class="intro">Turn the page you have open into clean Markdown for your AI chat or notes. The example shows headings, lists, tables, link text with destinations, and code blocks together.</p>
         <a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a>
         <p class="hero-note"><a href="#workflow">Watch the demo</a></p>
       </div>
     </div>
   </section>
-  <main>
     <section class="demo-scene scene wrap" id="workflow" aria-label="From webpage to useful context">
       <div class="promo-backdrop" aria-hidden="true">
         <video class="promo-backdrop-video" id="mobile-backdrop-video" data-src="public/landing/media/mobile-abstract-folds.mp4" muted loop playsinline preload="none" tabindex="-1"></video>
       </div>
       <div class="promo-player">
         <video id="promo-video" controls playsinline preload="none" poster="public/landing/media/promo-poster.jpg" aria-label="Markdownizer product demo"><source src="public/landing/media/markdownizer-promo.mp4" type="video/mp4"><p>Your browser cannot play this video. <a href="public/landing/media/markdownizer-promo.mp4">Download the demo.</a></p></video>
-        <button class="promo-poster" id="promo-play" type="button" aria-label="Play Markdownizer demo with sound" aria-controls="promo-video" hidden><img src="public/landing/media/promo-poster.jpg" alt="Markdownizer demo showing a research brief in the browser" width="1280" height="720" loading="lazy"><span class="promo-play-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="18" height="24" aria-hidden="true"><!-- Font Awesome Free 6.7.2 by @fontawesome, CC BY 4.0, https://fontawesome.com/license/free --><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg><span>Watch demo</span></span></button>
+        <button class="promo-poster" id="promo-play" type="button" aria-label="Play Markdownizer demo with sound" aria-controls="promo-video" hidden><img src="public/landing/media/promo-poster.jpg" alt="Markdownizer closing card with the headline 'Give AI better page context' and an Add to Chrome call to action." width="1280" height="720" loading="lazy"><span class="promo-play-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="18" height="24" aria-hidden="true"><!-- Font Awesome Free 6.7.2 by @fontawesome, CC BY 4.0, https://fontawesome.com/license/free --><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg><span>Watch demo</span></span></button>
       </div>
       <p id="promo-status" role="status"></p>
     </section>
-    <section class="conversion-story" id="in-action" aria-label="From webpage to prompt">
-      <div class="story-sticky wrap" data-step="0">
-        <div class="story-navigation"><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></div>
-        <div class="story-heading"><h2 id="story-title">Keep instructions together.</h2><p id="story-description">Headings and lists keep each requirement in its proper place.</p></div>
-        <div class="story-carousel">
-        <button class="story-side-control story-previous" type="button" id="story-back" aria-label="Previous comparison"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
-        <div class="story-frames">
-          <section class="context-frame" data-frame="0" aria-label="Instructions comparison"><div class="compare-card plain-card"><h3>Plain copy-paste</h3><p class="flat-example"></p></div><div class="compare-card preserved-card"><h3>With Markdownizer</h3><div class="structured-example"><h4>Requirements</h4><ul><li>Use two peer-reviewed sources.</li><li>Explain the trade-offs.</li></ul></div></div></section>
-          <section class="context-frame" data-frame="1" aria-label="Table comparison" hidden><div class="compare-card plain-card"><h3>Plain copy-paste</h3><p class="flat-example"></p></div><div class="compare-card preserved-card"><h3>With Markdownizer</h3><div class="structured-example"><table><thead><tr><th>Section</th><th>Words</th></tr></thead><tbody><tr><td>Evidence</td><td>400</td></tr><tr><td>Discussion</td><td>600</td></tr></tbody></table></div></div></section>
-          <section class="context-frame" data-frame="2" aria-label="Code comparison" hidden><div class="compare-card plain-card"><h3>Plain copy-paste</h3><p class="flat-example"></p></div><div class="compare-card preserved-card"><h3>With Markdownizer</h3><div class="structured-example"><h4>Reference command</h4><pre><code>python compare_heat.py
-  --sources 2</code></pre></div></div></section>
-          <section class="context-frame prompt-frame" data-frame="3" aria-label="Using the context in a prompt" hidden><div class="compare-card preserved-card"><h3>Your saved context</h3><div class="structured-example"><h4>Research brief</h4><p>Requirements, word counts, and commands kept together.</p></div></div><div class="compare-card plain-card"><h3>Your question</h3><p>Help me plan my response.<br>Follow the requirements and word counts in the brief.</p></div></section>
-        </div>
-        <button class="story-side-control story-next" type="button" id="story-next" aria-label="Next comparison"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="story-progress" aria-hidden="true"><span></span></div>
-        <noscript><style>.conversion-story{height:auto}.story-sticky{position:static}.context-frame[hidden]{display:grid!important}.story-frames{display:grid;gap:30px}.frame-controls{display:none}</style></noscript>
+    <section class="usage-steps wrap" id="how-to-use" aria-labelledby="usage-title">
+      <h2 id="usage-title">From webpage to AI chat<br>in three steps.</h2>
+      <ol class="usage-list">
+        <li>
+          <span class="usage-number" aria-hidden="true">1</span>
+          <div class="usage-copy"><h3>Convert the page</h3>
+            <div class="usage-cue" aria-hidden="true"><span class="usage-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24"><!-- Font Awesome Free 6.7.2 by @fontawesome, CC BY 4.0, https://fontawesome.com/license/free --><path fill="currentColor" d="M192 104.8c0-9.2-5.8-17.3-13.2-22.8C167.2 73.3 160 61.3 160 48c0-26.5 28.7-48 64-48s64 21.5 64 48c0 13.3-7.2 25.3-18.8 34c-7.4 5.5-13.2 13.6-13.2 22.8c0 12.8 10.4 23.2 23.2 23.2l56.8 0c26.5 0 48 21.5 48 48l0 56.8c0 12.8 10.4 23.2 23.2 23.2c9.2 0 17.3-5.8 22.8-13.2c8.7-11.6 20.7-18.8 34-18.8c26.5 0 48 28.7 48 64s-21.5 64-48 64c-13.3 0-25.3-7.2-34-18.8c-5.5-7.4-13.6-13.2-22.8-13.2c-12.8 0-23.2 10.4-23.2 23.2L384 464c0 26.5-21.5 48-48 48l-56.8 0c-12.8 0-23.2-10.4-23.2-23.2c0-9.2 5.8-17.3 13.2-22.8c11.6-8.7 18.8-20.7 18.8-34c0-26.5-28.7-48-64-48s-64 21.5-64 48c0 13.3 7.2 25.3 18.8 34c7.4 5.5 13.2 13.6 13.2 22.8c0 12.8-10.4 23.2-23.2 23.2L48 512c-26.5 0-48-21.5-48-48L0 343.2C0 330.4 10.4 320 23.2 320c9.2 0 17.3 5.8 22.8 13.2C54.7 344.8 66.7 352 80 352c26.5 0 48-28.7 48-64s-21.5-64-48-64c-13.3 0-25.3 7.2-34 18.8C40.5 250.2 32.4 256 23.2 256C10.4 256 0 245.6 0 232.8L0 176c0-26.5 21.5-48 48-48l120.8 0c12.8 0 23.2-10.4 23.2-23.2z"/></svg></span><span>Extensions</span></div>
+            <p>Open your browser's Extensions menu, select Markdownizer, then start the conversion.</p>
+          </div>
+        </li>
+        <li>
+          <span class="usage-number" aria-hidden="true">2</span>
+          <div class="usage-copy"><h3>Copy the Markdown</h3>
+            <div class="usage-cue" aria-hidden="true"><span class="usage-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="21" height="24"><!-- Font Awesome Free 6.7.2 by @fontawesome, CC BY 4.0, https://fontawesome.com/license/free --><path fill="currentColor" d="M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l140.1 0L400 115.9 400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-204.1c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-32-48 0 0 32c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l32 0 0-48-32 0z"/></svg></span><span>Copy to clipboard</span></div>
+          </div>
+        </li>
+        <li>
+          <span class="usage-number" aria-hidden="true">3</span>
+          <div class="usage-copy"><h3>Paste into your AI chat</h3>
+            <div class="usage-cue usage-shortcut"><kbd>Ctrl</kbd><span aria-hidden="true">+</span><kbd>V</kbd></div>
+            <span class="usage-shortcut-note">Cmd + V on Mac</span>
+            <p>Paste it into your preferred AI tool, then add your question.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+    <section class="context-example wrap" id="in-action" aria-labelledby="context-example-title">
+      <header class="context-intro">
+        <h2 id="context-example-title">Keep the details<br>your prompt needs.</h2>
+        <p>Headings, tables, links, and code stay structured in the Markdown you copy.</p>
+      </header>
+      <div class="paste-before" aria-labelledby="paste-before-title">
+        <div class="paste-before-heading"><h3 id="paste-before-title">Plain copy-paste</h3><span>Plain-text example</span></div>
+        <p>Research brief Requirements Use two peer-reviewed sources. Explain the trade-offs. Word counts Section Words Evidence 400 Discussion 600 Reference Read the research guide.</p>
       </div>
+      <p class="paste-transition">The same brief, with Markdownizer.</p>
+      <figure class="annotated-brief">
+        <div class="brief-page-heading"><span>Rendered Markdown example</span><h3>Research brief</h3></div>
+        <section class="brief-excerpt brief-requirements" aria-labelledby="brief-requirements-title">
+          <h4 id="brief-requirements-title">Requirements</h4>
+          <ul><li>Use two peer-reviewed sources.</li><li>Explain the trade-offs.</li></ul>
+        </section>
+        <aside class="brief-annotation"><h3>Instructions stay grouped</h3><p>Headings and lists keep each requirement distinct.</p></aside>
+        <section class="brief-excerpt brief-word-counts" aria-labelledby="brief-word-counts-title">
+          <h4 id="brief-word-counts-title">Word counts</h4>
+          <table><caption class="brief-sr-only">Word counts for each section of the research brief</caption><thead><tr><th scope="col">Section</th><th scope="col">Words</th></tr></thead><tbody><tr><td>Evidence</td><td>400</td></tr><tr><td>Discussion</td><td>600</td></tr></tbody></table>
+        </section>
+        <aside class="brief-annotation"><h3>Values stay in columns</h3><p>Each word count stays connected to the section it belongs to.</p></aside>
+        <section class="brief-excerpt brief-source" aria-labelledby="brief-source-title">
+          <h4 id="brief-source-title">Reference</h4>
+          <p>Read the <a href="https://example.com/guide">research guide</a>.</p>
+          <code>[research guide](https://example.com/guide)</code>
+        </section>
+        <aside class="brief-annotation"><h3>Links keep their destinations</h3><p>The Markdown includes both the link text and its URL.</p></aside>
+      </figure>
     </section>
     <section class="access-section scene wrap"><h2>Bring the page<br>your AI cannot open.</h2><p>A course portal. Logged-in documentation. A workspace page. Bring content you can already view into your prompt.</p><p class="access-note">This does not bypass access restrictions. Only share content you are allowed to share.</p></section>
-    <section class="use-section scene wrap"><h2>For the pages you work with.</h2><div class="use-items"><article><h3>Research</h3><p>Bring an article into an AI discussion, with headings and source links intact.</p></article><article><h3>Course requirements</h3><p>Keep the rubric, word counts, and instructions together when planning your work.</p></article><article><h3>Documentation</h3><p>Carry code examples and reference tables into your coding workflow.</p></article></div></section>
-    <section class="privacy scene wrap" id="privacy"><div><h3>Your readable text<br>stays in your browser.</h3></div><p>Readable page text is tokenized locally. A structural skeleton is sent for conversion, then your text is restored in your browser. <a href="privacy.html">Read the privacy policy.</a></p></section>
-    <section class="faq-section scene wrap"><h2>A few useful answers.</h2><details><summary>Can I use it on a page that needs a login?</summary><p>Markdownizer works from the page you already have open. It does not give access to content you cannot view or permission to share private material.</p></details><details><summary>Can I save a Markdown file?</summary><p>Yes. After conversion, copy the result or download it as a .md file.</p></details><details><summary>Does everything happen in my browser?</summary><p>No. Readable text is tokenized locally, a structural skeleton is sent for conversion, and the readable Markdown is rebuilt in your browser. The skeleton can include links, image references, and other attributes. <a href="privacy.html">Read the privacy policy.</a></p></details><details><summary>Will every webpage convert perfectly?</summary><p>Page structure varies. Review the output, especially complex tables, code, or content that has not loaded in your browser.</p></details></section>
+    <section class="use-section scene wrap"><h2>For the pages you work with.</h2><div class="use-items"><article><h3>Articles and product pages</h3><p>Use an article as context for a key-takeaways prompt, or compare trade-offs across product pages.</p></article><article><h3>Course requirements</h3><p>Keep the rubric, word counts, and instructions together when planning your work.</p></article><article><h3>Documentation</h3><p>Carry code examples and reference tables into your coding workflow, then ask how they fit your project.</p></article></div></section>
+    <section class="privacy scene wrap" id="privacy"><div><h3>Your readable text<br>stays in your browser.</h3></div><p>Readable page text is tokenized locally. A structural skeleton is sent for conversion, then your text is restored in your browser. <a href="privacy.html">Read the privacy policy.</a></p><p class="privacy-source"><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="public/landing/icons/github.svg" width="18" height="18" alt="">View source on GitHub</a></p></section>
+    <section class="faq-section scene wrap"><h2>A few useful answers.</h2><details><summary>How do I use Markdownizer?</summary><p>Open a webpage, start Markdownizer from your browser toolbar, then copy the Markdown into your prompt or download it as a .md file.</p></details><details><summary>Can I use it on a page that needs a login?</summary><p>Markdownizer works from the page you already have open. It does not give access to content you cannot view or permission to share private material.</p></details><details><summary>Can I save a Markdown file?</summary><p>Yes. After conversion, copy the result or download it as a .md file.</p></details><details><summary>Does Markdownizer generate the AI response?</summary><p>No. Markdownizer converts the page; your chosen AI tool answers your prompt. Demo comparisons and responses are illustrative, and results vary by page and app.</p></details><details><summary>Does everything happen in my browser?</summary><p>No. Readable text is tokenized locally, a structural skeleton is sent for conversion, and the readable Markdown is rebuilt in your browser. The skeleton can include links, image references, and other attributes. <a href="privacy.html">Read the privacy policy.</a></p></details><details><summary>Will every webpage convert perfectly?</summary><p>Page structure varies. Review the output, especially complex tables, code, or content that has not loaded in your browser.</p></details></section>
     <section class="closing scene"><h2>Bring the page<br>to your next prompt.</h2><p>Copy structured Markdown, or save it as a .md file.</p><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></section>
   </main>
-  <footer class="wrap"><a class="brand" href="#"><img class="brand-logo" src="public/icons/icon16.svg" width="28" height="28" alt="">Markdownizer</a><small><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a></small></footer>
+   <footer class="wrap"><a class="brand" href="#"><img class="brand-logo" src="public/icons/icon16.svg" width="28" height="28" alt="">Markdownizer</a><small class="footer-links"><a href="features.html">Features</a><a href="blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></small></footer>
   <script src="public/landing/promo-video.js"></script>
-  <script src="public/landing/story.js"></script>
   <script src="public/landing/scenes.js"></script>
   <script src="public/landing/faq.js"></script>
 </body>

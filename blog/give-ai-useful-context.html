@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Give an AI Useful Context - Markdownizer</title>
+  <meta name="description" content="Give an AI the task, relevant background, constraints, source material, and desired format so it knows what the answer should address.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/blog/give-ai-useful-context.html"><link rel="icon" type="image/svg+xml" href="../public/icons/icon16.svg">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Markdownizer"><meta property="og:title" content="How do I give an AI enough context to answer my question?"><meta property="og:description" content="A practical prompt structure for the task, background, constraints, source, and answer format."><meta property="og:url" content="https://markdownizer.thambolo.com/blog/give-ai-useful-context.html"><meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Give an AI useful context"><meta name="twitter:description" content="Make the task, relevant background, limits, and output clear."><meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <link rel="stylesheet" href="../public/landing/typography.css"><link rel="stylesheet" href="../public/landing/buttons.css"><link rel="stylesheet" href="../public/landing/features.css"><link rel="stylesheet" href="../public/landing/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://markdownizer.thambolo.com/blog/give-ai-useful-context.html","headline":"How do I give an AI enough context to answer my question?","description":"A practical prompt structure for the task, background, constraints, source, and answer format.","author":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"publisher":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"isPartOf":{"@type":"Blog","url":"https://markdownizer.thambolo.com/blog.html","name":"Markdownizer Blog"},"image":"https://markdownizer.thambolo.com/public/landing/blog-hero.webp"}</script>
+</head>
+<body class="blog-page article-page">
+  <header class="features-header features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../features.html">Features</a><a href="../blog.html">Blog</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="../public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+  <nav class="blog-breadcrumb features-wrap" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blog.html">Blog</a></nav>
+  <main class="article-layout features-wrap"><article>
+    <header class="article-header"><p class="blog-category">Prompt planning</p><h1>How do I give an AI enough context to answer my question?</h1><p class="article-deck">State the job, the situation, the boundaries, the evidence to use, and what a useful answer should look like.</p></header>
+    <div class="article-body">
+      <p>Give an AI context by explaining what you need it to do, what situation matters, which constraints it must respect, what material it should rely on, and how you want the answer presented. A short prompt can be clear when it answers those questions. Extra background is not useful just because it is available.</p>
+      <h2>Start with the decision or task</h2>
+      <p>Replace a broad request such as "help with this" with a specific action: explain, compare, extract, draft, or troubleshoot. Name the subject and the purpose. For example, "Compare these two proposed schedules and identify conflicts with the stated staffing rule" gives the assistant a concrete job; "What do you think?" does not say what kind of judgment is wanted.</p>
+      <h2>Add only the background that changes the answer</h2>
+      <p>Supply the audience, project stage, relevant definitions, and any facts the tool could not reasonably infer. If the question concerns a policy, include the jurisdiction and effective date. For a coding question, include the language, library version, expected behavior, and the exact error. Do not include personal or confidential details merely to make the prompt feel complete.</p>
+      <p>Separate facts from assumptions. Mark an estimate as an estimate and distinguish what happened from what you suspect caused it. If a key detail is unknown, say so and ask the assistant to list what would change its answer rather than filling the gap with a guess.</p>
+      <h2>Make the boundaries visible</h2>
+      <p>Tell the assistant what evidence is in scope and what to do when it is missing. State relevant exclusions, required caveats, safety rules, or decisions that need a human. Keep the instruction distinct from quoted source text. Labels make a prompt easier to inspect, but they do not turn untrusted source material into a security boundary.</p>
+      <h2>Choose a useful answer shape</h2>
+      <p>Ask for a table only when the comparison has comparable fields. Otherwise, a short explanation with evidence, unknowns, and next steps may be clearer. Describe the level of detail and any required fields. A practical prompt skeleton is:</p>
+      <pre><code>Task: [the action and the question to answer]
+Background: [only facts that affect this task]
+Constraints: [rules, exclusions, and assumptions]
+Sources: [titles, dates or versions, URLs, and supplied excerpts]
+If information is missing: say "not stated" and list what is unknown.
+Output: [format, audience, and useful level of detail]</code></pre>
+      <p>Example: "Explain the difference between these two warranty clauses for a customer support trainee. Use only the excerpts below, keep each exception beside the clause it qualifies, and list any term the excerpts do not define. End with three questions for a supervisor." The example sets a task and boundaries; it does not guarantee that an AI will follow them or interpret a clause correctly.</p>
+      <h2>Review the prompt before sending</h2>
+      <ul><li>Can the task be answered from the supplied facts and sources?</li><li>Are pronouns such as "this" and "that" clearly tied to something?</li><li>Are the requested audience, format, and scope compatible?</li><li>Did you include a desired conclusion that could bias the answer?</li><li>Are you permitted to send every included detail to this service?</li></ul>
+      <p>This guide is about the kinds of context to provide, not a target word count. For deciding how much source text is enough, see <a href="source-material-ai-prompts.html">how much source material to include</a>. If a source is too long to handle at once, use the <a href="split-long-documents-ai-prompts.html">document-splitting workflow</a>. For details about structural webpage capture, see <a href="webpage-to-markdown-for-ai.html">the conversion guide</a>.</p>
+      <aside class="article-related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="source-material-ai-prompts.html">Choose how much source material to include</a></li><li><a href="separate-instructions-from-reference.html">Separate instructions from reference material</a></li><li><a href="why-ai-ignores-instructions.html">Why an AI may miss an instruction</a></li></ul></aside>
+    </div>
+  </article></main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="../features.html">Features</a><a href="../blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="../public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></nav></footer>
+</body>
+</html>

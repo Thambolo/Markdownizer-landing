@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown vs. XML for AI Prompts - Markdownizer</title>
+  <meta name="description" content="Compare Markdown and XML as prompt structure: readable headings, explicit tags, delimiters, token cost, and why labels alone do not enforce security.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/blog/markdown-vs-xml-ai-prompts.html"><link rel="icon" type="image/svg+xml" href="../public/icons/icon16.svg">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Markdownizer"><meta property="og:title" content="Markdown vs. XML: Comparing Two Ways to Structure AI Prompts"><meta property="og:description" content="Use readable Markdown or explicit XML tags according to the prompt's structure and consumer, while keeping source text untrusted."><meta property="og:url" content="https://markdownizer.thambolo.com/blog/markdown-vs-xml-ai-prompts.html"><meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Markdown vs. XML for AI prompts"><meta name="twitter:description" content="Compare prompt boundaries, readability, syntax, and safety limitations."><meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <link rel="stylesheet" href="../public/landing/typography.css"><link rel="stylesheet" href="../public/landing/buttons.css"><link rel="stylesheet" href="../public/landing/features.css"><link rel="stylesheet" href="../public/landing/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://markdownizer.thambolo.com/blog/markdown-vs-xml-ai-prompts.html","headline":"Markdown vs. XML: Comparing Two Ways to Structure AI Prompts","description":"Use readable Markdown or explicit XML tags according to the prompt's structure and consumer, while keeping source text untrusted.","author":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"publisher":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"isPartOf":{"@type":"Blog","url":"https://markdownizer.thambolo.com/blog.html","name":"Markdownizer Blog"},"image":"https://markdownizer.thambolo.com/public/landing/blog-hero.webp"}</script>
+</head>
+<body class="blog-page article-page">
+  <header class="features-header features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../features.html">Features</a><a href="../blog.html">Blog</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="../public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+  <nav class="blog-breadcrumb features-wrap" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blog.html">Blog</a></nav>
+  <main class="article-layout features-wrap"><article>
+    <header class="article-header"><p class="blog-category">Formats and prompt design</p><h1>Markdown vs. XML: Comparing Two Ways to Structure AI Prompts</h1><p class="article-deck">Markdown offers a lightweight document outline; XML can name boundaries explicitly. Neither syntax is a security mechanism by itself.</p></header>
+    <div class="article-body">
+      <p>Markdown is a practical fit for readable prompt notes with headings, lists, and short examples. XML can make named sections and nested boundaries explicit, which may help when a prompt contains several distinct blocks or a downstream process expects tags. Both add syntax to the text, and token cost depends on the exact sample and tokenizer. There is no universal rule that one format always guides a model better.</p>
+      <p>It also matters whether you are formatting instructions, source material, a structured record, or an output contract. These are different roles. For token comparisons using fixed sample text, see <a href="measure-prompt-tokens.html">the measurement article</a>; the examples there are not a general Markdown-versus-XML benchmark.</p>
+      <h2>Use Markdown when the document shape is enough</h2>
+      <p>A heading can label a task or a source, while a list can break the request into readable constraints:</p>
+      <pre><code>## Task
+Summarize the requirements below.
+
+## Source material
+Use the quoted policy excerpt as reference.</code></pre>
+      <p>This style is easy to type, review, and edit. It works well for ordinary prose, checklists, and a source note that a person wants to scan. If a heading hierarchy is shallow, XML opening and closing tags may be unnecessary ceremony.</p>
+      <h2>Use XML when named boundaries help</h2>
+      <p>Tags make a section's role visible in the text:</p>
+      <pre><code>&lt;task&gt;Summarize the requirements below.&lt;/task&gt;
+&lt;source_material&gt;Use the quoted policy excerpt as reference.&lt;/source_material&gt;</code></pre>
+      <p>XML can be useful for multiple named fields, nested records, or an interface that expects structured tags. Closing tags can make the boundary explicit, but they also add characters. A tag name is just text unless the receiving model or software has instructions for how to interpret it.</p>
+      <h2>Choose the boundary format carefully</h2>
+      <p>Ask who will consume the input. A human editor may prefer Markdown. A system that validates a field set may prefer JSON or another defined schema. An AI prompt may use headings, XML-like tags, or a combination supported by that tool's own guidance. Keep labels simple and describe how each block should be used rather than assuming a tag has built-in behavior.</p>
+      <p>For a fair token test, represent the same instructions and source text in both formats. Keep names, wording, whitespace, and examples constant where possible. Change only the delimiters, record the selected model family, and measure the exact input. Do not compare a short Markdown prompt to an XML prompt that also contains extra instructions and then attribute the count to markup.</p>
+      <h2>Tags do not make untrusted text safe</h2>
+      <p>Wrapping a webpage excerpt in a <code>&lt;source&gt;</code> block can make the intended boundary clearer to a reader. It does not neutralize malicious or irrelevant instructions that might appear inside the source, guarantee that a model will ignore them, or replace permission checks. Tell the AI that the block is reference material and that its contents are not instructions to follow. Avoid sending sensitive content unless the destination is approved.</p>
+      <p>Similarly, a tag such as <code>&lt;trusted&gt;</code> does not make its contents trustworthy. Verify important facts against the original source and do not treat tags as access control.</p>
+      <h2>Keep product behavior distinct from prompt advice</h2>
+      <p>Markdownizer's output is Markdown from the webpage you have open; it does not add XML prompt wrappers or convert arbitrary XML files. Use an external editor if you want to add tags or instructions around copied content. Read the <a href="../features.html#formatting">feature guide</a> for what webpage structure is supported and the <a href="../privacy.html">privacy policy</a> for data handling.</p>
+      <p>For a comparison with structured JSON records, see <a href="markdown-vs-json-ai-context.html">Markdown vs. JSON for AI context</a>. If you are trying to reduce input size rather than choose delimiters, read <a href="reduce-context-tokens.html">what actually saves tokens</a>.</p>
+      <aside class="article-related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="markdown-vs-json-ai-context.html">Markdown vs. JSON for AI context</a></li><li><a href="markdown-vs-plain-text-tokens.html">Markdown vs. plain text</a></li><li><a href="measure-prompt-tokens.html">Measure an exact prompt sample</a></li></ul></aside>
+    </div>
+  </article></main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="../features.html">Features</a><a href="../blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="../public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></nav></footer>
+</body>
+</html>

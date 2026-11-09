@@ -9,35 +9,39 @@
   viewport.append(track);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 760px)');
-  const titles = ['Keep instructions together.', 'Keep values in their columns.', 'Keep code distinct from prose.', 'Bring the context to your question.'];
+  const titles = ['Keep instructions together.', 'Keep values in their columns.', 'Keep link text with its destination.', 'Keep code distinct from prose.', 'Bring the context to your question.'];
   const descriptions = [
     'Headings and lists keep each requirement in its proper place.',
     'Table rows keep each value connected to the right label.',
+    'The example keeps a link label with the destination it points to.',
     'Code blocks separate commands from the surrounding explanation.',
     'Give your AI the source material alongside your question.'
   ];
-  frames.slice(0, 3).forEach(frame => {
+  frames.forEach(frame => {
+    const flat = frame.querySelector('.flat-example');
+    if (!flat || flat.textContent.trim()) return;
     const walker = document.createTreeWalker(frame.querySelector('.structured-example'), NodeFilter.SHOW_TEXT);
     const words = [];
     while (walker.nextNode()) {
       const value = walker.currentNode.textContent.trim();
       if (value) words.push(value);
     }
-    frame.querySelector('.flat-example').textContent = words.join(' ').replace(/\s+/g, ' ');
+    flat.textContent = words.join(' ').replace(/\s+/g, ' ');
   });
   let current = 0;
   function setFrame(index) {
     current = index;
     stage.dataset.step = String(index);
     frames.forEach((frame, i) => {
-      frame.hidden = compact.matches && !reduced.matches && i !== index;
-      frame.inert = !reduced.matches && i !== index;
-      frame.setAttribute('aria-hidden', String(!reduced.matches && i !== index));
-      frame.classList.toggle('is-focused', reduced.matches || i === index);
+      frame.hidden = false;
+      const available = compact.matches || reduced.matches || i === index;
+      frame.inert = !available;
+      frame.setAttribute('aria-hidden', String(!available));
+      frame.classList.toggle('is-focused', available);
     });
     if (compact.matches) track.style.transform = '';
     document.querySelector('#story-title').textContent = reduced.matches ? 'Keep the details that matter.' : titles[index];
-    document.querySelector('#story-description').textContent = reduced.matches ? 'See how headings, tables, and code preserve the structure of your source.' : descriptions[index];
+    document.querySelector('#story-description').textContent = reduced.matches ? 'See how headings, lists, tables, links, and code blocks appear in the example.' : descriptions[index];
     document.querySelector('#story-back').disabled = index === 0;
     document.querySelector('#story-next').disabled = index === frames.length - 1;
     if (compact.matches || reduced.matches) {

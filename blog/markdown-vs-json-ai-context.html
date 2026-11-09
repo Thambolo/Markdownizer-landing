@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown vs. JSON for AI Context - Markdownizer</title>
+  <meta name="description" content="Compare Markdown and JSON for AI context: readable source notes, machine-readable fields, schema overhead, validation, and task-specific token counts.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/blog/markdown-vs-json-ai-context.html"><link rel="icon" type="image/svg+xml" href="../public/icons/icon16.svg">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Markdownizer"><meta property="og:title" content="Markdown vs. JSON for AI Context: Readability, Structure, and Token Cost"><meta property="og:description" content="Choose between a readable document and structured fields based on the consumer, schema needs, and exact prompt contents."><meta property="og:url" content="https://markdownizer.thambolo.com/blog/markdown-vs-json-ai-context.html"><meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Markdown vs. JSON for AI context"><meta name="twitter:description" content="Compare readability, explicit fields, validation, and token cost without a universal winner."><meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <link rel="stylesheet" href="../public/landing/typography.css"><link rel="stylesheet" href="../public/landing/buttons.css"><link rel="stylesheet" href="../public/landing/features.css"><link rel="stylesheet" href="../public/landing/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://markdownizer.thambolo.com/blog/markdown-vs-json-ai-context.html","headline":"Markdown vs. JSON for AI Context: Readability, Structure, and Token Cost","description":"Choose between a readable document and structured fields based on the consumer, schema needs, and exact prompt contents.","author":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"publisher":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"isPartOf":{"@type":"Blog","url":"https://markdownizer.thambolo.com/blog.html","name":"Markdownizer Blog"},"image":"https://markdownizer.thambolo.com/public/landing/blog-hero.webp"}</script>
+</head>
+<body class="blog-page article-page">
+  <header class="features-header features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../features.html">Features</a><a href="../blog.html">Blog</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="../public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+  <nav class="blog-breadcrumb features-wrap" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blog.html">Blog</a></nav>
+  <main class="article-layout features-wrap"><article>
+    <header class="article-header"><p class="blog-category">Formats and token cost</p><h1>Markdown vs. JSON for AI Context: Readability, Structure, and Token Cost</h1><p class="article-deck">Markdown reads like a document; JSON names fields explicitly. Choose the shape that matches the job that consumes it.</p></header>
+    <div class="article-body">
+      <p>Markdown is usually easier for a person to read as notes, an explanation, or a source excerpt. JSON is useful when data needs named fields, predictable nesting, or validation by software. Each format includes syntax, and neither is guaranteed to use fewer tokens for every input. Choose based on whether the next step needs prose or structured data, then count the exact representation if a particular model's limit matters.</p>
+      <p>This is about how to provide context to an AI workflow, not about Markdownizer converting JSON files. Markdownizer converts the current webpage to Markdown; its feature inventory does not claim general JSON conversion. For measured synthetic counts, see <a href="measure-prompt-tokens.html">the tokenizer method and examples</a>.</p>
+      <h2>Markdown gives prose a readable hierarchy</h2>
+      <p>Headings, paragraphs, lists, and simple tables are natural when a person wants to inspect a source or explain relationships in ordinary language. A Markdown note can introduce a question, quote an excerpt, and add caveats in the same file. It can also contain plain text that does not fit neatly into a field schema.</p>
+      <p>The trade-off is that Markdown conventions are flexible. A heading may be a section title or a line that merely looks prominent. A table's column names are visible, but a complex grouping or merged cell may need an explanation. Review the representation against the source instead of assuming the syntax communicates every nuance.</p>
+      <h2>JSON names values for software</h2>
+      <p>JSON can make a record's shape explicit:</p>
+      <pre><code>{
+  "source_title": "Example handbook",
+  "version": "2.1",
+  "requirements": ["keep the unit", "mark missing values"],
+  "verified": false
+}</code></pre>
+      <p>This is an illustrative record, not a real product specification. Field names can clarify what a value means, and a receiving program can validate whether the expected keys and types are present. JSON is useful when you need a stable data contract, an extraction result, or a tool call with defined arguments.</p>
+      <p>That explicitness has a cost: braces, quotes, commas, and repeated key names appear in the submitted text. Compact arrays may reduce repetition, but they can make positional meaning less obvious unless the schema is also supplied. Invalid escaping or a missing comma can break parsing even when a human can guess the intent.</p>
+      <h2>Token cost depends on the exact representation</h2>
+      <p>Tokenizers do not charge a fixed amount per Markdown marker or JSON key. A repeated key may tokenize efficiently; punctuation can split differently; long field names add characters. The balance depends on the exact values and tokenizer. Avoid saying JSON is always smaller, or Markdown always cheaper, based on the number of visible lines.</p>
+      <p>For a fair test, represent the same facts in both forms, including the same source labels, dates, units, and caveats. Count them with the model-family selector you expect to use. The public <a href="https://platform.openai.com/tokenizer">OpenAI Tokenizer</a> can help with inputs for its displayed model groups. The <a href="measure-prompt-tokens.html">example-count article</a> reports a small table sample, not a universal format ranking.</p>
+      <h2>Pick a format by the task</h2>
+      <ul><li><strong>Choose Markdown</strong> for a readable article excerpt, explanation, review notes, or prompt where section flow matters.</li><li><strong>Choose JSON</strong> for a machine-consumed record, an explicitly typed field set, or an integration that requires a schema.</li><li><strong>Choose a Markdown table, CSV, or JSON array</strong> for tabular data only after checking how the receiving tool interprets the relationships.</li><li><strong>Keep source provenance</strong> in either format so a value can be traced to its title, URL, date, or version.</li></ul>
+      <p>If an AI tool asks for JSON output, that requirement is about the output format and may be separate from the format of the source context. State which is which. A clear instruction does not by itself validate an answer; parse or check the result when downstream software depends on it.</p>
+      <h2>Keep the source and sharing boundary clear</h2>
+      <p>When using webpage text, confirm that you may share it and trim unrelated details. Markdownizer tokenizes readable webpage text locally, sends a structural skeleton that may include links and attributes, and rebuilds readable Markdown in the browser. Read the <a href="../privacy.html">privacy policy</a> for authoritative details. Moving content into JSON or another format does not change the destination service's data handling.</p>
+      <p>For an XML alternative that makes named boundaries explicit, read <a href="markdown-vs-xml-ai-prompts.html">Markdown vs. XML for prompts</a>. To reduce irrelevant context without deleting useful qualifications, see <a href="reduce-context-tokens.html">what actually saves tokens</a>.</p>
+      <aside class="article-related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="markdown-tables-vs-csv-json.html">Markdown tables vs. CSV vs. JSON</a></li><li><a href="markdown-vs-xml-ai-prompts.html">Markdown vs. XML for AI prompts</a></li><li><a href="measure-prompt-tokens.html">Measure a prompt's token count</a></li></ul></aside>
+    </div>
+  </article></main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="../features.html">Features</a><a href="../blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="../public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></nav></footer>
+</body>
+</html>

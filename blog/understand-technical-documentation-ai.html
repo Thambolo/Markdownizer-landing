@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Use AI to Understand Technical Documentation - Markdownizer</title>
+  <meta name="description" content="Use AI to explain technical documentation by specifying versions, preserving examples, checking terms, and verifying commands against official docs.">
+  <link rel="canonical" href="https://markdownizer.thambolo.com/blog/understand-technical-documentation-ai.html"><link rel="icon" type="image/svg+xml" href="../public/icons/icon16.svg">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Markdownizer"><meta property="og:title" content="How do I use AI to understand technical documentation?"><meta property="og:description" content="A practical way to ask for explanations while keeping version, code examples, and verification in view."><meta property="og:url" content="https://markdownizer.thambolo.com/blog/understand-technical-documentation-ai.html"><meta property="og:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Use AI to understand technical documentation"><meta name="twitter:description" content="Ground explanations in the exact docs and verify before using commands."><meta name="twitter:image" content="https://markdownizer.thambolo.com/public/landing/blog-hero.webp">
+  <link rel="stylesheet" href="../public/landing/typography.css"><link rel="stylesheet" href="../public/landing/buttons.css"><link rel="stylesheet" href="../public/landing/features.css"><link rel="stylesheet" href="../public/landing/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://markdownizer.thambolo.com/blog/understand-technical-documentation-ai.html","headline":"How do I use AI to understand technical documentation?","description":"A practical way to ask for explanations while keeping version, code examples, and verification in view.","author":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"publisher":{"@type":"Organization","name":"Markdownizer","url":"https://markdownizer.thambolo.com/"},"isPartOf":{"@type":"Blog","url":"https://markdownizer.thambolo.com/blog.html","name":"Markdownizer Blog"},"image":"https://markdownizer.thambolo.com/public/landing/blog-hero.webp"}</script>
+</head>
+<body class="blog-page article-page">
+  <header class="features-header features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="30" height="30" alt="">Markdownizer</a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../features.html">Features</a><a href="../blog.html">Blog</a></nav><a class="button" href="https://chromewebstore.google.com/detail/mmnhipdmonlffimgilnemjmkfmdllfga">Add to browser<img class="button-icon" src="../public/landing/icons/arrow-up-right-from-square.svg" width="14" height="14" alt=""></a></header>
+  <nav class="blog-breadcrumb features-wrap" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blog.html">Blog</a></nav>
+  <main class="article-layout features-wrap"><article>
+    <header class="article-header"><p class="blog-category">Technical learning</p><h1>How do I use AI to understand technical documentation?</h1><p class="article-deck">Ask for an explanation of a specific section, include the relevant version and task, and verify examples before applying them.</p></header>
+    <div class="article-body">
+      <p>Use AI to understand technical documentation by naming the product and version, identifying the section you find confusing, and asking for an explanation tied to the text you provide. Keep code examples, prerequisites, warnings, and version details intact. Treat the answer as a study aid: check important terminology and commands against the official documentation before using them.</p>
+      <h2>Ask a question that can be checked</h2>
+      <p>Instead of asking "Explain this whole documentation site," ask about one concept: "In this version's authentication section, what does the token represent, and which steps happen before the request?" Include your environment, goal, error message, or expected behavior if it changes the explanation. Avoid sending credentials, customer data, or private repository material unless the service and policy are approved for it.</p>
+      <h2>Give the model enough technical context</h2>
+      <ul><li><strong>Version:</strong> Record the library, API, language runtime, or product version.</li><li><strong>Location:</strong> Include the page title, section heading, and URL.</li><li><strong>Example:</strong> Supply the smallest relevant code or configuration sample with formatting intact.</li><li><strong>Environment:</strong> State the operating system, runtime, and relevant dependency versions.</li><li><strong>Goal:</strong> Say what you expected and what happened instead.</li></ul>
+      <p>When a code sample depends on an earlier definition or warning, include that passage too. Do not copy only the command if the adjacent text says when it is safe or which permissions it needs.</p>
+      <h2>Ask for a bounded explanation</h2>
+      <p>A useful prompt asks the assistant to explain terms, identify assumptions, and point to the specific passage supporting its answer. For example:</p>
+      <pre><code>Explain the paragraph and code sample below for a developer new to this API.
+Keep the version and prerequisites explicit.
+For each step, say what the docs state and what you infer.
+Do not invent flags or defaults. If the excerpt is insufficient, list what is missing.
+Do not suggest running commands that modify production data.
+Docs: [title, version, section, URL]
+[Permitted excerpt and code sample]</code></pre>
+      <p>This prompt structure helps you review the explanation; it cannot ensure the model has interpreted every technical detail correctly.</p>
+      <h2>Verify before you run or rely on a suggestion</h2>
+      <ol><li>Open the official documentation for the exact version in use.</li><li>Confirm any parameter names, defaults, return values, and compatibility notes.</li><li>Check whether the example depends on setup steps omitted from the excerpt.</li><li>Inspect commands for file changes, network calls, permissions, or data deletion.</li><li>Test in a safe local or staging environment before applying changes to production.</li></ol>
+      <p>If the AI gives a source link, verify that it opens the intended documentation and supports the statement. A plausible API name can still be outdated or invented. For coding work, keep the original versioned docs and your project context available; see <a href="documentation-ai-coding-workflow.html">the coding-workflow guide</a>.</p>
+      <h2>Bring a webpage into the conversation carefully</h2>
+      <p>If the destination cannot open the documentation page, you may provide the relevant authorized excerpt. Markdownizer can convert an active webpage into Markdown with headings, links, and code blocks, but it does not explain the docs or test a command. Review the converted code and source URL before pasting. The <a href="../features.html#formatting">feature guide</a> describes supported formatting and its limitations.</p>
+      <p>When the issue depends on multiple pages, versions, or release notes, keep those source records separate and compare them explicitly. See <a href="ask-ai-about-multiple-webpages.html">how to ask about multiple webpages</a>.</p>
+      <aside class="article-related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="documentation-ai-coding-workflow.html">Bring documentation into an AI coding workflow</a></li><li><a href="why-copied-webpage-text-is-messy.html">Why webpage copy can look messy</a></li><li><a href="verify-ai-summary-accuracy.html">Check an AI answer against its source</a></li></ul></aside>
+    </div>
+  </article></main>
+  <footer class="features-footer features-wrap"><a class="features-brand" href="../index.html"><img src="../public/icons/icon16.svg" width="26" height="26" alt="">Markdownizer</a><nav aria-label="Footer navigation"><a href="../features.html">Features</a><a href="../blog.html">Blog</a><a href="https://github.com/Thambolo/Markdownizer-extension"><img src="../public/landing/icons/github.svg" width="18" height="18" alt="">GitHub</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></nav></footer>
+</body>
+</html>

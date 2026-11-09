@@ -9,3 +9,4 @@
 .button:hover,.hero header .button:hover,.hero .hero-content>.button:hover,.story-navigation>.button:hover,.closing .button:hover,.movie-controls .button:hover{background:#ccc5b9;color:#151515;box-shadow:inset 0 0 0 1px #25242235,0 0 22px #fffcf208}
 .button:active,.movie-controls .button:active{box-shadow:inset 0 1px 3px #25242226}
 @media(max-width:400px){.hero header .button{padding-left:14px;padding-right:14px;gap:10px}.movie-controls{align-items:center}}
+@media(max-width:760px){.hero header>.button{display:none}}
