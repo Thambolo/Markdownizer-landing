@@ -5,6 +5,9 @@
   if (!toggle || !nav) return;
 
   const mobile = window.matchMedia('(max-width: 760px)');
+  const headerSlot = document.createElement('div');
+  headerSlot.className = 'mobile-header-slot';
+  header.before(headerSlot);
   const placeholder = document.createComment('Main navigation');
   nav.before(placeholder);
   const drawer = document.createElement('dialog');
@@ -54,8 +57,13 @@
   });
   const syncLayout = () => {
     close();
-    if (mobile.matches) drawer.append(nav);
-    else placeholder.after(nav);
+    if (mobile.matches) {
+      drawer.append(nav);
+      document.body.prepend(header);
+    } else {
+      headerSlot.after(header);
+      placeholder.after(nav);
+    }
   };
   mobile.addEventListener('change', syncLayout);
   toggle.hidden = false;

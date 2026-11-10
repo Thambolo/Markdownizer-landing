@@ -1,4 +1,5 @@
 .site-header .nav-toggle { display: none; }
+.mobile-header-slot { display: none; }
 .nav-drawer {
   position: fixed;
   inset: 0 0 0 auto;
@@ -33,6 +34,22 @@
 @keyframes nav-slide-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
 @media (prefers-reduced-motion: reduce) { .nav-drawer[open] { animation: none; } }
 @media (max-width: 760px) {
+  html { scroll-padding-top: 60px; }
+  .mobile-header-slot { display: block; height: 49.6px; flex-shrink: 0; }
+  .site-header.nav-ready {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    height: 49.6px;
+    min-height: 49.6px;
+    padding: 0 6%;
+    background: #000;
+    border: 0;
+    flex-wrap: nowrap;
+  }
+  .site-header.nav-ready .brand { font-size: 11.52px; gap: 7.04px; }
+  .site-header.nav-ready .brand-logo { width: 20.48px; height: 20.48px; }
+  .site-header.nav-ready .nav-toggle svg { width: 15.36px; height: 15.36px; }
   .nav-drawer nav a::before { content: ''; width: 2px; height: 20px; flex-shrink: 0; margin-right: 14px; background: var(--orange); }
   .nav-drawer nav a { transition: none; }
   .nav-drawer nav a:hover, .nav-drawer nav a:focus-visible { background-size: 100% 1px; }
